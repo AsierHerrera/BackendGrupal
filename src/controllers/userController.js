@@ -12,7 +12,6 @@ async function create(userData){
 }
 async function update(id,userData){
     const {name,licence,email,password} = userData;
-    //const birth_date = artistData.birth_date;
     return `Los nuevos datos para el usuario con id ${id} son: nombre:${name}, tipo de usuario: ${licence}, correo electronico: ${email}, contraseña ${password}`;
 }
 
