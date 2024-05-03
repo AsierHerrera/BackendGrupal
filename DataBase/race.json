@@ -1,0 +1,32 @@
+[
+	{
+		"Race_id" : 1,
+		"Race" : "Wizard",
+        "Max_life" : 50
+
+	},
+	{
+		"Race_id" : 2,
+		"Race" : "Elf",
+         "Max_life" : 45
+		
+	},
+	{
+		"Race_id" : 3,
+		"Race" : "Human",
+         "Max_life" : 30
+	},
+	{
+		"Race_id" : 4,
+		"Race" : "Hobbit",
+         "Max_life" : 20
+	
+    },
+    {
+		"Race_id" : 5,
+		"Race" : "Dwarf",
+         "Max_life" : 25
+	
+	}
+
+]
