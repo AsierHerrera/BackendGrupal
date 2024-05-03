@@ -5,10 +5,10 @@ import router from "./routers/router.js";
 
 dotenv.config();
 
-const app = express();
+const app= express();
 
-app.use("/api",router);
+app.use("/",router);
 
 app.listen(process.env.APP_PORT,()=>{
-    console.log("Servidor en marcha en el puerto "+process.env.APP_PORT);
+    console.log("servidor en marcha"+process.env.APP_PORT);
 })
