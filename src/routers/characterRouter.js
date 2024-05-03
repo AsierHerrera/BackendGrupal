@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getAll, getById, create, update, remove } from "../controllers/characterController.js";
+import { getAll, getById, create, update, remove } from "../controllers/character/characterController.js";
 
 const router = Router();
 
