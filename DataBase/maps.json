@@ -1,0 +1,26 @@
+[
+	{
+		"Map_id" : 1,
+		"Name" : "Misty Mountainscapes"
+	},
+	{
+		"Map_id" : 2,
+		"Name" : "Battle of Helm's Deep"
+		
+	},
+	{
+		"Map_id" : 3,
+		"Name" : "Rainbows and Waterfalls of Lothlórien"
+	},
+	{
+		"Map_id" : 4,
+		"Name" : "The Mines of Moria"
+	
+    },
+    {
+		"Map_id" : 5,
+		"Name" : "The Wastes of Mordor"
+	
+	}
+
+]

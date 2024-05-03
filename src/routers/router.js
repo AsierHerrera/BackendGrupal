@@ -2,12 +2,15 @@ import { Router } from "express";
 
 import userRouter from "../routers/userRouter.js";
 import characterRouter from "./characterRouter.js";
+import weaponRouter from "./weaponRouter.js";
+import raceRouter from "./raceRouter.js";
+import mapRouter from "./mapRouter.js";
 
 
 const router = Router();
 
 router.get ("/", (req,res)=>{
-    res.send("hello"+process.env.USERNAME)
+    res.send("hello "+process.env.USERNAME)
 })
 
 router.get("/search",(req,res)=>{
@@ -27,6 +30,9 @@ router.get("/form",(req,res)=>{
 })
 
 router.use ("/user", userRouter);
-router.use ("/character", characterRouter);
+router.use("/character", characterRouter);
+router.use("/weapon", weaponRouter);
+router.use("/race", raceRouter);
+router.use("/map", mapRouter);
 
 export default router;
