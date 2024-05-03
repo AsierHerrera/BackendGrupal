@@ -10,7 +10,7 @@ import mapRouter from "./mapRouter.js";
 const router = Router();
 
 router.get ("/", (req,res)=>{
-    res.send("hello "+process.env.USERNAME)
+    res.render("layout");
 })
 
 router.get("/search",(req,res)=>{
