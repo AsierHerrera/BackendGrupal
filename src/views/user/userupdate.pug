@@ -1,0 +1,16 @@
+extends ../layout
+
+block content 
+    if error 
+        p(class="error")= error
+    if usuario
+        form(action="/user/"+usuario.User_id, method="post") 
+            label(for="Name") Nombre 
+            input(id="Name" type="text" name="Name" value=usuario.Name) 
+            label(for="Is_admin") Es administrador?
+            input#Is_admin(type="checkbox", name="Is_admin" checked=usuario.Is_admin ? true:false)
+            label(for="Email") Email
+            input#Email(type="text", name="Email" value=usuario.Email)              
+            label(for="Password") Password 
+            input(id="Password" type="text" name="Password" value=usuario.Password) 
+            button(type="submit") Guardar

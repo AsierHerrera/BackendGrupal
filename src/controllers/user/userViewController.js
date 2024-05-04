@@ -9,7 +9,7 @@ async function getById(req,res){
     const id = parseInt(req.params.id);
     console.log("id",id);
     const{error,data} = await userController.getById(id)
-    res.render("user/show",{error,user:data});
+    res.render("user/usershow",{error,usuario:data});
 }
 
 async function createForm(req,res){
@@ -25,15 +25,15 @@ async function create(req,res){
 }
 async function updateForm(req,res){
     const id = parseInt(req.params.id);
-    const {error,data:user}= await userController.getById(id);
-    res.render("user/update",{error,user});
+    const {error,data:usuario}= await userController.getById(id);
+    res.render("user/userupdate",{error,usuario});
 } 
 
 async function update(req,res){
     const id = parseInt(req.params.id);
-    const {Name,Password} = req.body;
-    //const realIsAlive = is_alive === "on" ? 1 : 0;
-    const {error,data} = await userController.update(id,{Name,Password});
+    const {Name,Is_admin,Email,Password} = req.body;
+    const realIsAdmin = Is_admin === "on" ? 1 : 0;
+    const {error,data} = await userController.update(id,{Name,Is_admin:realIsAdmin,Email,Password});
     res.redirect("/user");
 }
 
