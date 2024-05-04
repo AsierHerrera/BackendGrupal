@@ -36,7 +36,7 @@ async function getAll(){
 async function getById(id){
     const usuario = usuarios.find(usuario => usuario.User_id === id);
     if(!usuario){
-        return {error:"El artista no existe"};
+        return {error:"El usuario no existe"};
     }
     return {data:usuario};
 }
@@ -59,18 +59,27 @@ async function create(userData){
 }
 
 async function update(id,userData){
-    const {Name,Password} = userData;
+    const {Name,Is_admin,Email,Password} = userData;
     const usuario = usuarios.find(usuario => usuario.User_id === id);
+    console.log(usuario)
     if(!usuario){
-        return {error:"El usuario no existe"};
+        return {error:"No se puede modificar un usuario que no existe"};
     }
     if(Name){
         usuario.Name = Name;
     }
-    if(Password){
-        usuario.Password=Password
+    if(Is_admin !== null && Is_admin!== undefined){
+        usuario.Is_admin = Is_admin
     }
-    return {data:artist};
+    if(Email){
+        usuario.Email = Email;
+    }
+    if(Password){
+        usuario.Password = Password
+    }
+
+    console.log(usuario)
+    return {data:usuario};
 }
 
 async function remove(id){
