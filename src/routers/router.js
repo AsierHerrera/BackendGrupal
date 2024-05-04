@@ -1,10 +1,12 @@
 import { Router } from "express";
 
-import userRouter from "../routers/userRouter.js";
+//import userRouter from "./user/userRouter.js";
+import userViewRouter from "./user/userViewRouter.js";
 import characterRouter from "./characterRouter.js";
 import weaponRouter from "./weaponRouter.js";
 import raceRouter from "./raceRouter.js";
 import mapRouter from "./mapRouter.js";
+
 
 
 const router = Router();
@@ -29,7 +31,7 @@ router.get("/form",(req,res)=>{
     res.send(formString);   
 })
 
-router.use ("/user", userRouter);
+router.use ("/user", userViewRouter);
 router.use("/character", characterRouter);
 router.use("/weapon", weaponRouter);
 router.use("/race", raceRouter);
