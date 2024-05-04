@@ -2,28 +2,28 @@ const usuarios = [
 	{
 		"User_id" : 1,
 		"Name" : "Anna",
-		"Licence" : 1,
+		"Is_admin" : 1,
 		"Email" : "anna@example.com",
 		"Password" : "contraseña123"
 	},
 	{
 		"User_id" : 2,
 		"Name" : "Asier",
-		"Licence" : 1,
+		"Is_admin" : 1,
 		"Email" : "asier@example.com",
 		"Password" : "contraseña456"
 	},
 	{
 		"User_id" : 3,
 		"Name" : "Bego",
-		"Licence" : 1,
+		"Is_admin" : 1,
 		"Email" : "bego@example.com",
 		"Password" : "contraseña789"
 	},
 	{
 		"User_id" : 4,
 		"Name" : "Luis",
-		"Licence" : 1,
+		"Is_admin" : 1,
 		"Email" : "luis@example.com",
 		"Password" : "contraseña101112"
 	}
@@ -42,7 +42,7 @@ async function getById(id){
 }
 
 async function create(userData){
-    const {Name,Licence,Email,Password} = userData;
+    const {Name,Is_admin,Email,Password} = userData;
     if(!Name){
         return {error:"Los usuarios deben tener nombre!"};
     }
@@ -50,7 +50,7 @@ async function create(userData){
     const newId= maxId + 1;
     const newUser = {
         User_id:newId,
-        Licence,
+        Is_admin,
         Email,
         Password
     };
@@ -59,25 +59,27 @@ async function create(userData){
 }
 
 async function update(id,userData){
-    const {Name,Licence,Email,Password} = userData;
+    const {Name,Password} = userData;
     const usuario = usuarios.find(usuario => usuario.User_id === id);
     if(!usuario){
         return {error:"El usuario no existe"};
     }
     if(Name){
-        artist.Name = Name;
+        usuario.Name = Name;
     }
-    if(is_alive !== null && is_alive!== undefined){
-        artist.is_alive=is_alive
-    }
-    if(name){
-        artist.name = name;
+    if(Password){
+        usuario.Password=Password
     }
     return {data:artist};
 }
 
 async function remove(id){
-    return `Borramos el usuario con id ${id}`;
+    const usuarioIndex = usuarios.findIndex(usuario=>usuario.User_id===id);
+    if(usuarioIndex === -1){
+        return {error:"no se pueden borrar artistas que no existen"}
+    }
+    const deletedUser = usuarios.splice(usuarioIndex,1);
+    return {data:deletedUser};
 }
 
 export {
