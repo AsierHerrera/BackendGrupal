@@ -1,13 +1,13 @@
 import { Router } from "express";
 
-import loginViewController from "../../controllers/login/loginViewController.js";
+import singupViewController from "../../controllers/sing_up/singupViewController.js";
 
 const router = Router();
 
 
-router.get("/",loginViewController.loginpage);
+router.get("/",singupViewController.loginpage);
 //router.get("/new",userViewController.createForm);
-router.post("/",loginViewController.login);
+router.post("/",singupViewController.create);
 //router.get("/:id",userViewController.getById);
 //router.get("/:id/update",userViewController.updateForm);
 //router.post("/:id",userViewController.update);

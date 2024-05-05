@@ -10,36 +10,34 @@ async function getAll(req,res){
 async function loginpage(){
     return {data:usuarios}
 }
-async function create(userData) {
-    const { Name, Is_admin, Email, Password, Password_repeat} = userData;
-    if (Password !== Password_repeat){
-        return {error:"Ambas contraseñas deben coincidir", data: null}; 
-    }
-    if (!Email.includes("@")){
-        return {error:"Formato no válido para correo electrónico", data: null}; 
-    }
+async function login(userData) {
+    const { Email, Password } = userData;
     const { usuarios: userList } = usuarios;
-    const maxId = Math.max(...userList.map(usuario => usuario.User_id));
-    const newId = maxId + 1;
-    const newUser = {
-        Name,
-        User_id: newId,
-        Is_admin: 0,
-        Email,
-        Password
-    };
-    userList.push(newUser);
-    console.log(newUser)
-    return { data: newUser, error: null }; // Devuelve null para error si no hay errores
+
+    // Busca el usuario por correo electrónico
+    const user = userList.find(usuario => usuario.Email === Email);
+
+    if (!user) {
+        return { error: "Usuario no encontrado", data: null };
+    }
+
+    // Verifica si la contraseña coincide
+    if (user.Password !== Password) {
+        return { error: "Contraseña incorrecta", data: null };
+    }
+
+    return { data: user, error: null };
 }
+
+
 
 export {
     getAll,
     loginpage,
-    create,
+    login,
 };
 export default {
     getAll,
     loginpage,
-    create,
+    login,
 };

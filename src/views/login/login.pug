@@ -8,24 +8,15 @@ html(lang="en")
   body
     .container
       h2(class="layout-title") Iniciar Sesión
-      form(action="/login", method="post")
-        label(for="Email") Correo electronico:
-        input(type="text", id="Email", name="Email", required)
-        label(for="Password") Contraseña:
-        input(type="Password", id="Password", name="Password", required)
-        button(type="submit") Iniciar Sesión
-
-    .container
-      h2(class="layout-title")  Crear cuenta
       if error 
       p(class="error")= error
       form(action="/login", method="post")
         label(for="Email") Correo electronico:
-        input(type="text", id="Email", name="Email", required)
-        label(for="Name") Nombre de usuario:
-        input(type="text", id="Name", name="Name", required)
+        input(type="text", id="Email", name="Email")
         label(for="Password") Contraseña:
-        input(type="text", id="Password", name="Password", required)
-        label(for="Password_repeat") Confirmar contraseña:
-        input(type="text", id="Password_repeat", name="Password_repeat", required)
-        button(type="submit") Crear cuenta
+        input(type="Password", id="Password", name="Password")
+        button(type="submit") Iniciar Sesión
+
+        h2 ¿Aún no tienes una cuenta?
+        button(type="button") 
+          a(href="./singup") Registrarse
