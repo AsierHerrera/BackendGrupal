@@ -92,6 +92,7 @@ async function remove(id){
 }
 
 export {
+    usuarios,
     getAll,
     getById,
     create,
@@ -101,9 +102,11 @@ export {
 
 
 export default {
+    usuarios,
     getAll,
     getById,
     create,
     update,
     remove
 };
+
