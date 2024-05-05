@@ -4,21 +4,22 @@ async function loginpage(req,res){
     res.render("login/login");
 }
 
-async function create(req,res){
-    const {Name,Is_admin,Email,Password, Password_repeat} = req.body;
-    const {error,data} = await loginController.create({Name,Is_admin,Email,Password,Password_repeat});
+async function login(req, res) {
+    const { Email, Password } = req.body;
+    const { error, data } = await loginController.login({ Email, Password });
+
     if (error) {
-        res.render("login/login", { error }); // Pasa el error a la vista para que se muestre
+        res.render("login/login", { error }); // Muestra el error en la vista
     } else {
-        res.redirect("/user");
-    }   
+        res.redirect("/user"); // Redirige al usuario a la página de inicio después de iniciar sesión
+    }
 }
 
 export {
     loginpage,
-    create,
+    login,
 };
 export default {
     loginpage,
-    create,
+    login,
 };
