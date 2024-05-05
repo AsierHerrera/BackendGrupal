@@ -6,7 +6,7 @@ import characterRouter from "./characterRouter.js";
 import weaponRouter from "./weaponRouter.js";
 import raceRouter from "./raceRouter.js";
 import mapRouter from "./mapRouter.js";
-
+import loginViewRouter from "./login/loginViewRouter.js"
 
 
 const router = Router();
@@ -36,5 +36,6 @@ router.use("/character", characterRouter);
 router.use("/weapon", weaponRouter);
 router.use("/race", raceRouter);
 router.use("/map", mapRouter);
+router.use("/login", loginViewRouter)
 
 export default router;

@@ -27,7 +27,7 @@ async function updateForm(req,res){
     const id = parseInt(req.params.id);
     const {error,data:usuario}= await userController.getById(id);
     res.render("user/userupdate",{error,usuario});
-} 
+}
 
 async function update(req,res){
     const id = parseInt(req.params.id);
