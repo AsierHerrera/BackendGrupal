@@ -1,27 +1,27 @@
-const character = [
+const personajes = [
     {
-        Character_id:1,
-        Name: "Aragon",
-        Race: "humano",
-        Hostile: false,
-        Race_id: 1 // los elfos id nº1 por ejemplo
+        "Character_id": 1,
+        "Name": "Aragon",
+        "Race": "humano",
+        "Hostile": false,
+        "Race_id": 1 // los elfos id nº1 por ejemplo
     },
 
     {
-        Character_id:1,
-        Name: "Legolas",
-        Race: "elfo",
-        Hostile: false,
-        Race_id: 2 // los elfos id nº2 por ejemplo
+        "Character_id": 2,
+        "Name": "Legolas",
+        "Race": "elfo",
+        "Hostile": false,
+        "Race_id": 2 // los elfos id nº2 por ejemplo
     }
 ]
 async function getAll(){
-    return {data:character};
+    return {data:personajes};
     //return "Mostramos todos los personajes";
 }
 
 async function getById(id){
-    const character = character.find(character=>character.Character_id === id);
+    const character = personajes.find(character=>character.Character_id === id);
     if (!character){
         return {error: "El personaje no exite"};
     }
@@ -31,7 +31,10 @@ async function getById(id){
 }
 async function create(userData){
     const {Name,Race, Hostile, Race_id} = userData;
-    const maxId = Math.max(...character.map(character => character.Character_id));
+    if(!Name){
+        return{error: "los personajes tienen que tener nombre"};
+    }
+    const maxId = Math.max(...personajes.map(character => character.Character_id));
     const newId = maxId +1;
     const newCharacter ={
         Character_id:newId,
@@ -40,14 +43,14 @@ async function create(userData){
         Hostile,
         Race_id,
     }
-    character.push(newCharacter);
+    personajes.push(newCharacter);
     return{data:newCharacter};
 
    // return `Los datos para el personaje nuevo son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
 }
 async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
-    const character= character.find(character=>character.Character_id === id);
+    const character= personajes.find(character=>character.Character_id === id);
     if (!character){
         return {error: "El personaje no se puede modificar, no existe"};
     }
@@ -72,11 +75,11 @@ async function update(id,userData){
 }
 
 async function remove(id){
-    const characterIndex = character.findIndex(character=>character.Character_id === id);
+    const characterIndex = personajes.findIndex(character=>character.Character_id === id);
     if( characterIndex === -1){
         return {error: "No se puede borrar el personaje que no existe"}
     }
-    const deleteChacter = character.splice(characterIndex,1);
+    const deleteChacter = personajes.splice(characterIndex,1);
     return {data:deleteChacter};
    // return `Borramos el personaje con id ${id}`;
 }
