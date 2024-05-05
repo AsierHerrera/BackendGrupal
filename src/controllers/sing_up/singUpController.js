@@ -19,6 +19,10 @@ async function create(userData) {
         return {error:"Formato no válido para correo electrónico", data: null}; 
     }
     const { usuarios: userList } = usuarios;
+    const user = userList.find(usuario => usuario.Email === Email);
+    if (user) {
+        return { error: "Ya existe una cuenta con ese correo", data: null };
+    }
     const maxId = Math.max(...userList.map(usuario => usuario.User_id));
     const newId = maxId + 1;
     const newUser = {
