@@ -1,6 +1,5 @@
 import { Router } from "express";
 
-import characterControllerController from "../../controllers/character/characterController.js";
 import characterController from "../../controllers/character/characterController.js";
 
 const router = Router();

@@ -3,8 +3,8 @@ extends ../layout
 block content
     if error 
         p(class="error")= error
-    if data  
-        h2= character.Name 
+    if character   
+        h2=character.Name 
 
     a(href="/character")
         button Volver
