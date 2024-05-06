@@ -1,30 +1,30 @@
 [
 	{
 		"Race_id" : 1,
-		"Race" : "Wizard",
+		"Name" : "Wizard",
         "Max_life" : 50
 
 	},
 	{
 		"Race_id" : 2,
-		"Race" : "Elf",
+		"Name" : "Elf",
          "Max_life" : 45
 		
 	},
 	{
 		"Race_id" : 3,
-		"Race" : "Human",
+		"Name" : "Human",
          "Max_life" : 30
 	},
 	{
 		"Race_id" : 4,
-		"Race" : "Hobbit",
+		"Name" : "Hobbit",
          "Max_life" : 20
 	
     },
     {
 		"Race_id" : 5,
-		"Race" : "Dwarf",
+		"Name" : "Dwarf",
          "Max_life" : 25
 	
 	}
