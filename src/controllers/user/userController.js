@@ -61,7 +61,7 @@ async function create(userData){
 async function update(id,userData){
     const {Name,Is_admin,Email,Password} = userData;
     const usuario = usuarios.find(usuario => usuario.User_id === id);
-    console.log(usuario)
+    //console.log(usuario)
     if(!usuario){
         return {error:"No se puede modificar un usuario que no existe"};
     }

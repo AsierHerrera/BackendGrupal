@@ -1,6 +1,6 @@
 import usuarios from "../user/userController.js";
 import userController from "../user/userController.js";
-console.log(usuarios)
+//console.log(usuarios)
 
 async function getAll(req,res){
     const {error,data} = await userController.getAll();
