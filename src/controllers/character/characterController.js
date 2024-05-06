@@ -2,7 +2,6 @@ const personajes = [
     {
         "Character_id": 1,
         "Name": "Aragorn",
-        "Race": "humano",
         "Hostile": false,
         "Race_id": 1 // los elfos id nº1 por ejemplo
     },
@@ -10,7 +9,6 @@ const personajes = [
     {
         "Character_id": 2,
         "Name": "Legolas",
-        "Race": "elfo",
         "Hostile": false,
         "Race_id": 2 // los elfos id nº2 por ejemplo
     }
@@ -30,7 +28,7 @@ async function getById(id){
     //return `Mostramos el personaje con id ${id}`;
 }
 async function create(userData){
-    const {Name,Race, Hostile, Race_id} = userData;
+    const {Name, Hostile, Race_id} = userData;
     if(!Name){
         return{error: "los personajes tienen que tener nombre"};
     }
@@ -39,7 +37,6 @@ async function create(userData){
     const newCharacter ={
         Character_id:newId,
         Name,
-        Race,
         Hostile,
         Race_id,
     }
@@ -56,9 +53,6 @@ async function update(id,userData){
     }
     if(Name){
         character.Name = Name;
-    }
-    if(Race){
-        character.Race = Race;
     }
     if(Character_id){
         character.Character_id = Character_id
