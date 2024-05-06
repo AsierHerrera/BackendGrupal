@@ -1,7 +1,7 @@
 const personajes = [
     {
         "Character_id": 1,
-        "Name": "Aragon",
+        "Name": "Aragorn",
         "Race": "humano",
         "Hostile": false,
         "Race_id": 1 // los elfos id nº1 por ejemplo
