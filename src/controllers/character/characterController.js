@@ -2,6 +2,7 @@ const personajes = [
     {
         "Character_id": 1,
         "Name": "Aragorn",
+        "Life_points": 100,
         "Hostile": false,
         "Race_id": 1 // los elfos id nº1 por ejemplo
     },
@@ -9,6 +10,7 @@ const personajes = [
     {
         "Character_id": 2,
         "Name": "Legolas",
+        "Life_points": 100,
         "Hostile": false,
         "Race_id": 2 // los elfos id nº2 por ejemplo
     }
@@ -27,24 +29,27 @@ async function getById(id){
 
     //return `Mostramos el personaje con id ${id}`;
 }
-async function create(userData){
-    const {Name, Hostile, Race_id} = userData;
-    if(!Name){
-        return{error: "los personajes tienen que tener nombre"};
-    }
-    const maxId = Math.max(...personajes.map(character => character.Character_id));
-    const newId = maxId +1;
-    const newCharacter ={
-        Character_id:newId,
-        Name,
-        Hostile,
-        Race_id,
-    }
-    personajes.push(newCharacter);
-    return{data:newCharacter};
+async function create(userData) {
+    const { Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = userData;
 
-   // return `Los datos para el personaje nuevo son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
+    const { personajes: personajesList } = personajes;
+
+    const maxId = Math.max(...personajesList.map(personaje => personaje.Character_id));
+    const newId = maxId + 1;
+    const newCharacter = { 
+        Name,       
+        Character_id: newId,
+        Hostile: 0,
+        Life_points: 100,
+        Race_id,
+        Map_id,
+        Weapon_id
+        };
+    personajesList.push(newCharacter);
+    console.log(newCharacter)
+    return { data: newCharacter, error: null }; // Devuelve null para error si no hay errores
 }
+
 async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
     const character= personajes.find(character=>character.Character_id === id);
