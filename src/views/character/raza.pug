@@ -6,10 +6,11 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.css")
   body
     .container
+
       h2(class="layout-title")  Crear Personaje
       if error 
       p(class="error")= error
-      form(action="./raza", method="post")
+      form(action="/character/armas", method="get")
         //- Menú desplegable para la raza
         label(for="race") Raza:
         select(id="race", name="race")
@@ -19,7 +20,5 @@ html(lang="en")
           option(value="Hobbit") Hobbit
           option(value="dwarf") Enano
           //- Agrega más opciones según sea necesario
-
-        a(href="./character/armas")
         button Continuar
 
