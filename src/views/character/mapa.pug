@@ -9,7 +9,7 @@ html(lang="en")
       h2(class="layout-title")  Crear Personaje
       if error 
       p(class="error")= error
-      form(action="/mapa", method="post")
+      form(action="/character/mapa", method="get")
 
         //- Menú desplegable para el mapa
         label(for="map") Mapa:

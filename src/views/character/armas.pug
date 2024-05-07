@@ -6,12 +6,14 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.css")
   body
     .container
+      h1= race
       h2(class="layout-title")  Crear Personaje
       if error 
       p(class="error")= error
-      form(action="./armas", method="post")
+      form(action="/character/mapa", method="get")
 
         //- Menú desplegable para el arma
+        input(type="hidden" value=race name="race")
         label(for="weapon") Arma:
         select(id="weapon", name="weapon")
           option(value="sword") Espada

@@ -16,7 +16,8 @@ async function createFormRace (req,res){
 }
 
 async function createFormWeapon (req,res){
-    res.render("character/armas");
+    const race = req.query.race
+    res.render("character/armas",{race});
 }
 
 async function createFormMaps (req,res){
