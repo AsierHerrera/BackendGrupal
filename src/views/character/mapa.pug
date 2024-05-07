@@ -1,26 +1,24 @@
+doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Inicio de Sesión
+    title Crear Personaje
     link(rel="stylesheet", href="/css/styles.css")
   body
     .container
-      h1= race
-      h2(class="layout-title")  Crear Personaje
+      h1= name
+      h2(class="layout-title") Crear Personaje
       if error 
       p(class="error")= error
-      form(action="/character/mapa", method="get")
-
-        //- Menú desplegable para el mapa
-        input(type="hidden" value=race name="race")        
-        input(type="hidden" value=weapon name="weapon")        
-        label(for="map") Mapa:
-        select(id="map", name="map")
+      form(action="/character/mapa", method="post")
+        input(type="hidden", name="Race_id", value=race)
+        input(type="hidden", name="Weapon_id", value=weapon)
+        label(for="Map_id") Mapa:
+        select(id="Map_id", name="Map_id")
           option(value="forest") Bosque
           option(value="desert") Desierto
           option(value="mountain") Montaña
-          //- Agrega más opciones según sea necesario
-
-        button(type="submit") comenzamos?
-
+        label(for="Name") Nombre:
+        input(type="text", id="Name", name="Name")
+        button(type="submit") Comenzar
