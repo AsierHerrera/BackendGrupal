@@ -1,0 +1,40 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Inicio de Sesión
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    .container
+      h2(class="layout-title")  Crear Personaje
+      if error 
+      p(class="error")= error
+      form(action="/new", method="post")
+        //- Menú desplegable para la raza
+        label(for="race") Raza:
+        select(id="race", name="race")
+          option(value="Wizard") Mago
+          option(value="elf") Elfo
+          option(value="human") Humano
+          option(value="Hobbit") Hobbit
+          option(value="dwarf") Enano
+          //- Agrega más opciones según sea necesario
+
+        //- Menú desplegable para el arma
+        label(for="weapon") Arma:
+        select(id="weapon", name="weapon")
+          option(value="sword") Espada
+          option(value="bow") Arco
+          option(value="axe") Hacha
+          //- Agrega más opciones según sea necesario
+
+        //- Menú desplegable para el mapa
+        label(for="map") Mapa:
+        select(id="map", name="map")
+          option(value="forest") Bosque
+          option(value="desert") Desierto
+          option(value="mountain") Montaña
+          //- Agrega más opciones según sea necesario
+
+        button(type="submit") Crear cuenta
+

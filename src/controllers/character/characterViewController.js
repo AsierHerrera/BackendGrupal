@@ -16,9 +16,9 @@ async function createForm (req,res){
 }
 
 async function create(req, res){
-    //conts (Name, Race, Hostile, Race_id) = req.body
-    const {Name, Race, Hostile, Race_id} = req.query;
-    const{error,data} = await characterController.create({Name, Race, Hostile, Race_id});
+    //conts (Name, Hostile, Race_id) = req.body
+    const {Name, Hostile, Race_id} = req.query;
+    const{error,data} = await characterController.create({Name, Hostile, Race_id});
     res.redirect("/character");
 }
 
@@ -30,8 +30,8 @@ async function updateForm (req,res){
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const {Name, Race, Hostile, Race_id} = req.query;
-    const{error,data} = await characterController.update(id,{Name, Race, Hostile, Race_id});
+    const {Name, Hostile, Race_id} = req.query;
+    const{error,data} = await characterController.update(id,{Name, Hostile, Race_id});
     res.redirect("/character");
 }
 
@@ -42,6 +42,10 @@ async function remove(req, res){
 
 }
 
+async function crearpage(req,res){
+    res.render("login/login");
+}
+
 export {
     getAll,
     getById,
@@ -49,7 +53,8 @@ export {
     create,
     updateForm,
     update,
-    remove
+    remove,
+    crearpage
 };
 
 export default{
@@ -59,5 +64,6 @@ export default{
     create,
     updateForm,
     update,
-    remove
+    remove,
+    crearpage
 }
