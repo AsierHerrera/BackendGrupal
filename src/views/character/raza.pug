@@ -9,7 +9,7 @@ html(lang="en")
       h2(class="layout-title")  Crear Personaje
       if error 
       p(class="error")= error
-      form(action="/new", method="post")
+      form(action="./raza", method="post")
         //- Menú desplegable para la raza
         label(for="race") Raza:
         select(id="race", name="race")
@@ -20,21 +20,6 @@ html(lang="en")
           option(value="dwarf") Enano
           //- Agrega más opciones según sea necesario
 
-        //- Menú desplegable para el arma
-        label(for="weapon") Arma:
-        select(id="weapon", name="weapon")
-          option(value="sword") Espada
-          option(value="bow") Arco
-          option(value="axe") Hacha
-          //- Agrega más opciones según sea necesario
-
-        //- Menú desplegable para el mapa
-        label(for="map") Mapa:
-        select(id="map", name="map")
-          option(value="forest") Bosque
-          option(value="desert") Desierto
-          option(value="mountain") Montaña
-          //- Agrega más opciones según sea necesario
-
-        button(type="submit") Crear cuenta
+        a(href="./character/armas")
+        button Continuar
 

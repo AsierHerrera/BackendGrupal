@@ -1,0 +1,25 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Inicio de Sesión
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    .container
+      h2(class="layout-title")  Crear Personaje
+      if error 
+      p(class="error")= error
+      form(action="./armas", method="post")
+
+        //- Menú desplegable para el arma
+        label(for="weapon") Arma:
+        select(id="weapon", name="weapon")
+          option(value="sword") Espada
+          option(value="bow") Arco
+          option(value="axe") Hacha
+          //- Agrega más opciones según sea necesario
+
+
+        a(href=".character/mapa")
+        button Continuar 
+

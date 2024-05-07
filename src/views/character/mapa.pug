@@ -1,0 +1,23 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Inicio de Sesión
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    .container
+      h2(class="layout-title")  Crear Personaje
+      if error 
+      p(class="error")= error
+      form(action="/mapa", method="post")
+
+        //- Menú desplegable para el mapa
+        label(for="map") Mapa:
+        select(id="map", name="map")
+          option(value="forest") Bosque
+          option(value="desert") Desierto
+          option(value="mountain") Montaña
+          //- Agrega más opciones según sea necesario
+
+        button(type="submit") comenzamos?
+

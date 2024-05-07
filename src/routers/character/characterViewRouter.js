@@ -6,7 +6,11 @@ const router = Router();
 
 
 router.get("/",characterViewController.getAll);
-router.get("/new",characterViewController.createForm);
+
+router.get("/raza",characterViewController.createFormRace);
+router.get("/armas",characterViewController.createFormWeapon);
+router.get("/mapa",characterViewController.createFormMaps);
+
 router.post("/",characterViewController.create);
 router.get("/:id",characterViewController.getById);
 router.get("/:id/update",characterViewController.updateForm);
