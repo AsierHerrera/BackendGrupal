@@ -11,9 +11,18 @@ async function getById(req,res){
     res.render("character/show", {error,character:data});
 }
 
-async function createForm (req,res){
-    res.render("character/new");
+async function createFormRace (req,res){
+    res.render("character/raza");
 }
+
+async function createFormWeapon (req,res){
+    res.render("character/armas");
+}
+
+async function createFormMaps (req,res){
+    res.render("character/mapa");
+}
+
 
 async function create(req, res){
     //conts (Name, Hostile, Race_id) = req.body
@@ -49,7 +58,9 @@ async function crearpage(req,res){
 export {
     getAll,
     getById,
-    createForm,
+    createFormRace,
+    createFormWeapon,
+    createFormMaps,
     create,
     updateForm,
     update,
@@ -60,7 +71,9 @@ export {
 export default{
     getAll,
     getById,
-    createForm,
+    createFormRace,
+    createFormWeapon,
+    createFormMaps,
     create,
     updateForm,
     update,
