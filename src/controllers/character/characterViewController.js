@@ -16,16 +16,14 @@ async function createFormRace (req,res){
 }
 
 async function createFormWeapon (req,res){
-    const name =req.query.Name
     const race = req.query.Race_id
-    res.render("character/armas",{name, race});
+    res.render("character/armas",{race});
 }
 
 async function createFormMaps (req,res){
-    const name =req.query.Name
     const race = req.query.Race_id
     const weapon = req.query.Weapon_id
-    res.render("character/mapa",{name,race,weapon});
+    res.render("character/mapa",{race,weapon});
 }
 
 async function create(req, res){
