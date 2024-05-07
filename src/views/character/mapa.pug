@@ -7,11 +7,11 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.css")
   body
     .container
-      h1= race
+      h1= name
       h2(class="layout-title") Crear Personaje
       if error 
       p(class="error")= error
-      form(action="/character/list", method="get")
+      form(action="/character/mapa", method="post")
         input(type="hidden", name="Race_id", value=race)
         input(type="hidden", name="Weapon_id", value=weapon)
         label(for="Map_id") Mapa:
@@ -19,4 +19,6 @@ html(lang="en")
           option(value="forest") Bosque
           option(value="desert") Desierto
           option(value="mountain") Montaña
+        label(for="Name") Nombre:
+        input(type="text", id="Name", name="Name")
         button(type="submit") Comenzar

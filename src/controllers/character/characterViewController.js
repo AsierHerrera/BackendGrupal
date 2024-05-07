@@ -16,21 +16,22 @@ async function createFormRace (req,res){
 }
 
 async function createFormWeapon (req,res){
-    const race = req.query.race
-    res.render("character/armas",{race});
+    const name =req.query.Name
+    const race = req.query.Race_id
+    res.render("character/armas",{name, race});
 }
 
 async function createFormMaps (req,res){
-    const race = req.query.race
-    const weapon = req.query.weapon
-    res.render("character/mapa",{race,weapon});
+    const name =req.query.Name
+    const race = req.query.Race_id
+    const weapon = req.query.Weapon_id
+    res.render("character/mapa",{name,race,weapon});
 }
 
 async function create(req, res){
     const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.body;
     //const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.query;
     const{error,data} = await characterController.create({Name, Life_points, Hostile, Race_id, Map_id, Weapon_id});
-    console.log(data)
     res.redirect("/character");
 }
 

@@ -30,11 +30,9 @@ async function getById(id){
     //return `Mostramos el personaje con id ${id}`;
 }
 async function create(userData) {
-    const { Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = userData;
+    const { Name, Life_points, Hostile, Race_id, Map_id, Weapon_id } = userData;
 
-    const { personajes: personajesList } = personajes;
-
-    const maxId = Math.max(...personajesList.map(personaje => personaje.Character_id));
+    const maxId = Math.max(...personajes.map(personaje => personaje.Character_id));
     const newId = maxId + 1;
     const newCharacter = { 
         Name,       
@@ -44,11 +42,13 @@ async function create(userData) {
         Race_id,
         Map_id,
         Weapon_id
-        };
-    personajesList.push(newCharacter);
-    console.log(newCharacter)
+    };   
+    personajes.push(newCharacter);
+    console.log(personajes)
+
     return { data: newCharacter, error: null }; // Devuelve null para error si no hay errores
 }
+
 
 async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
