@@ -21,7 +21,9 @@ async function createFormWeapon (req,res){
 }
 
 async function createFormMaps (req,res){
-    res.render("character/mapa");
+    const race = req.query.race
+    const weapon = req.query.weapon
+    res.render("character/mapa",{race,weapon});
 }
 
 

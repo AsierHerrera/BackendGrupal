@@ -6,12 +6,15 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.css")
   body
     .container
+      h1= race
       h2(class="layout-title")  Crear Personaje
       if error 
       p(class="error")= error
       form(action="/character/mapa", method="get")
 
         //- Menú desplegable para el mapa
+        input(type="hidden" value=race name="race")        
+        input(type="hidden" value=weapon name="weapon")        
         label(for="map") Mapa:
         select(id="map", name="map")
           option(value="forest") Bosque
