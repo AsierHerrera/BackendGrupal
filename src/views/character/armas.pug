@@ -15,9 +15,7 @@ html(lang="en")
         input(type="hidden" value=race name="Race_id")
         label(for="Weapon_id") Arma:
         select(id="Weapon_id", name="Weapon_id")
-          option(value="sword") Espada
-          option(value="bow") Arco
-          option(value="axe") Hacha
-          //- Agrega más opciones según sea necesario
+            each arma in armas 
+              option(value=arma.Weapon_id)= arma.Name
         button Continuar 
 
