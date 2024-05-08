@@ -11,7 +11,7 @@ html(lang="en")
       h2(class="layout-title") Crear Personaje
       if error 
       p(class="error")= error
-      form(action="/character/mapa", method="post")
+      form(action="/character/create", method="post")
         input(type="hidden", name="Race_id", value=race)
         input(type="hidden", name="Weapon_id", value=weapon)
         label(for="Map_id") Mapa:

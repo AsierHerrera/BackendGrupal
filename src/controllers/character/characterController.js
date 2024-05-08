@@ -1,4 +1,4 @@
-const personajes = [
+/* const character = [
     {
         "Character_id": 1,
         "Name": "Aragorn",
@@ -14,45 +14,67 @@ const personajes = [
         "Hostile": false,
         "Race_id": 2 // los elfos id nº2 por ejemplo
     }
-]
-async function getAll(){
-    return {data:personajes};
-    //return "Mostramos todos los personajes";
+] */
+
+import characterModel from "../../models/characterModel.js";
+/* import raceModel from "../../models/raceModel.js";
+import mapModel from "../../models/mapModel.js";
+import weaponModel from "../../models/weaponModel.js"; */
+async function getAll() {
+    try {
+        const personajes = await characterModel.findAll({include:["arma","mapa","raza"]});
+        return { data: personajes };
+    }
+    catch (error) {
+        console.error(error);
+        return { error: error };
+    }
+}
+
+async function getById(id) {
+    try {
+        const artist = await artistModel.findByPk(id);
+        if (!artist) {
+            return { error: "El artista no existe" };
+        }
+        return { data: artist };
+    }
+    catch (error) {
+        console.error(error);
+        return { error };
+    }
+
+}
+
+
+/* async function getAll(){
+    return {data:character};
+    //return "Mostramos todos los character";
 }
 
 async function getById(id){
-    const character = personajes.find(character=>character.Character_id === id);
+    const character = character.find(character=>character.Character_id === id);
     if (!character){
         return {error: "El personaje no exite"};
     }
     return{data:character};
 
     //return `Mostramos el personaje con id ${id}`;
-}
+} */
 async function create(userData) {
-    const { Name, Life_points, Hostile, Race_id, Map_id, Weapon_id } = userData;
-
-    const maxId = Math.max(...personajes.map(personaje => personaje.Character_id));
-    const newId = maxId + 1;
-    const newCharacter = { 
-        Name,       
-        Character_id: newId,
-        Hostile: 0,
-        Life_points: 100,
-        Race_id,
-        Map_id,
-        Weapon_id
-    };   
-    personajes.push(newCharacter);
-    console.log(personajes)
-
-    return { data: newCharacter, error: null }; // Devuelve null para error si no hay errores
+    try {
+        const newCharacter = await characterModel.create(userData);
+        return { data: newCharacter, error: null }; 
+    } catch (error) {
+        console.error(error);
+        return {error}
+    }
 }
 
 
 async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
-    const character= personajes.find(character=>character.Character_id === id);
+    const character= character.find(character=>character.Character_id === id);
     if (!character){
         return {error: "El personaje no se puede modificar, no existe"};
     }
@@ -74,11 +96,11 @@ async function update(id,userData){
 }
 
 async function remove(id){
-    const characterIndex = personajes.findIndex(character=>character.Character_id === id);
+    const characterIndex = character.findIndex(character=>character.Character_id === id);
     if( characterIndex === -1){
         return {error: "No se puede borrar el personaje que no existe"}
     }
-    const deleteChacter = personajes.splice(characterIndex,1);
+    const deleteChacter = character.splice(characterIndex,1);
     return {data:deleteChacter};
    // return `Borramos el personaje con id ${id}`;
 }

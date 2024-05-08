@@ -10,7 +10,7 @@ router.get("/",characterViewController.getAll);
 router.get("/raza",characterViewController.createFormRace);
 router.get("/armas",characterViewController.createFormWeapon);
 router.get("/mapa",characterViewController.createFormMaps);
-router.post("/mapa",characterViewController.create);
+router.post("/create",characterViewController.create);
 
 //router.post("/",characterViewController.create);
 router.get("/:id",characterViewController.getById);
