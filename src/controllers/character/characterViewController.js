@@ -1,4 +1,6 @@
 import characterController from "./characterController.js";
+import raceModel from "../../models/raceModel.js";
+
 
 async function getAll (req, res){
     const {error,data} = await characterController.getAll();
@@ -12,7 +14,9 @@ async function getById(req,res){
 }
 
 async function createFormRace (req,res){
-    res.render("character/raza");
+    const razas = await raceModel.findAll();
+    console.log("Las razas son:", razas)
+    res.render("character/raza", {razas});
 }
 
 async function createFormWeapon (req,res){

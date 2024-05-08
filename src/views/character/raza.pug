@@ -14,11 +14,7 @@ html(lang="en")
         //- Menú desplegable para la raza
         label(for="Race_id") Raza:
         select(id="Race_id", name="Race_id")
-          option(value="Wizard") Mago
-          option(value="elf") Elfo
-          option(value="human") Humano
-          option(value="Hobbit") Hobbit
-          option(value="dwarf") Enano
-          //- Agrega más opciones según sea necesario
+            each raza in razas 
+              option(value=raza.Race_id)= raza.Name
         button Continuar
 
