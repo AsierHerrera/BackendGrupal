@@ -32,19 +32,80 @@ async function getAll() {
     }
 }
 
+async function getRaceIdByCharacterId(Character_id) {
+    const name = await characterModel.findOne({ where: { Character_id: Character_id } }); 
+    const race = getRaceNameByRaceId(name.Race_id)
+    return race
+}
+
+async function getRaceNameByRaceId(Race_id) {
+    try {
+        const race = await raceModel.findOne({ where: { Race_id: Race_id } });      
+        if (race) {
+            return race.Name;
+        } 
+    } catch (error) {
+        console.error("Error al obtener el nombre de la raza:", error);
+        return null; // Manejar el error devolviendo un valor predeterminado
+    }
+}
+
+async function getweaponIdByCharacterId(Character_id) {
+    const name = await characterModel.findOne({ where: { Character_id: Character_id } }); 
+    const weapon = getWeaponNameByWeaponId(name.Weapon_id)
+    return weapon
+}
+
+async function getWeaponNameByWeaponId(Weapon_id) {
+    try {
+        const weapon = await weaponModel.findOne({ where: { Weapon_id: Weapon_id } });      
+        if (weapon) {
+            return weapon.Name;
+        } 
+    } catch (error) {
+        console.error("Error al obtener el nombre de la raza:", error);
+        return null; // Manejar el error devolviendo un valor predeterminado
+    }
+}
+
+async function getMapIdByCharacterId(Character_id) {
+    const name = await characterModel.findOne({ where: { Character_id: Character_id } }); 
+    const race = getMapNameByMapId(name.Map_id)
+    return race
+}
+
+async function getMapNameByMapId(Map_id) {
+    try {
+        const map = await mapModel.findOne({ where: { Map_id: Map_id } });      
+        if (map) {
+            return map.Name;
+        } 
+    } catch (error) {
+        console.error("Error al obtener el nombre de la raza:", error);
+        return null; // Manejar el error devolviendo un valor predeterminado
+    }
+}
+
 async function getWeaponByRace(Race_id) {
     const armas = await weaponModel.findAll({where:{Race_id:Race_id}});
     //const armasPorRaza = armas.filter(arma => arma.Race_id == Race_id)
     return armas
 }
 
+async function getMapByRace(Race_id) {
+    const mapas = await mapModel.findAll({where:{Race_id:Race_id}});
+    console.log(mapas)
+    //const armasPorRaza = armas.filter(arma => arma.Race_id == Race_id)
+    return mapas
+}
 async function getById(id) {
     try {
-        const artist = await artistModel.findByPk(id);
-        if (!artist) {
+        const personaje = await characterModel.findByPk(id);
+        console.log(personaje)
+        if (!personaje) {
             return { error: "El artista no existe" };
         }
-        return { data: artist };
+        return { data: personaje };
     }
     catch (error) {
         console.error(error);
@@ -118,6 +179,10 @@ export {
     getAll,
     getById,
     getWeaponByRace,
+    getMapByRace,
+    getRaceIdByCharacterId,
+    getweaponIdByCharacterId,
+    getMapIdByCharacterId,
     create,
     update,
     remove
@@ -127,6 +192,10 @@ export {
 export default {
     getAll,
     getWeaponByRace,
+    getMapByRace,
+    getRaceIdByCharacterId,
+    getweaponIdByCharacterId,
+    getMapIdByCharacterId,
     getById,
     create,
     update,

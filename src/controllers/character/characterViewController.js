@@ -10,7 +10,12 @@ async function getAll (req, res){
 async function getById(req,res){
     const id = parseInt(req.params.id);
     const{error,data} = await characterController.getById(id);
-    res.render("character/show", {error,character:data});
+    const racename = await characterController.getRaceIdByCharacterId(id)
+    const weaponName = await characterController.getweaponIdByCharacterId(id)
+    const mapName = await characterController.getMapIdByCharacterId(id)
+
+    console.log("El nombre asociado a la raza es:", racename)    
+    res.render("character/show", {error,character:data,racename,weaponName,mapName});
 }
 
 async function createFormRace (req,res){
@@ -29,7 +34,8 @@ async function createFormWeapon (req,res){
 async function createFormMaps (req,res){
     const race = req.query.Race_id
     const weapon = req.query.Weapon_id
-    res.render("character/mapa",{race,weapon});
+    const mapas = await characterController.getMapByRace(race)
+    res.render("character/mapa",{race,weapon, mapas});
 }
 
 async function create(req, res){

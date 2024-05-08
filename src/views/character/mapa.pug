@@ -16,9 +16,8 @@ html(lang="en")
         input(type="hidden", name="Weapon_id", value=weapon)
         label(for="Map_id") Mapa:
         select(id="Map_id", name="Map_id")
-          option(value="forest") Bosque
-          option(value="desert") Desierto
-          option(value="mountain") Montaña
+            each mapa in mapas 
+              option(value=mapa.Map_id)= mapa.Name
         label(for="Name") Nombre:
         input(type="text", id="Name", name="Name")
         button(type="submit") Comenzar
