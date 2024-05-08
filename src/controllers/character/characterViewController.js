@@ -15,13 +15,15 @@ async function getById(req,res){
 
 async function createFormRace (req,res){
     const razas = await raceModel.findAll();
-    console.log("Las razas son:", razas)
+    //console.log("Las razas son:", razas)
     res.render("character/raza", {razas});
 }
 
 async function createFormWeapon (req,res){
     const race = req.query.Race_id
-    res.render("character/armas",{race});
+    const armas = await characterController.getWeaponByRace(race)
+    console.log("Las armas son:",armas)    
+    res.render("character/armas",{race, armas});
 }
 
 async function createFormMaps (req,res){

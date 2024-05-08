@@ -32,6 +32,12 @@ async function getAll() {
     }
 }
 
+async function getWeaponByRace(Race_id) {
+    const armas = await weaponModel.findAll({where:{Race_id:Race_id}});
+    //const armasPorRaza = armas.filter(arma => arma.Race_id == Race_id)
+    return armas
+}
+
 async function getById(id) {
     try {
         const artist = await artistModel.findByPk(id);
@@ -111,6 +117,7 @@ async function remove(id){
 export {
     getAll,
     getById,
+    getWeaponByRace,
     create,
     update,
     remove
@@ -119,6 +126,7 @@ export {
 
 export default {
     getAll,
+    getWeaponByRace,
     getById,
     create,
     update,
