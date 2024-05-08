@@ -17,9 +17,10 @@
 ] */
 
 import characterModel from "../../models/characterModel.js";
-/* import raceModel from "../../models/raceModel.js";
+import raceModel from "../../models/raceModel.js";
 import mapModel from "../../models/mapModel.js";
-import weaponModel from "../../models/weaponModel.js"; */
+import weaponModel from "../../models/weaponModel.js";
+
 async function getAll() {
     try {
         const personajes = await characterModel.findAll({include:["arma","mapa","raza"]});
@@ -63,6 +64,8 @@ async function getById(id){
 } */
 async function create(userData) {
     try {
+        userData.Life_points = 100;
+        userData.Hostile = 0;
         const newCharacter = await characterModel.create(userData);
         return { data: newCharacter, error: null }; 
     } catch (error) {

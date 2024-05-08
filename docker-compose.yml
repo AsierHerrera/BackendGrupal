@@ -14,7 +14,7 @@ services:
       - ${MYSQL_PORT}:3306
     volumes:
       - ./DataBase/data:/var/lib/mysql
-      - ./DataBase/scripts:/docker-entrypoint-initDataBase.d
+      - ./DataBase/scripts:/docker-entrypoint-initdb.d
   backend:
     build: .
     container_name: ${APP_HOST}
