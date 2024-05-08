@@ -4,7 +4,11 @@ block content
     if error 
         p(class="error")= error
     if character   
-        h2=character.Name 
+        h2=character.Name
+        p=racename
+        p=weaponName
+        p=mapName
+        
 
     a(href="/character")
         button Volver
