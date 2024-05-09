@@ -31,14 +31,14 @@ const userModel = sequelize.define("user",
     }
 )
 
-userModel.belongsTo(characterModel,
+characterModel.belongsToMany(userModel,
     {
         through:"User_has_Character",
         as:"usuarios",
         foreignKey:"User_id"
     }
 );
-characterModel.hasMany(userModel,
+userModel.belongsToMany(characterModel,
     {
         through:"User_has_Character",
         as:"personjaes",

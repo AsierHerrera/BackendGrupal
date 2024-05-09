@@ -7,7 +7,7 @@ const router = Router();
 
 router.get("/",loginViewController.loginpage);
 //router.get("/new",userViewController.createForm);
-router.post("/",loginViewController.login);
+//router.post("/",loginViewController.login);
 //router.get("/:id",userViewController.getById);
 //router.get("/:id/update",userViewController.updateForm);
 //router.post("/:id",userViewController.update);
