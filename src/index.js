@@ -11,7 +11,6 @@ const sessionData = {
     saveUninitialized:true,
 }
 
-
 const app= express();
 app.use(session(sessionData));
 app.use(express.static("public")); // nos permite mostrar archivos en la carpeta public

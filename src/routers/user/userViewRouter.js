@@ -1,16 +1,16 @@
 import { Router } from "express";
 
-import userViewControllerDanel from "../../controllers/userDanel/userViewControllerDanel.js";
+import userViewController from "../../controllers/user/userViewController.js";
 
 const router = Router();
 
 
-router.get("/singup",userViewControllerDanel.registerForm);
-router.post("/singup",userViewControllerDanel.register);
-router.get("/login",userViewControllerDanel.loginForm);
-router.post("/login",userViewControllerDanel.login);
-router.get("/character",userViewControllerDanel.getAll);
-router.post("/logout",userViewControllerDanel.logout);
+router.get("/singup",userViewController.registerForm);
+router.post("/singup",userViewController.register);
+router.get("/login",userViewController.loginForm);
+router.post("/login",userViewController.login);
+router.get("/",userViewController.getAll);
+router.post("/logout",userViewController.logout);
 
 
 

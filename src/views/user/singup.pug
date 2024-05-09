@@ -10,7 +10,7 @@ html(lang="en")
       h2(class="layout-title")  Crear cuenta
       if error 
       p(class="error")= error
-      form(action="/singup", method="post")
+      form(action="/user/singup", method="post")
         label(for="Email") Correo electronico:
         input(type="text", id="Email", name="Email", required)
         label(for="Name") Nombre de usuario:
