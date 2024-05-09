@@ -5,7 +5,10 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Crear Personaje
     link(rel="stylesheet", href="/css/styles.css")
-  body
+  body      
+    a(href="/character")
+      button Volver al Inicio
+
     .container
       h1= name
       h2(class="layout-title") Crear Personaje
@@ -21,3 +24,5 @@ html(lang="en")
         label(for="Name") Nombre:
         input(type="text", id="Name", name="Name")
         button(type="submit") Comenzar
+
+  

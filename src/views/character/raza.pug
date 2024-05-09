@@ -4,7 +4,10 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Inicio de Sesión
     link(rel="stylesheet", href="/css/styles.css")
-  body
+  body      
+    a(href="/character")
+      button Volver al Inicio   
+
     .container
 
       h2(class="layout-title")  Crear Personaje
@@ -17,4 +20,5 @@ html(lang="en")
             each raza in razas 
               option(value=raza.Race_id)= raza.Name
         button Continuar
+
 

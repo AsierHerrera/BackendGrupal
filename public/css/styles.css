@@ -7,3 +7,8 @@ body{
     background-color: #3F3521;
 }
 */
+
+.btn-cancelar > a{
+    text-decoration: none;
+    color: black;
+}
