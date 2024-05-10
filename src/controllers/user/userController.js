@@ -16,6 +16,7 @@ async function getAll() {
 async function getById(id) {
     try {
         const user = await userModel.findByPk(id);
+        console.log("EL USUARIO ES:", user)
         if (!user) {
             return { error: "El user no existe" };
         }
@@ -115,15 +116,8 @@ async function getByEmail(Email){
 
 async function update(id, userData) {
     try {
-        const newuser = await userModel.update(userData,
-            {
-                where: 
-                {
-                    user_id:id
-                }
-            }
-        );
-        return {data:newuser};
+        const usuario = await userModel.update(userData,{where: {User_id:id}});
+        return {data:usuario};
     } catch (error) {
         console.error(error);
         return {error}
