@@ -1,11 +1,12 @@
 import { Router } from "express";
 
 import characterViewController from "../../controllers/character/characterViewController.js";
+import { hasSession } from "../../middleware/authMiddelWare.js"
 
 const router = Router();
 
 
-router.get("/",characterViewController.getAll);
+router.get("/",hasSession,characterViewController.getAll);
 
 router.get("/raza",characterViewController.createFormRace);
 router.get("/armas",characterViewController.createFormWeapon);
