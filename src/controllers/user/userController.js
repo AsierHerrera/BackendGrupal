@@ -1,100 +1,152 @@
-const usuarios = [
-	{
-		"User_id" : 1,
-		"Name" : "Anna",
-		"Is_admin" : 1,
-		"Email" : "anna@example.com",
-		"Password" : "contraseña123"
-	},
-	{
-		"User_id" : 2,
-		"Name" : "Asier",
-		"Is_admin" : 1,
-		"Email" : "asier@example.com",
-		"Password" : "contraseña456"
-	},
-	{
-		"User_id" : 3,
-		"Name" : "Bego",
-		"Is_admin" : 1,
-		"Email" : "bego@example.com",
-		"Password" : "contraseña789"
-	},
-	{
-		"User_id" : 4,
-		"Name" : "Luis",
-		"Is_admin" : 1,
-		"Email" : "luis@example.com",
-		"Password" : "contraseña101112"
-	}
-];
+import userModel from "../../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-async function getAll(){
-    return {data:usuarios}
+async function getAll() {
+    try {
+        const users = await userModel.findAll();
+        return { data: users };
+    }
+    catch (error) {
+        console.error(error);
+        return { error: error };
+    }
 }
 
-async function getById(id){
-    const usuario = usuarios.find(usuario => usuario.User_id === id);
-    if(!usuario){
-        return {error:"El usuario no existe"};
+async function getById(id) {
+    try {
+        const user = await userModel.findByPk(id);
+        if (!user) {
+            return { error: "El user no existe" };
+        }
+        return { data: user };
     }
-    return {data:usuario};
+    catch (error) {
+        console.error(error);
+        return { error };
+    }
+
 }
 
-async function create(userData){
-    const {Name,Is_admin,Email,Password} = userData;
-    if(!Name){
-        return {error:"Los usuarios deben tener nombre!"};
+async function create(userData) {
+    try {
+        const newuser = await userModel.create(userData);
+        console.log("new user",newuser);
+        return {data:newuser};
+    } catch (error) {
+        console.error(error);
+        return {error}
     }
-    const maxId = Math.max(...usuarios.map(usuario => usuario.User_id));
-    const newId= maxId + 1;
-    const newUser = {
-        User_id:newId,
-        Is_admin,
-        Email,
-        Password
-    };
-    usuarios.push(newUser);
-    return {data:newUser};
 }
 
-async function update(id,userData){
-    const {Name,Is_admin,Email,Password} = userData;
-    const usuario = usuarios.find(usuario => usuario.User_id === id);
-    //console.log(usuario)
-    if(!usuario){
-        return {error:"No se puede modificar un usuario que no existe"};
+async function registerUser(userData) {
+    const {Name, Is_Admin, Email, Password, Password_repeat} = userData;
+    try {
+        if(!Email || !Password || !Password_repeat){
+            return {error:"falta email o contraseña"};
+        }
+        if(Password !== Password_repeat){
+            return {error:"las contraseñas no coinciden"};
+        }
+        const {data:oldUser} = await getByEmail(Email);
+        //console.log("old user",oldUser)
+        if(oldUser){
+            return {error:"el usuario ya existe"};
+        }
+        const hash = await bcrypt.hash(Password,10);
+        const maxIdResult = await userModel.findOne({attributes: ['User_id'], order: [['User_id', 'DESC']]});
+                
+        let maxUserId = null;
+        
+        if (maxIdResult) {
+            maxUserId = maxIdResult.dataValues.User_id +1;
+        }
+        const nuevoUser = {
+            Name,
+            User_id: maxUserId,
+            Is_Admin: 0,
+            Email,
+            Password:hash
+        }
+        const newUser = await create(nuevoUser);
+        console.log(newUser)
+        return {data:newUser}
+    } catch (error) {
+        console.error(error);
+        return { error: "Ha habido un error en el en el registro" }
     }
-    if(Name){
-        usuario.Name = Name;
-    }
-    if(Is_admin !== null && Is_admin!== undefined){
-        usuario.Is_admin = Is_admin
-    }
-    if(Email){
-        usuario.Email = Email;
-    }
-    if(Password){
-        usuario.Password = Password
-    }
-
-    console.log(usuario)
-    return {data:usuario};
 }
 
-async function remove(id){
-    const usuarioIndex = usuarios.findIndex(usuario=>usuario.User_id===id);
-    if(usuarioIndex === -1){
-        return {error:"no se pueden borrar artistas que no existen"}
+async function login(userData) {
+    const { Email, Password } = userData;
+    try {
+        if (!Email || !Password) {
+            return { error: "Falta Email o contraseña" };
+        }
+
+        const { data: oldUser } = await getByEmail(Email);
+        if (!oldUser) {
+            return { error: "La combinación de usuario y contraseña es errónea" };
+        }
+
+        const result = await bcrypt.compare(Password, oldUser.Password);
+        if (result) {
+            return { success: true, user: oldUser };
+        } else {
+            return { error: "La combinación de usuario y contraseña es errónea" };
+        }
+    } catch (error) {
+        console.error(error);
+        return { error: "Ha habido un error en el login" };
     }
-    const deletedUser = usuarios.splice(usuarioIndex,1);
-    return {data:deletedUser};
+}
+
+
+async function getByEmail(Email){
+    try {
+        const user = await userModel.findOne({where:{Email:Email}})
+        console.log(user)
+        return {data:user};
+    } catch (error) {
+        console.error(error);
+        return {error};
+    }
+}
+
+async function update(id, userData) {
+    try {
+        const newuser = await userModel.update(userData,
+            {
+                where: 
+                {
+                    user_id:id
+                }
+            }
+        );
+        return {data:newuser};
+    } catch (error) {
+        console.error(error);
+        return {error}
+    }
+   
+}
+
+async function remove(id) {
+    try {
+        const result = await userModel.remove(id);
+        return {data:result};
+    } catch (error) {
+        console.error(error);
+    }
+    
 }
 
 export {
-    usuarios,
     getAll,
     getById,
+    getByEmail,
+    login,
+    registerUser,
     create,
     update,
     remove
@@ -102,11 +154,12 @@ export {
 
 
 export default {
-    usuarios,
     getAll,
     getById,
+    getByEmail,
+    login,
+    registerUser,
     create,
     update,
     remove
 };
-

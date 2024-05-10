@@ -3,7 +3,7 @@ import sequelize from "../config/sequelize.js";
 
 import characterModel from "./characterModel.js";
 
-const userModel = sequelize.define("user",
+const userModel = sequelize.define("User",
     {
         User_id:{
             type: DataTypes.INTEGER.UNSIGNED,
@@ -25,20 +25,20 @@ const userModel = sequelize.define("user",
             primaryKey:true,
         },
         Password:{
-            type:DataTypes.STRING(45),
+            type:DataTypes.STRING(80),
             allowNull:false
         }
     }
 )
 
-userModel.belongsTo(characterModel,
+characterModel.belongsToMany(userModel,
     {
         through:"User_has_Character",
         as:"usuarios",
         foreignKey:"User_id"
     }
 );
-characterModel.hasMany(userModel,
+userModel.belongsToMany(characterModel,
     {
         through:"User_has_Character",
         as:"personjaes",

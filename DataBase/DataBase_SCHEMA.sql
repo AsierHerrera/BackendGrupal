@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS mydb;
 
 
 -- Insertar múltiples filas en la tabla "User"
-INSERT INTO User (User_id, Name, License, Email, Password)
+INSERT INTO User (User_id, Name, Is_Admin, Email, Password)
 VALUES 
     (1, 'Anna', TRUE, 'anna@example.com', 'contraseña123'),
     (2, 'Asier', TRUE, 'asier@example.com', 'contraseña456'),
