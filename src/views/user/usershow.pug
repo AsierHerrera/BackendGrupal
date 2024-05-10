@@ -5,7 +5,7 @@ block content
         p(class="error")= error
     if usuario 
         h2= usuario.Name 
-        p Es administador: #{usuario.Is_admin==1 ? 'si': 'no'} 
+        p Es administador: #{usuario.Is_Admin==1 ? 'si': 'no'} 
         p= usuario.Email
 
     a(href="/user")
