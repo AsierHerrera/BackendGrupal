@@ -1,20 +1,3 @@
-/* const character = [
-    {
-        "Character_id": 1,
-        "Name": "Aragorn",
-        "Life_points": 100,
-        "Hostile": false,
-        "Race_id": 1 // los elfos id nº1 por ejemplo
-    },
-
-    {
-        "Character_id": 2,
-        "Name": "Legolas",
-        "Life_points": 100,
-        "Hostile": false,
-        "Race_id": 2 // los elfos id nº2 por ejemplo
-    }
-] */
 
 import characterModel from "../../models/characterModel.js";
 import raceModel from "../../models/raceModel.js";
