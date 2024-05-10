@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
+import userModel from "./userModel.js";
 import weaponModel from "./weaponModel.js";
 import mapModel from "./mapModel.js";
 import raceModel from "./raceModel.js";
@@ -39,9 +40,14 @@ const characterModel = sequelize.define("Character",
             type:DataTypes.INTEGER,
             allowNull:false,
         },
+        User_id:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        }
     }
 )
-
+characterModel.belongsTo(userModel,{as:"usuario",foreignKey:"User_id"});
+userModel.hasMany(characterModel,{foreignKey:"User_id"});
 characterModel.belongsTo(weaponModel,{as:"arma",foreignKey:"Weapon_id"});
 weaponModel.hasMany(characterModel,{foreignKey:"Weapon_id"});
 characterModel.belongsTo(mapModel,{as:"mapa",foreignKey:"Map_id"});

@@ -4,9 +4,9 @@ import raceModel from "../../models/raceModel.js";
 import mapModel from "../../models/mapModel.js";
 import weaponModel from "../../models/weaponModel.js";
 
-async function getAll() {
+async function getAll(id) {
     try {
-        const personajes = await characterModel.findAll({include:["arma","mapa","raza"]});
+        const personajes = await characterModel.findAll({include:["arma","mapa","raza"],where: { User_id: id } });
         return { data: personajes };
     }
     catch (error) {

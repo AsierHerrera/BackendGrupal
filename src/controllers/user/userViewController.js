@@ -6,11 +6,13 @@ async function loginForm(req,res){
 }
 async function login(req, res) {
     const { Email, Password } = req.body;
-    const { error, data } = await userController.login({ Email, Password });
+    const { error, data } = await userController.login( Email, Password );
 
     if (error) {
         res.render("user/login", { error }); // Muestra el error en la vista
     } else {
+        req.session.user = data;
+        console.log("LA DATA ES:",data)
         res.redirect("/user"); // Redirige al usuario a la página de inicio después de iniciar sesión
     }
 }
