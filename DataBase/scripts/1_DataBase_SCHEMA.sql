@@ -24,9 +24,9 @@ USE `mydb` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `User_id` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
-  `License` TINYINT NOT NULL,
+  `Is_Admin` TINYINT NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(80) NOT NULL,
   PRIMARY KEY (`User_id`),
   UNIQUE INDEX `User_id_UNIQUE` (`User_id` ASC) VISIBLE,
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE)

@@ -7,8 +7,8 @@ import characterViewRouter from "./character/characterViewRouter.js";
 import weaponRouter from "./weaponRouter.js";
 import raceRouter from "./raceRouter.js";
 import mapRouter from "./mapRouter.js";
-import loginViewRouter from "./login/loginViewRouter.js"
-import singupViewRouter from "./sing_up/singupViewRouter.js"
+//import loginViewRouter from "./login/loginViewRouter.js"
+//import singupViewRouter from "./sing_up/singupViewRouter.js"
 
 
 const router = Router();
@@ -22,7 +22,7 @@ router.use("/character", characterViewRouter);
 router.use("/weapon", weaponRouter);
 router.use("/race", raceRouter);
 router.use("/map", mapRouter);
-router.use("/login", loginViewRouter)
-router.use("/singup", singupViewRouter)
+//router.use("/login", loginViewRouter)
+//router.use("/singup", singupViewRouter)
 
 export default router;
