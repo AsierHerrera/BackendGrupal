@@ -1,5 +1,5 @@
 import userModel from "../../models/userModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 async function getAll() {
@@ -89,7 +89,7 @@ async function login(userData) {
             return { error: "La combinación de usuario y contraseña es errónea" };
         }
 
-        const result = await bcrypt.compare(Password, oldUser.Password);
+        const result = await bcryptjs.compare(Password, oldUser.Password);
         if (result) {
             return { success: true, user: oldUser };
         } else {

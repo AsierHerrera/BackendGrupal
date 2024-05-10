@@ -1,35 +1,4 @@
-const razas = [
-	{
-		"Race_id" : 1,
-		"Name" : "Wizard",
-        "Max_life" : 50
 
-	},
-	{
-		"Race_id" : 2,
-		"Name" : "Elf",
-         "Max_life" : 45
-		
-	},
-	{
-		"Race_id" : 3,
-		"Name" : "Human",
-         "Max_life" : 30
-	},
-	{
-		"Race_id" : 4,
-		"Name" : "Hobbit",
-         "Max_life" : 20
-	
-    },
-    {
-		"Race_id" : 5,
-		"Name" : "Dwarf",
-         "Max_life" : 25
-	
-	}
-
-]
 async function getAll(){
     return {data:razas};
     //return "Mostramos todos los razas";
