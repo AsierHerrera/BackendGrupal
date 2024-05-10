@@ -134,6 +134,7 @@ async function create(userData) {
         userData.Life_points = 100;
         userData.Hostile = 0;
         const newCharacter = await characterModel.create(userData);
+         console.log("newCharacter:", newCharacter)
         return { data: newCharacter, error: null }; 
     } catch (error) {
         console.error(error);
