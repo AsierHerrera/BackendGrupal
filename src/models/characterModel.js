@@ -42,7 +42,6 @@ const characterModel = sequelize.define("Character",
         },
         User_id:{
             type:DataTypes.INTEGER,
-            allowNull:false,
         }
     }
 )
