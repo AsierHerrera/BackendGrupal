@@ -76,10 +76,11 @@ async function remove(id) {
         return { data: removedWeapon };
     } catch (error) {
         console.error('Error writing to file:', error);
-        return { error: 'Error writing to file' };
+        return { error: 'Error writing to file ' };
     }
 }
 
+ 
 
 export {
     getAll,

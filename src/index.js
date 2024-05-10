@@ -24,7 +24,8 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/",router);
 
-app.listen(3000
-    , () => {
-    console.log("servidor en marcha"+process.env.APP_PORT);
+
+app.listen(3000,()=>{
+    console.log("el servidor en marcha"+process.env.APP_PORT);
+
 })

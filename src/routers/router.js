@@ -25,4 +25,4 @@ router.use("/map", mapRouter);
 //router.use("/login", loginViewRouter)
 //router.use("/singup", singupViewRouter)
 
-export default router;
+export default router; 

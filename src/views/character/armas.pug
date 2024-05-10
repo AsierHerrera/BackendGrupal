@@ -4,7 +4,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Inicio de Sesión
     link(rel="stylesheet", href="/css/styles.css")
-  body
+  body      
     .container
       h1= name
       h2(class="layout-title")  Crear Personaje
@@ -18,4 +18,7 @@ html(lang="en")
             each arma in armas 
               option(value=arma.Weapon_id)= arma.Name
         button Continuar 
+
+    a(href="/character/raza")
+      button Volver 
 
