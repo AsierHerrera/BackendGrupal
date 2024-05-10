@@ -1,14 +1,78 @@
+//- extends ../layout
+
+//- block content
+//-     if error 
+//-         p.error= error
+//-     if character   
+//-         h2= character.Name
+//-         img(src=`/img/${racename}.jpg`, alt=racename)
+//-         p= weaponName
+//-         p= mapName
+
+//-     a(href="/character")
+//-         button Volver
+
+    //- script.
+    //-     document.addEventListener("DOMContentLoaded", function() {
+    //-         const raceName = "#{racename}"; 
+
+    //-         let characterImagePath;
+    //-         switch (raceName) {
+    //-             case 'Wizard':
+    //-                 characterImagePath = '../../../public/img/1.jpg';
+    //-                 break;
+    //-             case 'Elf':
+    //-                 characterImagePath = '../../../public/img/2.jpg';
+    //-                 //-   characterImagePath = '../../img/2.jpg';
+    //-                 break;
+    //-             case 'Human':
+    //-                 characterImagePath = '../../../public/img/3.jpg';
+    //-                 //-   characterImagePath = '../../img/2.jpg';
+    //-                 break;
+    //-             case 'Hobbit':
+    //-                 //- characterImagePath = '../../img/4.jpg';
+    //-                characterImagePath = '../../../public/img/4.jpg';
+    //-                 break;
+    //-             case 'Dwarf':
+    //-                 //- characterImagePath = '../../img/5.jpg';
+    //-                   characterImagePath = '../../../public/img/5.jpg';
+    //-                 break;
+    //-             default:
+    //-                 //- characterImagePath = '../../img/ring.jpg';
+    //-                   characterImagePath = '../../../public/img/ring.jpg';
+    //-                 break;
+    //-         }
+
+    //-         const characterBackgroundElement = document.body; 
+    //-      characterBackgroundElement.style.backgroundImage = `url(${characterImagePath})`;
+
+    //-     })
+
+
+
 extends ../layout
 
 block content
     if error 
-        p(class="error")= error
+        p.error= error
     if character   
-        h2=character.Name
-        p=racename
-        p=weaponName
-        p=mapName
-        
+        h2= character.Name
+        p= racename
+        p= weaponName
+        p= mapName
 
     a(href="/character")
         button Volver
+
+    script.
+        document.addEventListener("DOMContentLoaded", function() {
+            const raceName = "#{racename}"; 
+
+            const characterImagePath = `/img/${raceName}.jpg`;
+
+            document.body.style.backgroundImage = `url('${characterImagePath}')`
+            ;
+            document.body.style.backgroundRepeat = "no-repeat";
+                   document.body.style.backgroundSize = "cover";
+       
+        })
