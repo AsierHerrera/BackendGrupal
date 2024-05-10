@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Character` (
   `Race_id` INT NOT NULL,
   `Map_id` INT NOT NULL,
   `Weapon_id` INT NOT NULL,
-  `User_id` INT NOT NULL,
+  `User_id` INT,
   PRIMARY KEY (`Character_id`),
   INDEX `fk_Character_Race1_idx` (`Race_id` ASC) VISIBLE,
   INDEX `fk_Character_Map1_idx` (`Map_id` ASC) VISIBLE,
