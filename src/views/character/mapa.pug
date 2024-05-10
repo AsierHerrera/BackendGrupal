@@ -5,9 +5,9 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Crear Personaje
     link(rel="stylesheet", href="/css/styles.css")
+
   body      
-    a(href="/character")
-      button Volver al Inicio
+
 
     .container
       h1= name
@@ -15,7 +15,7 @@ html(lang="en")
       if error 
       p(class="error")= error
       form(action="/character/create", method="post")
-        input(type="hidden", name="Race_id", value=race)
+        input(id="raza-id", type="hidden", name="Race_id", value=race)
         input(type="hidden", name="Weapon_id", value=weapon)
         label(for="Map_id") Mapa:
         select(id="Map_id", name="Map_id")
@@ -24,5 +24,8 @@ html(lang="en")
         label(for="Name") Nombre:
         input(type="text", id="Name", name="Name")
         button(type="submit") Comenzar
-
+      
+      a(id="btn-volver")
+        button Volver 
   
+script(src='/scripts/obtenerId.js')  
