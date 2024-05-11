@@ -84,8 +84,10 @@ li{
 }
 
 
-.play-button{
+.play-button, .btn-crear, .btn{
     background-color: #6d96f6; 
+   
+  
     color: white; 
     border: none; 
     padding: 10px 20px; 
@@ -93,6 +95,46 @@ li{
     cursor: pointer; /
 }
 
-.play-button:hover {
-    background-color: #517bc7; 
+.play-button:hover, .btn-crear:hover, .btn:hover {
+     background-color: #517bc7;   
+}
+
+
+.user-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card p {
+    margin-right: auto;
+}
+
+.user-card form {
+    display: flex;
+    align-items: center;
+}
+
+.user-card form button.btn {
+    background-color: #6d96f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.user-card form button.btn:last-child {
+    margin-right: 0; 
+    margin-left: 10px;
+}
+
+.user-card form button.btn:hover {
+    background-color: #517bc7;
 }
