@@ -2,7 +2,7 @@
 /* Limpiador que se encarga de limpiar las propiedades predefinidas de la pagina*/
 
 body{
-    background-image: url("/img/ring.jpg");
+    background-image: url("/img/lord.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -16,12 +16,15 @@ body{
 }
 
 .layout-title{
-    color:  #6d96f6; 
+    color:  #f6c46d; 
 }
 
 
 label, h2{
-    color: rgb(236, 238, 219);
+   background-color: rgb(9, 9, 9);
+   padding: 10px;
+   border-radius: 10px;
+     color: rgb(224, 220, 136);
 }
 
 
@@ -35,7 +38,8 @@ p{
     text-align: center;
     padding: 0vh 10vw;
     font-size: 2vw;
-     color: rgb(236, 238, 219);
+    background-color: rgb(9, 9, 9, 0.855);
+     color: rgb(224, 220, 136);
 }
 
 div{
@@ -56,19 +60,20 @@ div > input{
 }
 
 button{
-    background-color: rgba(144, 171, 238, 0.855);
-    border-color: rgb(6, 0, 128);
+    background-color: rgba(239, 73, 23, 0.855);
+
     border-radius: 8px;
-    padding: 1vh 1vw;
+    padding: 10px;
     font-size: 70%;
     color: white;
     font-weight: bold;
      margin-top: 10px; 
+     margin-bottom: 10px;
 }
 
 button:hover{
     cursor: pointer;
-    background-color: rgb(70, 17, 228);
+    background-color: rgb(232, 141, 99);
 }
 
 a{
@@ -77,15 +82,18 @@ a{
 }
 
 label, h2{
-     color: rgb(236, 238, 219);
+    background-color: rgb(9, 9, 9, 0.855);
+     color: rgb(224, 220, 136);
+
 }
 
 input{
-    background-color: rgba(209, 215, 231, 0.855);
-    border-color: rgb(6, 0, 128);
+    background-color: rgba(231, 227, 209, 0.855);
+    border-color: rgb(14, 14, 15);
     border-radius: 8px;
-    padding: 1vh 1vw;
+    padding: 10px;
     font-size: 70%;
     color: white;
     font-weight: bold;
+
 }
