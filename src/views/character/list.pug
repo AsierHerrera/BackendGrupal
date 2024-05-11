@@ -3,12 +3,14 @@ extends ../layout
 block content 
     h1 lista de personajes
     if error 
-        p(class = "error")= error 
+        p.error= error 
     if data
-        ul 
-            each character in data  
-                li
-                    a(href="/character/"+character.Character_id)= character.Name
-    
-    a(href="./character/raza")
-        button Crear personaje
+        .container
+            ul 
+                each character in data  
+                    li.personajeid.character-card
+                        span= character.Name
+                        a(href=`/character/${character.Character_id}`)
+                            button.play-button Jugar
+            a(href="./character/raza")
+                button.btn-crear Crear personaje
