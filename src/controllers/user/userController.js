@@ -48,6 +48,12 @@ async function registerUser(userData) {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(Email)) {
+            console.log("El correo electrónico es válido");
+        } else {
+            console.log("El correo electrónico no es válido");
+        }
         // Regular expression for password validation
 /*         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         if (!passwordRegex.test(Password)) {
@@ -97,8 +103,9 @@ async function login(Email, Password) {
         if (result) {
             const token = jwt.sign({id:oldUser.user_id,email:oldUser.email},process.env.JWT_SECRET,{expiresIn: 60 * 60})
             const user_id = oldUser.User_id;
-            console.log("EL USER ID ES:", user_id)
-            return {data:user_id, token};
+            const esAdmin = oldUser.Is_Admin;
+            //console.log("LOS DATOS SON", { user_id, esAdmin, token }); 
+            return { data: { user_id, esAdmin, token } };
         } else {
             return { error: "La combinación de usuario y contraseña es errónea" };
         }

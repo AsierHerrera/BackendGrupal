@@ -13,9 +13,14 @@ import characterViewRouter from "./character/characterViewRouter.js";
 
 const router = Router();
 
-router.get ("/", (req,res)=>{
-    res.render("layout");
-})
+router.get("/", (req, res) => {
+    console.log("sessionUser ES:", req.session.user);
+    res.render("layout", {
+        sessionUser: req.session.user
+    });
+});
+
+
 
 router.use ("/user", userViewRouter);
 router.use("/character", characterViewRouter);

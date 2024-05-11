@@ -11,6 +11,8 @@ router.get("/login",userViewController.loginForm);
 router.post("/login",userViewController.login);
 router.get("/",userViewController.getAll);
 router.post("/logout",userViewController.logout);
+router.get("/:id/update",userViewController.updateForm);
+router.post("/:id",userViewController.update);
 
 
 

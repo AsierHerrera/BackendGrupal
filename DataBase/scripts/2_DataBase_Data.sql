@@ -1,5 +1,12 @@
 -- Inserts para la tabla Weapon
 -- Armas para Humanos
+INSERT INTO User (User_id, Name, Is_Admin, Email, Password)
+VALUES 
+    (1, 'Anna', TRUE, 'anna@example.com', 'contraseña123'),
+    (2, 'Asier', TRUE, 'asier@example.com', 'contraseña456'),
+    (3, 'Bego', TRUE, 'bego@example.com', 'contraseña789'),
+    (4, 'Luis', TRUE, 'luis@example.com', 'contraseña111');
+
 INSERT INTO Race (Race_id, Max_Life, Name) VALUES
 (1, 100, 'Human'),
 (2, 100, 'Elf'),
