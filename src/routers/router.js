@@ -4,9 +4,9 @@ import { Router } from "express";
 import userViewRouter from "./user/userViewRouter.js";
 //import characterRouter from "./characterRouter.js";
 import characterViewRouter from "./character/characterViewRouter.js";
-import weaponRouter from "./weaponRouter.js";
-import raceRouter from "./raceRouter.js";
-import mapRouter from "./mapRouter.js";
+//import weaponRouter from "./weaponRouter.js";
+//import raceRouter from "./raceRouter.js";
+//import mapRouter from "./mapRouter.js";
 //import loginViewRouter from "./login/loginViewRouter.js"
 //import singupViewRouter from "./sing_up/singupViewRouter.js"
 
@@ -19,9 +19,9 @@ router.get ("/", (req,res)=>{
 
 router.use ("/user", userViewRouter);
 router.use("/character", characterViewRouter);
-router.use("/weapon", weaponRouter);
-router.use("/race", raceRouter);
-router.use("/map", mapRouter);
+//router.use("/weapon", weaponRouter);
+//router.use("/race", raceRouter);
+//router.use("/map", mapRouter);
 //router.use("/login", loginViewRouter)
 //router.use("/singup", singupViewRouter)
 

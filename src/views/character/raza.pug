@@ -1,22 +1,18 @@
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Inicio de Sesión
-    link(rel="stylesheet", href="/css/styles.css")
-  body      
-    .container
+extends ../layout
 
-      h2(class="layout-title")  Crear Personaje
-      if error 
+block content
+  .container
+    h2(class="layout-title") Crear Personaje
+    if error 
       p(class="error")= error
-      form(action="/character/armas", method="get")
-        //- Menú desplegable para la raza
-        label(for="Race_id") Raza:
-        select(id="Race_id", name="Race_id")
-            each raza in razas 
-              option(value=raza.Race_id)= raza.Name
-        button Continuar
-
+    form(action="/character/armas", method="get")
+      //- Menú desplegable para la raza
+      label(for="Race_id") Raza:
+      select(id="Race_id", name="Race_id")
+        each raza in razas 
+          option(value=raza.Race_id)= raza.Name
+      button.btn(type="submit") Continuar
     a(href="/character")
-      button Volver 
+      button.btn Volver
+
+

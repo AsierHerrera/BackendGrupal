@@ -21,7 +21,7 @@ function hasSession(req,res,next){
     const user = req.session.user;
     console.log("session user",req.session);
     if(!user){
-        return res.redirect("/login");
+        return res.redirect("/user/login");
     }
     next();
 }

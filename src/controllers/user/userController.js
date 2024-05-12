@@ -70,6 +70,11 @@ async function registerUser(userData) {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
+        // Regular expression for password validation
+/*         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!passwordRegex.test(Password)) {
+            return {error:"La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número."};                       
+        } */
         const {data:oldUser} = await getByEmail(Email);
         //console.log("old user",oldUser)
         if(oldUser){
@@ -99,8 +104,7 @@ async function registerUser(userData) {
     }
 }
 
-async function login(userData) {
-    const { Email, Password } = userData;
+async function login(Email, Password) {
     try {
         if (!Email || !Password) {
             return { error: "Falta Email o contraseña" };
@@ -111,9 +115,12 @@ async function login(userData) {
             return { error: "La combinación de usuario y contraseña es errónea" };
         }
 
-        const result = await bcryptjs.compare(Password, oldUser.Password);
+        const result = await bcrypt.compare(Password, oldUser.Password);
         if (result) {
-            return { success: true, user: oldUser };
+            const token = jwt.sign({id:oldUser.user_id,email:oldUser.email},process.env.JWT_SECRET,{expiresIn: 60 * 60})
+            const user_id = oldUser.User_id;
+            console.log("EL USER ID ES:", user_id)
+            return {data:user_id, token};
         } else {
             return { error: "La combinación de usuario y contraseña es errónea" };
         }
