@@ -12,7 +12,13 @@ block content
                     each character in data  
                         li.personajeid.character-card
                             span= character.Name
-                            a(href=`/character/${character.Character_id}`)
-                                button.play-button Jugar
+                            div
+                                a(href=`/character/${character.Character_id}`, class="btn-personajes")
+                                    button.play-button Jugar
+
+                                //-form(action=`/character/${character.Character_id}/remove`, method="post",) 
+                                     button(class="play-button btn-personajes", type="submit") Borrar
+
                 a(href="./character/raza")
                     button.btn-crear Crear personaje
+

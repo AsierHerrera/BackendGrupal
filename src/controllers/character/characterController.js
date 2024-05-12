@@ -160,15 +160,31 @@ async function update(id,userData){
     //return `Los nuevos datos para el personaje con id ${id} son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
 }
 
+
 async function remove(id){
     const characterIndex = character.findIndex(character=>character.Character_id === id);
     if( characterIndex === -1){
         return {error: "No se puede borrar el personaje que no existe"}
     }
     const deleteChacter = character.splice(characterIndex,1);
+    console.log(`Borramos el personaje con id ${id}`);
     return {data:deleteChacter};
-   // return `Borramos el personaje con id ${id}`;
+
 }
+
+/*
+async function remove(id) {
+    try {
+        const character = await characterModel.findByPk(id);
+        await character.destroy();
+        return {data:character};
+    } catch (error) {
+        console.error(error);
+        return {error}
+    }
+    
+}
+*/
 
 export {
     getAll,

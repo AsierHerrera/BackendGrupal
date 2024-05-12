@@ -86,7 +86,6 @@ li{
 
 .play-button, .btn-crear, .btn{
     background-color: #6d96f6; 
-   
   
     color: white; 
     border: none; 
@@ -137,6 +136,10 @@ li{
 
 .user-card form button.btn:hover {
     background-color: #517bc7;
+}
+
+.btn-personajes {
+    margin-right: 2vw;
 }
 
 /*estilos de las tajetas de selecionar raza*/
