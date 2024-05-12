@@ -3,14 +3,14 @@ extends ../layout
 block content 
     if error 
         p(class="error")= error
-    if usuario
-        form(action="/user/"+usuario.User_id, method="post") 
+    if user
+        form(action="/user/"+user.User_id, method="post") 
             label(for="Name") Nombre 
-            input(id="Name" type="text" name="Name" value=usuario.Name) 
+            input(id="Name" type="text" name="Name" value=user.Name) 
             label(for="Is_Admin") Es administrador?
-            input#Is_Admin(type="checkbox", name="Is_Admin" checked=usuario.Is_Admin ? true:false)
+            input#Is_Admin(type="checkbox", name="Is_Admin" checked=user.Is_Admin ? true:false)
             label(for="Email") Email
-            input#Email(type="text", name="Email" value=usuario.Email)              
+            input#Email(type="text", name="Email" value=user.Email)              
             label(for="Password") Password 
-            input(id="Password" type="text" name="Password" value=usuario.Password) 
+            input(id="Password" type="text" name="Password" value=user.Password) 
             button(type="submit") Guardar
