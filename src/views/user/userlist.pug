@@ -1,15 +1,17 @@
 extends ../layout
 
 block content
-    h1 lista de usuarios
-    if error 
-        p(class="error")= error
-    if data
-        ul
-            each usuario in data 
-                li
-                    a(href="/user/"+usuario.User_id)= usuario.Name
-                    a(href=`/user/${usuario.User_id}/update`) 
-                        button Editar
-                    form(action=`/user/${usuario.User_id}/remove`, method="post") 
-                        button(type="submit") Borrar
+    .container
+        h1 Lista de usuarios
+        if error 
+            p(class="error")= error
+        if data
+            ul
+                each usuario in data 
+                    li
+                        .user-card
+                            p= usuario.Name
+                            form(action=`/user/${usuario.User_id}/update`, method="get")
+                                button.btn(type="submit") Editar
+                            form(action=`/user/${usuario.User_id}/remove`, method="post")
+                                button.btn(type="submit") Borrar

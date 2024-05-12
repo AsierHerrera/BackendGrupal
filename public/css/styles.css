@@ -1,14 +1,140 @@
-/*
-body{
-    background-color: #A6A862;
+
+*{
+    margin: 0;
+    padding: 0;
+}   
+
+a{
+    text-decoration: none;
 }
 
-.layout-title{
-    background-color: #3F3521;
+h1
+{text-align: center;}
+
+li{
+    list-style: none;
 }
-*/
+.container {
+      
+        margin: 0 auto;
+        padding: 20px;
+    }
+        
 
 .btn-cancelar > a{
-    text-decoration: none;
+    /* text-decoration: none; */
     color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6d96f6; 
+    padding: 10px 20px; 
+}
+
+.nav-elements {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    font-size: 20px;
+    letter-spacing: 0.7px;
+   
+}
+
+.nav-elements li {
+    margin-right: 10px; 
+     padding: 10px;
+    border-radius: 5px;
+   
+}
+
+.nav-elements li:last-child {
+    margin-right: 0; 
+}
+
+
+.nav-elements li a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.nav-elements li:hover {
+    background-color: #517bc7;  
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.character-card {
+    background-color: #f4f4f4; 
+    border-radius: 8px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+     display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.character-card span {
+    font-size: 18px; 
+    margin-right: 10px;
+}
+
+
+.play-button, .btn-crear, .btn{
+    background-color: #6d96f6; 
+   
+  
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; /
+}
+
+.play-button:hover, .btn-crear:hover, .btn:hover {
+     background-color: #517bc7;   
+}
+
+
+.user-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card p {
+    margin-right: auto;
+}
+
+.user-card form {
+    display: flex;
+    align-items: center;
+}
+
+.user-card form button.btn {
+    background-color: #6d96f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.user-card form button.btn:last-child {
+    margin-right: 0; 
+    margin-left: 10px;
+}
+
+.user-card form button.btn:hover {
+    background-color: #517bc7;
 }

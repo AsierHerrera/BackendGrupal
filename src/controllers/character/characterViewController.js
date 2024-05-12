@@ -3,7 +3,8 @@ import raceModel from "../../models/raceModel.js";
 
 
 async function getAll (req, res){
-    const {error,data} = await characterController.getAll();
+    const id = req.session.user
+    const {error,data} = await characterController.getAll(id);
     res.render("character/list", {error,data});
 }
 
@@ -40,8 +41,10 @@ async function createFormMaps (req,res){
 
 async function create(req, res){
     const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.body;
+    const User_id = req.session.user
+    console.log("EL USUARIO ES:",User_id)
     //const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.query;
-    const{error,data} = await characterController.create({Name, Life_points, Hostile, Race_id, Map_id, Weapon_id});
+    const{error,data} = await characterController.create({Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id});
     res.redirect("/character");
 }
 

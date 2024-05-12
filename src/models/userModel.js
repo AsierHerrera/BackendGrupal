@@ -1,7 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-import characterModel from "./characterModel.js";
 
 const userModel = sequelize.define("User",
     {
@@ -31,19 +30,6 @@ const userModel = sequelize.define("User",
     }
 )
 
-characterModel.belongsToMany(userModel,
-    {
-        through:"User_has_Character",
-        as:"usuarios",
-        foreignKey:"User_id"
-    }
-);
-userModel.belongsToMany(characterModel,
-    {
-        through:"User_has_Character",
-        as:"personjaes",
-        foreignKey:"Character_id"
-    }
-);
+
 
 export default userModel;

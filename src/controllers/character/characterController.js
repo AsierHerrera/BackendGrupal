@@ -3,10 +3,21 @@ import characterModel from "../../models/characterModel.js";
 import raceModel from "../../models/raceModel.js";
 import mapModel from "../../models/mapModel.js";
 import weaponModel from "../../models/weaponModel.js";
+import { Op } from "sequelize";
 
-async function getAll() {
+
+async function getAll(id) {
     try {
-        const personajes = await characterModel.findAll({include:["arma","mapa","raza"]});
+        const personajes = await characterModel.findAll({ 
+            include:["arma","mapa","raza"], 
+            where: { 
+                [Op.or]: [
+                    { User_id: null },
+                    { User_id: id }
+                ]
+            } 
+        });        
+        console.log(personajes)
         return { data: personajes };
     }
     catch (error) {
@@ -115,7 +126,7 @@ async function getById(id){
 async function create(userData) {
     try {
         userData.Life_points = 100;
-        userData.Hostile = 0;
+        userData.Hostile = 0;        
         const newCharacter = await characterModel.create(userData);
          console.log("newCharacter:", newCharacter)
         return { data: newCharacter, error: null }; 

@@ -7,8 +7,12 @@ dotenv.config();
 
 const sessionData = {
     secret: process.env.SESSION_SECRET,
-    resave:true,
-    saveUninitialized:true,
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        secure:false,
+        maxAge: 60 * 60 * 1000
+    }
 }
 
 const app= express();

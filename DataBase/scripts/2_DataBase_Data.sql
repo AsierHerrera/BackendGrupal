@@ -50,3 +50,18 @@ INSERT INTO Map (Map_id, Name, Race_id) VALUES
 (2, 'Moria', 3),       -- Dwarf
 (3, 'Hogwarts', 4),    -- Wizard
 (4, 'Mordor', 5);      -- Orc
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (1, 'Aragorn', 100, 0, 1, 1, 1, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (2, 'Legolas', 100, 0, 2, 2, 6, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (3, 'Gimli', 100, 0, 3, 3, 13, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (4, 'Gandalf', 100, 0, 4, 4, 16, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (5, 'Adre', 100, 0, 5, 5, 24, NULL);
