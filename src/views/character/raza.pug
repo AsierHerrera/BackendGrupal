@@ -5,13 +5,18 @@ block content
     h2(class="layout-title") Crear Personaje
     if error 
       p(class="error")= error
-    form(action="/character/armas", method="get")
-      //- Menú desplegable para la raza
-      label(for="Race_id") Raza:
-      select(id="Race_id", name="Race_id")
-        each raza in razas 
-          option(value=raza.Race_id)= raza.Name
-      button.btn(type="submit") Continuar
+    h3(class="center") Elige una Raza:   
+    section(class="mostrar-tarjetas")  
+      each raza in razas 
+        div
+          p=raza.Name
+          p= "Hp: " + raza.Max_life 
+          p= "Id: " + raza.Race_id
+          form(action="/character/armas", method="get")
+            select(class="escondido", id="Race_id", name="Race_id")
+              option(value=raza.Race_id)= raza.Name
+            br
+            button.btn(type="submit") Continuar
     a(href="/character")
       button.btn Volver
 

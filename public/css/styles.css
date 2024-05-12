@@ -138,3 +138,37 @@ li{
 .user-card form button.btn:hover {
     background-color: #517bc7;
 }
+
+/*estilos de las tajetas de selecionar raza*/
+
+.escondido{
+    visibility: hidden;
+}
+
+.center{
+    text-align: center;
+}
+
+.mostrar-tarjetas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 5vh 0vw;
+}
+
+.mostrar-tarjetas div{
+    width: 12%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid #6d96f6;
+    border-radius: 10px;
+}
