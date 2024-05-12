@@ -47,22 +47,19 @@ async function updateForm(req, res) {
         res.render("user/userupdate",{error,user});
 
 }
+async function getById(req,res){
+    const id = parseInt(req.params.id);
+    const{error,data} = await userController.getById(id);
+    res.render("user/usershow", {error,user:data});
+}
 
 async function update(req, res) {
-    try {
         const id = parseInt(req.params.id);
         const { Name, Is_Admin, Email, Password, Password_repeat } = req.body;
-        const realIsAlive = Is_Admin === newUser.Is_Admin ? true : false;
-        const { error, data } = await userController.update(id, { Name, Is_Admin, Email, Password, Password_repeat });
-        if (error) {
-            res.status(500).send("Error al actualizar usuario");
-        } else {
-            res.redirect("/user");
-        }
-    } catch (error) {
-         res.status(500).send("Error interno del servidor");
+        const realIsAdmin = Is_Admin === "on"? 1 : 0;
+        const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password, Password_repeat });
+        res.redirec("/user");
     }
-}
 
 
 async function remove(req,res){
@@ -70,6 +67,7 @@ async function remove(req,res){
     const {error,data} = await userController.remove(id);
     res.redirect("/user");
 }
+
 export {
     register,
     registerForm,
@@ -77,6 +75,7 @@ export {
     loginForm,
     logout,
     getAll,
+    getById,
     updateForm,
     update,
     remove
@@ -89,6 +88,7 @@ export default {
     loginForm,
     logout,
     getAll,
+    getById,
     updateForm,
     update,
     remove
