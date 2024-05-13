@@ -12,8 +12,28 @@ async function getAll(id) {
             include:["arma","mapa","raza"], 
             where: { 
                 [Op.or]: [
-                    { User_id: null },
-                    { User_id: id }
+                    { User_id: id },
+                    {Hostile: 0}
+                ]
+            } 
+        });        
+        console.log(personajes)
+        return { data: personajes };
+    }
+    catch (error) {
+        console.error(error);
+        return { error: error };
+    }
+}
+
+async function getAllEnemy(id) {
+    try {
+        const personajes = await characterModel.findAll({ 
+            include:["arma","mapa","raza"], 
+            where: { 
+                [Op.or]: [
+                    { User_id: id },
+                    {Hostile: 1}
                 ]
             } 
         });        
@@ -182,12 +202,24 @@ async function remove(id) {
         console.error(error);
         return {error}
     }
+
+    try {
+        userData.Life_points = 100;
+        userData.Hostile = 0;        
+        const newCharacter = await characterModel.create(userData);
+        console.log("newCharacter:", newCharacter)
+        return { data: newCharacter, error: null }; 
+    } catch (error) {
+        console.error(error);
+        return {error}
+    }
     
 }
 */
 
 export {
     getAll,
+    getAllEnemy,
     getById,
     getWeaponByRace,
     getMapByRace,
@@ -202,6 +234,7 @@ export {
 
 export default {
     getAll,
+    getAllEnemy,
     getWeaponByRace,
     getMapByRace,
     getRaceIdByCharacterId,
