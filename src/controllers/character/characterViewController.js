@@ -41,7 +41,7 @@ async function createFormMaps (req,res){
 
 async function create(req, res){
     const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.body;
-    const User_id = req.session.user
+    const User_id = req.session.user.user_id
     console.log("EL USUARIO ES:",User_id)
     //const {Name, Life_points, Hostile, Race_id, Map_id, Weapon_id} = req.query;
     const{error,data} = await characterController.create({Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id});
