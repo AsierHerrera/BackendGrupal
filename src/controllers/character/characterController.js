@@ -192,31 +192,6 @@ async function remove(id){
 
 }
 
-/*
-async function remove(id) {
-    try {
-        const character = await characterModel.findByPk(id);
-        await character.destroy();
-        return {data:character};
-    } catch (error) {
-        console.error(error);
-        return {error}
-    }
-
-    try {
-        userData.Life_points = 100;
-        userData.Hostile = 0;        
-        const newCharacter = await characterModel.create(userData);
-        console.log("newCharacter:", newCharacter)
-        return { data: newCharacter, error: null }; 
-    } catch (error) {
-        console.error(error);
-        return {error}
-    }
-    
-}
-*/
-
 export {
     getAll,
     getAllEnemy,
