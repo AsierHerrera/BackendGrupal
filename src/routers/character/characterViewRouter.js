@@ -17,8 +17,9 @@ router.post("/create",characterViewController.create);
 router.get("/:id",characterViewController.getById);
 router.get("/:id/update",characterViewController.updateForm);
 router.post("/:id",characterViewController.update);
-//router.delete("/:id",characterViewController.remove);
+router.delete("/:id",characterViewController.remove);
 router.post("/:id/remove",characterViewController.remove);
+
 
 
 
