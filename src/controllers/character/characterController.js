@@ -13,7 +13,7 @@ async function getAll(id) {
             where: { 
                 [Op.or]: [
                     { User_id: id },
-                    {Hostile: 0}
+                    {User_id: null}
                 ]
             } 
         });        
@@ -37,7 +37,7 @@ async function getAllEnemy(id) {
                 ]
             } 
         });        
-        console.log(personajes)
+        //console.log(personajes)
         return { data: personajes };
     }
     catch (error) {
@@ -115,7 +115,7 @@ async function getMapByRace(Race_id) {
 async function getById(id) {
     try {
         const personaje = await characterModel.findByPk(id);
-        console.log(personaje)
+        //console.log(personaje)
         if (!personaje) {
             return { error: "El artista no existe" };
         }
@@ -148,7 +148,7 @@ async function create(userData) {
         userData.Life_points = 100;
         userData.Hostile = 0;        
         const newCharacter = await characterModel.create(userData);
-         console.log("newCharacter:", newCharacter)
+         //console.log("newCharacter:", newCharacter)
         return { data: newCharacter, error: null }; 
     } catch (error) {
         console.error(error);
@@ -157,7 +157,7 @@ async function create(userData) {
 }
 
 
-async function update(id,userData){
+/* async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
     const character= character.find(character=>character.Character_id === id);
     if (!character){
@@ -179,8 +179,8 @@ async function update(id,userData){
 
     //return `Los nuevos datos para el personaje con id ${id} son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
 }
-
-
+ */
+/* 
 async function remove(id){
     const characterIndex = character.findIndex(character=>character.Character_id === id);
     if( characterIndex === -1){
@@ -191,7 +191,7 @@ async function remove(id){
     return {data:deleteChacter};
 
 }
-
+ */
 /*
 async function remove(id) {
     try {
@@ -227,8 +227,8 @@ export {
     getweaponIdByCharacterId,
     getMapIdByCharacterId,
     create,
-    update,
-    remove
+/*     update,
+    remove */
 };
 
 
@@ -242,6 +242,6 @@ export default {
     getMapIdByCharacterId,
     getById,
     create,
-    update,
-    remove
+/*     update,
+    remove */
 };
