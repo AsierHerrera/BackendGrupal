@@ -22,14 +22,13 @@ async function registerForm(req,res){
 }
 async function register(req,res) {
     const {Name, Is_Admin, Email, Password, Password_repeat} = req.body;
-    try {
-        
-        const nuevouser = await userController.registerUser({Name, Is_Admin, Email, Password, Password_repeat})
-        console.log(nuevouser)
-        res.redirect("/user");
-    } catch (error) {
-        console.error(error);
-        res.render("user/singup",{error})
+    const {error,data} = await userController.registerUser({Name, Is_Admin, Email, Password, Password_repeat})
+    console.log("EL NUEVO USUARIO ES:",{error,data})
+    if(error){
+        res.render("user/singup",{error});
+    }
+    else{
+        res.redirect("/character");
     }
 }
 
@@ -39,8 +38,10 @@ async function logout(req,res){
 }
 
 async function getAll(req,res){
-    const {error,data} = await userController.getAll();
-    res.render("user/userlist",{error,data});;
+    const userData = req.session.user
+    console.log("LA USERDATA ES:", userData)
+    const {error,data} = await userController.getAll(userData);
+    res.render("user/userlist",{error,data});
 }
 
 async function updateForm(req, res) {
