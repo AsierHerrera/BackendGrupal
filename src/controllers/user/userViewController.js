@@ -13,7 +13,7 @@ async function login(req, res) {
     } else {
         req.session.user = data;
         console.log("LA DATA ES:",data)
-        res.redirect("/user"); // Redirige al usuario a la página de inicio después de iniciar sesión
+        res.redirect("/character"); // Redirige al usuario a la página de inicio después de iniciar sesión
     }
 }
 
