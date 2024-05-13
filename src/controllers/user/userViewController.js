@@ -57,12 +57,11 @@ async function getById(req,res){
 
 async function update(req, res) {
         const id = parseInt(req.params.id);
-        const { Name, Is_Admin, Email, Password, Password_repeat } = req.body;
+        const { Name, Is_Admin, Email, Password} = req.body;
         const realIsAdmin = Is_Admin === "on"? 1 : 0;
-        const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password, Password_repeat });
-        res.redirec("/user");
+        const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password});
+        res.redirect("/user");
     }
-
 
 async function remove(req,res){
     const id = parseInt(req.params.id);
