@@ -13,7 +13,7 @@ async function login(req, res) {
     } else {
         req.session.user = data;
         console.log("LA DATA ES:",data)
-        res.redirect("/user"); // Redirige al usuario a la página de inicio después de iniciar sesión
+        res.redirect("/character"); // Redirige al usuario a la página de inicio después de iniciar sesión
     }
 }
 
@@ -43,19 +43,33 @@ async function getAll(req,res){
     res.render("user/userlist",{error,data});;
 }
 
-async function updateForm(req,res){
+async function updateForm(req, res) {
+        const id = parseInt(req.params.id);
+        const { error, data: user } = await userController.getById(id);
+        res.render("user/userupdate",{error,user});
+
+}
+async function getById(req,res){
     const id = parseInt(req.params.id);
-    const {error,data:artist}= await artistController.getById(id);
-    res.render("artist/update",{error,artist});
+    const{error,data} = await userController.getById(id);
+    res.render("user/usershow", {error,user:data});
 }
 
-async function update(req,res){
+async function update(req, res) {
+        const id = parseInt(req.params.id);
+        const { Name, Is_Admin, Email, Password, Password_repeat } = req.body;
+        const realIsAdmin = Is_Admin === "on"? 1 : 0;
+        const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password, Password_repeat });
+        res.redirec("/user");
+    }
+
+
+async function remove(req,res){
     const id = parseInt(req.params.id);
-    const {name,is_alive,birth_date} = req.body;
-    const realIsAlive = is_alive === "on" ? 1 : 0;
-    const {error,data} = await artistController.update(id,{name,is_alive:realIsAlive,birth_date});
-    res.redirect("/artist");
+    const {error,data} = await userController.remove(id);
+    res.redirect("/user");
 }
+
 export {
     register,
     registerForm,
@@ -63,8 +77,10 @@ export {
     loginForm,
     logout,
     getAll,
+    getById,
     updateForm,
-    update
+    update,
+    remove
 }
 
 export default {
@@ -74,6 +90,8 @@ export default {
     loginForm,
     logout,
     getAll,
+    getById,
     updateForm,
-    update
+    update,
+    remove
 }

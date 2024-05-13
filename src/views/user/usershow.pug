@@ -3,10 +3,9 @@ extends ../layout
 block content
     if error 
         p(class="error")= error
-    if usuario 
-        h2= usuario.Name 
-        p Es administador: #{usuario.Is_Admin==1 ? 'si': 'no'} 
-        p= usuario.Email
+    if user  
+        h2= user.Name
+        p= user.Email
 
     a(href="/user")
         button Volver

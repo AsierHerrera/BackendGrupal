@@ -3,7 +3,7 @@ import raceModel from "../../models/raceModel.js";
 
 
 async function getAll (req, res){
-    const id = req.session.user
+    const id = req.session.user.user_id
     const {error,data} = await characterController.getAll(id);
     res.render("character/list", {error,data});
 }
