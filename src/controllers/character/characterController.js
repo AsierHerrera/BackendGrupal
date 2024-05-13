@@ -13,7 +13,7 @@ async function getAll(id) {
             where: { 
                 [Op.or]: [
                     { User_id: id },
-                    {Hostile: 0}
+                    {User_id: null}
                 ]
             } 
         });        

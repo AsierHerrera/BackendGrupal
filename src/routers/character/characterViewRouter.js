@@ -7,6 +7,7 @@ const router = Router();
 
 
 router.get("/",hasSession,characterViewController.getAll);
+router.get("/enemyList",characterViewController.getAllEnemy);
 
 router.get("/raza",characterViewController.createFormRace);
 router.get("/armas",characterViewController.createFormWeapon);
@@ -15,7 +16,7 @@ router.post("/create",characterViewController.create);
 router.get("/:id",characterViewController.getById);
 router.get("/:id/update",characterViewController.updateForm);
 router.post("/:id",characterViewController.update);
-router.post("/:id",characterViewController.remove);
+router.post("/:id/",characterViewController.remove);
 
 
 

@@ -8,6 +8,12 @@ async function getAll (req, res){
     res.render("character/list", {error,data});
 }
 
+async function getAllEnemy(req, res) {
+    const id = req.session.user.user_id
+    const {error,data} = await characterController.getAllEnemy(id);
+    res.render("character/enemyList", {error,enemy:data});
+}
+
 async function getById(req,res){
     const id = parseInt(req.params.id);
     const{error,data} = await characterController.getById(id);
@@ -74,6 +80,7 @@ async function crearpage(req,res){
 
 export {
     getAll,
+    getAllEnemy,
     getById,
     createFormRace,
     createFormWeapon,
@@ -87,6 +94,7 @@ export {
 
 export default{
     getAll,
+    getAllEnemy,
     getById,
     createFormRace,
     createFormWeapon,

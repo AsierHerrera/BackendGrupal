@@ -11,7 +11,7 @@ block content
         div
           p=raza.Name
           p= "Hp: " + raza.Max_life 
-          p= "Id: " + raza.Race_id
+          //- p= "Id: " + raza.Race_id
           form(action="/character/armas", method="get")
             select(class="escondido", id="Race_id", name="Race_id")
               option(value=raza.Race_id)= raza.Name
