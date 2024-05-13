@@ -2,7 +2,7 @@
 /* Limpiador que se encarga de limpiar las propiedades predefinidas de la pagina*/
 
 body{
-    background-image: url("/img/lord.jpeg");
+    background-image: url("/img/ring.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -38,7 +38,7 @@ p{
     text-align: center;
     padding: 0vh 10vw;
     font-size: 2vw;
-    background-color: rgb(9, 9, 9, 0.855);
+    background-color: rgb(9, 9, 9, 0.555);
      color: rgb(224, 220, 136);
 }
 
@@ -82,7 +82,7 @@ a{
 }
 
 label, h2{
-    background-color: rgb(9, 9, 9, 0.855);
+    background-color: rgb(9, 9, 9, 0.555);
      color: rgb(224, 220, 136);
 
 }
