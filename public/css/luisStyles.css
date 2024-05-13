@@ -2,6 +2,9 @@
 /* Limpiador que se encarga de limpiar las propiedades predefinidas de la pagina*/
 
 body{
+    background-image: url("/img/lord.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -13,8 +16,17 @@ body{
 }
 
 .layout-title{
-    color: darkgreen;
+    color:  #f6c46d; 
 }
+
+
+label, h2{
+   background-color: rgb(9, 9, 9);
+   padding: 10px;
+   border-radius: 10px;
+     color: rgb(224, 220, 136);
+}
+
 
 body > h1{
     text-align: center;
@@ -26,6 +38,8 @@ p{
     text-align: center;
     padding: 0vh 10vw;
     font-size: 2vw;
+    background-color: rgb(9, 9, 9, 0.855);
+     color: rgb(224, 220, 136);
 }
 
 div{
@@ -34,6 +48,7 @@ div{
     flex-wrap: nowrap;
     align-items: center;
     font-size: 1.5vw;
+     text-align: center; 
 }
 
 div > p{
@@ -45,21 +60,40 @@ div > input{
 }
 
 button{
-    background-color: rgba(144, 238, 144, 0.855);
-    border-color: green;
+    background-color: rgba(239, 73, 23, 0.855);
+
     border-radius: 8px;
-    padding: 1vh 1vw;
+    padding: 10px;
     font-size: 70%;
     color: white;
     font-weight: bold;
+     margin-top: 10px; 
+     margin-bottom: 10px;
 }
 
 button:hover{
     cursor: pointer;
-    background-color: rgba(144, 238, 144, 1);
+    background-color: rgb(232, 141, 99);
 }
 
 a{
     text-decoration: none;
     color: white;
+}
+
+label, h2{
+    background-color: rgb(9, 9, 9, 0.855);
+     color: rgb(224, 220, 136);
+
+}
+
+input{
+    background-color: rgba(231, 227, 209, 0.855);
+    border-color: rgb(14, 14, 15);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 70%;
+    color: rgb(13, 13, 13);
+    font-weight: bold;
+
 }

@@ -1,24 +1,19 @@
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Inicio de Sesión
-    link(rel="stylesheet", href="/css/styles.css")
-  body      
-    .container
-      h1= name
-      h2(class="layout-title")  Crear Personaje
-      if error 
+extends ../layout
+
+block content
+  .container
+    h1= name
+    h2(class="layout-title") Crear Personaje
+    if error 
       p(class="error")= error
-      form(action="/character/mapa", method="get")
-        input(type="hidden" value=nombre name="Name")
-        input(type="hidden" value=race name="Race_id")
-        label(for="Weapon_id") Arma:
-        select(id="Weapon_id", name="Weapon_id")
-            each arma in armas 
-              option(value=arma.Weapon_id)= arma.Name
-        button Continuar 
+    form(action="/character/mapa", method="get")
+      input(type="hidden", value=nombre, name="Name")
+      input(type="hidden", value=race, name="Race_id")
+      label(for="Weapon_id") Arma:
+      select(id="Weapon_id", name="Weapon_id")
+        each arma in armas 
+          option(value=arma.Weapon_id)= arma.Name
+      button.btn(type="submit") Continuar
 
     a(href="/character/raza")
-      button Volver 
-
+      button.btn Volver 

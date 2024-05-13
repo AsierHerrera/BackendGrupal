@@ -1,31 +1,23 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Crear Personaje
-    link(rel="stylesheet", href="/css/styles.css")
+extends ../layout
 
-  body      
-
-
-    .container
-      h1= name
-      h2(class="layout-title") Crear Personaje
-      if error 
+block content
+  .container
+    h1= name
+    h2(class="layout-title") Crear Personaje
+    if error 
       p(class="error")= error
-      form(action="/character/create", method="post")
-        input(id="raza-id", type="hidden", name="Race_id", value=race)
-        input(type="hidden", name="Weapon_id", value=weapon)
-        label(for="Map_id") Mapa:
-        select(id="Map_id", name="Map_id")
-            each mapa in mapas 
-              option(value=mapa.Map_id)= mapa.Name
-        label(for="Name") Nombre:
-        input(type="text", id="Name", name="Name")
-        button(type="submit") Comenzar
+    form(action="/character/create", method="post")
+      input(type="hidden", id="raza-id", name="Race_id", value=race)
+      input(type="hidden", name="Weapon_id", value=weapon)
+      label(for="Map_id") Mapa:
+      select(id="Map_id", name="Map_id")
+        each mapa in mapas 
+          option(value=mapa.Map_id)= mapa.Name
+      label(for="Name") Nombre:
+      input(type="text", id="Name", name="Name")
+      button.btn(type="submit") Comenzar
       
-      a(id="btn-volver")
-        button Volver 
-  
-script(src='/scripts/obtenerId.js')  
+    a#btn-volver(href="/character/raza")
+      button.btn Volver 
+
+  script(src='/scripts/obtenerId.js')

@@ -16,6 +16,7 @@ async function getAll() {
 async function getById(id) {
     try {
         const user = await userModel.findByPk(id);
+        //console.log("EL USUARIO ES:", user)
         if (!user) {
             return { error: "El user no existe" };
         }
@@ -27,7 +28,28 @@ async function getById(id) {
     }
 
 }
-
+// async function getUserNameByUserId(User_id) {
+//     try {
+//         const user = await userModel.findOne({ where: { user_id: User_id } });      
+//         if (user) {
+//             return user.Name;
+//         } 
+//     } catch (error) {
+//         console.error("Error al obtener el nombre de usuario:", error);
+//         return null; // Manejar el error devolviendo un valor predeterminado
+//     }
+// }
+// async function getUserEmailByUserId(User_id) {
+//     try {
+//         const user = await userModel.findOne({ where: { user_id: User_id } });      
+//         if (user) {
+//             return user.Email;
+//         } 
+//     } catch (error) {
+//         console.error("Error al obtener el email de usuario:", error);
+//         return null; // Manejar el error devolviendo un valor predeterminado
+//     }
+// }
 async function create(userData) {
     try {
         const newuser = await userModel.create(userData);
@@ -129,15 +151,8 @@ async function getByEmail(Email){
 
 async function update(id, userData) {
     try {
-        const newuser = await userModel.update(userData,
-            {
-                where: 
-                {
-                    user_id:id
-                }
-            }
-        );
-        return {data:newuser};
+        const usuario = await userModel.update(userData,{where: {User_id:id}});
+        return {data:usuario};
     } catch (error) {
         console.error(error);
         return {error}
@@ -147,10 +162,12 @@ async function update(id, userData) {
 
 async function remove(id) {
     try {
-        const result = await userModel.remove(id);
+        const result = await userModel.findByPk(id);
+        await result.destroy();
         return {data:result};
     } catch (error) {
         console.error(error);
+        return{error}
     }
     
 }
@@ -158,7 +175,8 @@ async function remove(id) {
 export {
     getAll,
     getById,
-    getByEmail,
+    // getUserNameByUserId,
+    // getUserEmailByUserId,
     login,
     registerUser,
     create,
@@ -170,7 +188,8 @@ export {
 export default {
     getAll,
     getById,
-    getByEmail,
+    // getUserNameByUserId,
+    // getUserEmailByUserId,
     login,
     registerUser,
     create,
