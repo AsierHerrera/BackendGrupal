@@ -13,5 +13,5 @@ block content
                             p= usuario.Name
                             form(action=`/user/${usuario.User_id}/update`, method="get")
                                 button.btn(type="submit") Editar
-                            form(action=`/user/${usuario.User_id}/remove`, method="post")
+                            form(action=`/user/${usuario.User_id}/remove`, method="post" onsubmit="return confirm('R U sure?');")
                                 button.btn(type="submit") Borrar
