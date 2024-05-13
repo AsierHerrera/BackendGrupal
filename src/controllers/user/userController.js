@@ -28,28 +28,7 @@ async function getById(id) {
     }
 
 }
-// async function getUserNameByUserId(User_id) {
-//     try {
-//         const user = await userModel.findOne({ where: { user_id: User_id } });      
-//         if (user) {
-//             return user.Name;
-//         } 
-//     } catch (error) {
-//         console.error("Error al obtener el nombre de usuario:", error);
-//         return null; // Manejar el error devolviendo un valor predeterminado
-//     }
-// }
-// async function getUserEmailByUserId(User_id) {
-//     try {
-//         const user = await userModel.findOne({ where: { user_id: User_id } });      
-//         if (user) {
-//             return user.Email;
-//         } 
-//     } catch (error) {
-//         console.error("Error al obtener el email de usuario:", error);
-//         return null; // Manejar el error devolviendo un valor predeterminado
-//     }
-// }
+
 async function create(userData) {
     try {
         const newuser = await userModel.create(userData);
@@ -175,8 +154,6 @@ async function remove(id) {
 export {
     getAll,
     getById,
-    // getUserNameByUserId,
-    // getUserEmailByUserId,
     login,
     registerUser,
     create,
@@ -188,8 +165,6 @@ export {
 export default {
     getAll,
     getById,
-    // getUserNameByUserId,
-    // getUserEmailByUserId,
     login,
     registerUser,
     create,
