@@ -127,12 +127,14 @@ li{
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px; 
+      margin-left: 10px;
 }
 
-.user-card form button.btn:last-child {
+/* .user-card form button.btn:last-child {
     margin-right: 0; 
     margin-left: 10px;
-}
+} */
+
 
 .user-card form button.btn:hover {
     background-color: #517bc7;
@@ -170,4 +172,78 @@ li{
     font-weight: bold;
     border: 2px solid #6d96f6;
     border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.checkbox{
+    margin-left: 10px;
+}
+
+.confirmation-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.confirmation-modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.confirmation-modal-content p {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#searchInput {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-sizing: border-box;
+    font-size: 16px; 
+    background-color: #fff; 
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+#searchInput::placeholder {
+    color: #999; 
+}
+
+
+#searchInput:focus {
+    outline: none; 
+    border-color: #6d96f6;
 }

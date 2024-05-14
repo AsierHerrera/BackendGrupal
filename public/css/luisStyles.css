@@ -16,12 +16,13 @@ body{
 }
 
 .layout-title{
-    color:  #f6c46d; 
+    
+    color:  #6d96f6; 
 }
 
 
 label, h2{
-   background-color: rgb(9, 9, 9);
+   background-color: rgb(9, 9, 9, 0.5);
    padding: 10px;
    border-radius: 10px;
      color: rgb(224, 220, 136);
@@ -38,8 +39,8 @@ p{
     text-align: center;
     padding: 0vh 10vw;
     font-size: 2vw;
-    background-color: rgb(9, 9, 9, 0.555);
-     color: rgb(224, 220, 136);
+ background-color: rgb(9, 9, 9, 0.5);
+     color: #dcdfe3; 
 }
 
 div{
@@ -60,8 +61,8 @@ div > input{
 }
 
 button{
-    background-color: rgba(239, 73, 23, 0.855);
-
+    /* background-color: rgba(239, 73, 23, 0.855); */
+  background-color: #6d96f6; 
     border-radius: 8px;
     padding: 10px;
     font-size: 70%;
@@ -73,7 +74,8 @@ button{
 
 button:hover{
     cursor: pointer;
-    background-color: rgb(232, 141, 99);
+    /* background-color: rgb(232, 141, 99); */
+        background-color: #517bc7;   
 }
 
 a{
@@ -83,7 +85,7 @@ a{
 
 label, h2{
     background-color: rgb(9, 9, 9, 0.555);
-     color: rgb(224, 220, 136);
+      color: #dcdfe3; 
 
 }
 
