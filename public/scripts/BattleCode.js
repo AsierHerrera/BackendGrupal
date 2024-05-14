@@ -13,6 +13,23 @@ class character {
     constructor(nombre_personaje, raza, vida_inicial, nombre_arma, daño_arma, precision_arma) {
         this.nombre_personaje = nombre_personaje;
         this.raza = raza;
+        this.imagen = "";
+        switch (raza) {
+            case "Human":
+                this.imagen = "Sprite_" + raza + ".png";
+                break;
+            case "Elf":
+                this.imagen = "Sprite_" + raza + ".png";
+                break;
+            case "Dwarf":
+                this.imagen = "Sprite_" + raza + ".png";
+                break;
+            case "Wizard":
+                this.imagen = "Sprite_" + raza + ".png";
+                break;   
+            case "Orc":
+                this.imagen = "Sprite_" + raza + ".png";
+        }
         this.vida_inicial = vida_inicial;
         this.vida_actual = vida_inicial;
         this.nombre_arma = nombre_arma;
@@ -67,10 +84,16 @@ function addLine(parent, son) {
 
 function Battle(){
     let turnos = 0;
+    // seleccionando elementos de la pagina para cambiar su informacion de forma dinamica
     let pantalla = document.getElementById();
     let mostrarVidaJugador = document.getElementById();
     let mostrarVidaEnemigo = document.getElementById();
     let mostrarTurnos = document.getElementById();
+    let spriteJugador = document.getElementById();
+    spriteJugador.src = "" + jugador.imagen;
+    let spriteEnemigo = document.getElementById();
+    spriteEnemigo.src = "" + enemigo.imagen;
+
     while (jugador.vida_actual > 0 || enemigo.vida_actual > 0) {
         mostrarTurnos.innerText = "El numero de turnos es: " + turnos;
 
