@@ -140,6 +140,7 @@ function Battle(){
         ganador = enemigo.nombre_personaje;
     }
 
-    
+    let mostrarVictoria = document.getElementById();
+    mostrarVictoria.innerText = "El ganador es: " + ganador;
 }
 
