@@ -14,10 +14,9 @@ block content
                             p=character.Name
                             p= "Raza: " + character.raza.Name
                             p= "Arma: " + character.arma.Name
-                            a(href=`/character/${character.Character_id}`)
+                            a(href=`/character/enemyList/${character.Character_id}`)
                                 button.play-button Jugar
-                    
-                                 
+                            form(action=`/character/${character.Character_id}/remove`, method="post" onsubmit="return confirm('R U sure?');")
+                                button.btn(type="submit") Borrar                 
                 a(href="./character/raza")
                     button.btn-crear Crear personaje
-

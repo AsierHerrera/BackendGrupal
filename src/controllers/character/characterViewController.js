@@ -9,6 +9,12 @@ async function getAll (req, res){
     res.render("character/list", {error,data});
 }
 
+async function getAllEnemy(req, res) {
+    const id = req.session.user.user_id
+    const {error,data} = await characterController.getAllEnemy(id);
+    res.render("character/enemyList", {error,enemy:data});
+}
+
 async function getById(req,res){
     const id = parseInt(req.params.id);
     const{error,data} = await characterController.getById(id);
@@ -49,25 +55,26 @@ async function create(req, res){
     res.redirect("/character");
 }
 
-async function updateForm (req,res){
-    const id= req.params.id;
-    const character = await characterController.getById(id);
-    res.render("character/update",{character});
-}
+// async function updateForm (req,res){
+//     const id= req.params.id;
+//     const character = await characterController.getById(id);
+//     res.render("character/update",{character});
+// }
 
-/* async function update(req, res){
-    const id = parseInt(req.params.id);
-    const {Name, Hostile, Race_id} = req.query;
-    const{error,data} = await characterController.update(id,{Name, Hostile, Race_id});
-    res.redirect("/character");
-}
+//  async function update(req, res){
+//     const id = parseInt(req.params.id);
+//     const {Name, Hostile, Race_id} = req.query;
+//     const{error,data} = await characterController.update(id,{Name, Hostile, Race_id});
+//     res.redirect("/character");
+// }
+
 
 async function remove(req, res){
     const id = parseInt(req.params.id);
     const{error,data} = await characterController.remove(id);
     res.redirect("/character");
 
-} */
+} 
 
 async function crearpage(req,res){
     res.render("login/login");
@@ -75,26 +82,28 @@ async function crearpage(req,res){
 
 export {
     getAll,
+    getAllEnemy,
     getById,
     createFormRace,
     createFormWeapon,
     createFormMaps,
     create,
-    updateForm,
-/*     update,
-    remove, */
+    // updateForm,
+    // update,
+    remove,
     crearpage
 };
 
 export default{
     getAll,
+    getAllEnemy,
     getById,
     createFormRace,
     createFormWeapon,
     createFormMaps,
     create,
-    updateForm,
-/*     update,
-    remove, */
+    // updateForm,
+    // update,
+    remove,
     crearpage
 }

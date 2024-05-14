@@ -9,7 +9,7 @@ block content
         if data
             .container
                 section(class="mostrar-tarjetas")  
-                    each character in data  
+                    each enemy in data  
                         div
                             p=character.Name
                             p= "Raza: " + character.raza.Name

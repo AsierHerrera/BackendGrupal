@@ -15,7 +15,7 @@ router.post("/logout",userViewController.logout);
 router.get("/:id",userViewController.getById);
 router.get("/:id/update",userViewController.updateForm);
 router.post("/:id",userViewController.update);
-router.post("/:id/remove",userViewController.remove);
+router.post("/:id/",userViewController.remove);
 
 
 export default router;
