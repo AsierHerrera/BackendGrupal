@@ -77,3 +77,18 @@ VALUES (4, 'Gandalf', 100, 0, 4, 4, 16, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
 VALUES (5, 'Adre', 100, 0, 5, 5, 24, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (6, 'Aragorn Malvado', 100, 1, 1, 1, 1, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (7, 'Legolas Malvado', 100, 1, 2, 2, 6, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (8, 'Gimli Malvado', 100, 1, 3, 3, 13, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (9, 'Gandalf Malvado', 100, 1, 4, 4, 16, NULL);
+
+INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
+VALUES (10, 'Adre Malvado', 100, 1, 5, 5, 24, NULL);
