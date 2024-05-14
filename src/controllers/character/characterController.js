@@ -154,9 +154,9 @@ async function create(userData) {
 
 async function remove(id) {
     try {
-        const result = await characterModel.findByPk(id);
-        await result.destroy();
-        return {data:result};
+        const character = await characterModel.findByPk(id);
+        await character.destroy();
+        return {data:character};
     } catch (error) {
         console.error(error);
         return{error}
