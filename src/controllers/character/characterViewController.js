@@ -55,25 +55,26 @@ async function create(req, res){
     res.redirect("/character");
 }
 
-async function updateForm (req,res){
-    const id= req.params.id;
-    const character = await characterController.getById(id);
-    res.render("character/update",{character});
-}
+// async function updateForm (req,res){
+//     const id= req.params.id;
+//     const character = await characterController.getById(id);
+//     res.render("character/update",{character});
+// }
 
-/* async function update(req, res){
-    const id = parseInt(req.params.id);
-    const {Name, Hostile, Race_id} = req.query;
-    const{error,data} = await characterController.update(id,{Name, Hostile, Race_id});
-    res.redirect("/character");
-}
+//  async function update(req, res){
+//     const id = parseInt(req.params.id);
+//     const {Name, Hostile, Race_id} = req.query;
+//     const{error,data} = await characterController.update(id,{Name, Hostile, Race_id});
+//     res.redirect("/character");
+// }
+
 
 async function remove(req, res){
     const id = parseInt(req.params.id);
     const{error,data} = await characterController.remove(id);
     res.redirect("/character");
 
-} */
+} 
 
 async function crearpage(req,res){
     res.render("login/login");
@@ -87,9 +88,9 @@ export {
     createFormWeapon,
     createFormMaps,
     create,
-    updateForm,
-/*     update,
-    remove, */
+    // updateForm,
+    // update,
+    remove,
     crearpage
 };
 
@@ -101,8 +102,8 @@ export default{
     createFormWeapon,
     createFormMaps,
     create,
-    updateForm,
-/*     update,
-    remove, */
+    // updateForm,
+    // update,
+    remove,
     crearpage
 }

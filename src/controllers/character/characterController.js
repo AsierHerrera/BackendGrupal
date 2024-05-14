@@ -128,21 +128,6 @@ async function getById(id) {
 
 }
 
-
-/* async function getAll(){
-    return {data:character};
-    //return "Mostramos todos los character";
-}
-
-async function getById(id){
-    const character = character.find(character=>character.Character_id === id);
-    if (!character){
-        return {error: "El personaje no exite"};
-    }
-    return{data:character};
-
-    //return `Mostramos el personaje con id ${id}`;
-} */
 async function create(userData) {
     try {
         userData.Life_points = 100;
@@ -155,7 +140,16 @@ async function create(userData) {
         return {error}
     }
 }
-
+// async function update(id, userData) {
+//     try {
+//         const personaje = await characterModel.update(characterData,{where: {Character_id:id}});
+//         return {data:personaje};
+//     } catch (error) {
+//         console.error(error);
+//         return {error}
+//     }
+   
+// }
 
 /* async function update(id,userData){
     const {Name,Race, Character_id, Hostile, Race_id} = userData;
@@ -180,6 +174,17 @@ async function create(userData) {
     //return `Los nuevos datos para el personaje con id ${id} son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
 }
  */
+async function remove(id) {
+    try {
+        const result = await characterModel.findByPk(id);
+        await result.destroy();
+        return {data:result};
+    } catch (error) {
+        console.error(error);
+        return{error}
+    }
+    
+}
 /* 
 async function remove(id){
     const characterIndex = character.findIndex(character=>character.Character_id === id);
@@ -227,8 +232,8 @@ export {
     getweaponIdByCharacterId,
     getMapIdByCharacterId,
     create,
-/*     update,
-    remove */
+    // update,
+    remove
 };
 
 
@@ -242,6 +247,6 @@ export default {
     getMapIdByCharacterId,
     getById,
     create,
-/*     update,
-    remove */
+    // update,
+    remove
 };
