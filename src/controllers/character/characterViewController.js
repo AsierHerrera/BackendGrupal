@@ -12,7 +12,7 @@ async function getAll (req, res){
 async function getAllEnemy(req, res) {
     const id = req.session.user.user_id
     const {error,data} = await characterController.getAllEnemy(id);
-    res.render("character/enemyList", {error,enemy:data});
+    res.render("character/enemyList", {error,data});
 }
 
 async function getById(req,res){

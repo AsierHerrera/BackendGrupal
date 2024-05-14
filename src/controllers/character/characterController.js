@@ -12,8 +12,13 @@ async function getAll(id) {
             include:["arma","mapa","raza"], 
             where: { 
                 [Op.or]: [
-                    { User_id: id },
-                    {User_id: null}
+                    {User_id: id },
+                    {
+                        [Op.and]: [
+                            { User_id: null },
+                            { Hostile: 0 }
+                        ]
+                    }
                 ]
             } 
         });        
@@ -28,23 +33,20 @@ async function getAll(id) {
 
 async function getAllEnemy(id) {
     try {
-        const personajes = await characterModel.findAll({ 
-            include:["arma","mapa","raza"], 
-            where: { 
-                [Op.or]: [
-                    { User_id: id },
-                    {Hostile: 1}
-                ]
-            } 
-        });        
-        //console.log(personajes)
-        return { data: personajes };
+        const enemies = await characterModel.findAll({ 
+            include: ["arma", "mapa", "raza"],
+            where: { Hostile: 1 } 
+        }); 
+               
+        //console.log(enemies)
+        return { data: enemies };
     }
     catch (error) {
         console.error(error);
         return { error: error };
     }
 }
+
 
 async function getRaceIdByCharacterId(Character_id) {
     const name = await characterModel.findOne({ where: { Character_id: Character_id } }); 
@@ -139,6 +141,29 @@ async function create(userData) {
         console.error(error);
         return {error}
     }
+}
+// async function update(id, userData) {
+//     try {
+//         const personaje = await characterModel.update(characterData,{where: {Character_id:id}});
+//         return {data:personaje};
+//     } catch (error) {
+//         console.error(error);
+//         return {error}
+//     }
+   
+// }
+
+
+async function remove(id) {
+    try {
+        const character = await characterModel.findByPk(id);
+        await character.destroy();
+        return {data:character};
+    } catch (error) {
+        console.error(error);
+        return{error}
+    }
+    
 }
 
 

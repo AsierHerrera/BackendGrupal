@@ -174,9 +174,9 @@ async function update(id, userData) {
 
 async function remove(id) {
     try {
-        const result = await userModel.findByPk(id);
-        await result.destroy();
-        return {data:result};
+        const usuario = await userModel.findByPk(id);
+        await usuario.destroy();
+        return {data:usuario};
     } catch (error) {
         console.error(error);
         return{error}
