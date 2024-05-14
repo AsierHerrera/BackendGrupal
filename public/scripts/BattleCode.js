@@ -14,21 +14,27 @@ class character {
         this.nombre_personaje = nombre_personaje;
         this.raza = raza;
         this.imagen = "";
+        this.imagen_Atacando = "";
         switch (raza) {
             case "Human":
                 this.imagen = "Sprite_" + raza + ".png";
+                this.imagen_Atacando = "Sprite_" + raza + "Attack.png";
                 break;
             case "Elf":
                 this.imagen = "Sprite_" + raza + ".png";
+                this.imagen_Atacando = "Sprite_" + raza + "Attack.png";
                 break;
             case "Dwarf":
                 this.imagen = "Sprite_" + raza + ".png";
+                this.imagen_Atacando = "Sprite_" + raza + "Attack.png";
                 break;
             case "Wizard":
                 this.imagen = "Sprite_" + raza + ".png";
+                this.imagen_Atacando = "Sprite_" + raza + "Attack.png";
                 break;   
             case "Orc":
                 this.imagen = "Sprite_" + raza + ".png";
+                this.imagen_Atacando = "Sprite_" + raza + "Attack.png";
         }
         this.vida_inicial = vida_inicial;
         this.vida_actual = vida_inicial;
