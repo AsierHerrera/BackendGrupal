@@ -2,16 +2,46 @@ import userModel from "../../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-async function getAll() {
+async function getAll(userData) {
     try {
-        const users = await userModel.findAll();
-        return { data: users };
+        if (userData.esAdmin == 1) {
+            const users = await userModel.findAll();
+            console.log("LOS USUARIOS MOSTRADOS SIENDO ADMIN SON:", users)
+            return { data: users };
+        }
+        if (userData.esAdmin == 0) {
+            const user = await userModel.findOne({ where: { User_id: userData.user_id } });
+            console.log("LOS USUARIOS MOSTRADOS SIENDO USUARIO SON:", user)
+            return { data: [user] };
+        }        
     }
     catch (error) {
         console.error(error);
         return { error: error };
     }
 }
+
+
+// async function getAll(req, res) {
+//     try {
+//         let users = await userModel.findAll();
+
+//         // Фільтрація користувачів на сервері за допомогою параметра пошуку, який приходить з клієнта
+//         const searchText = req.query.searchText.toLowerCase();
+//         if (searchText) {
+//             users = users.filter(user => user.Name.toLowerCase().includes(searchText));
+//         }
+
+//         // Передайте об'єкт відповіді у функцію рендерингу
+//         res.render("user/userlist", { data: users });
+//     } catch (error) {
+//         console.error(error);
+//         // Передайте об'єкт відповіді у функцію рендерингу для відображення помилки
+//         res.render("user/userlist", { error: error });
+//     }
+// }
+
+
 
 async function getById(id) {
     try {
@@ -49,30 +79,32 @@ async function registerUser(userData) {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/*         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailRegex.test(Email)) {
             console.log("El correo electrónico es válido");
         } else {
             console.log("El correo electrónico no es válido");
         }
         // Regular expression for password validation
-/*         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         if (!passwordRegex.test(Password)) {
             return {error:"La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número."};                       
         } */
         const {data:oldUser} = await getByEmail(Email);
-        //console.log("old user",oldUser)
+        console.log("old user",oldUser)
         if(oldUser){
             return {error:"el usuario ya existe"};
         }
         const hash = await bcrypt.hash(Password,10);
         const maxIdResult = await userModel.findOne({attributes: ['User_id'], order: [['User_id', 'DESC']]});
-                
+        console.log("EL ID MAXIMO ES:",maxIdResult)
+
         let maxUserId = null;
         
         if (maxIdResult) {
             maxUserId = maxIdResult.dataValues.User_id +1;
         }
+        console.log("EL ID ASIGNADO ES:", maxUserId)
         const nuevoUser = {
             Name,
             User_id: maxUserId,
@@ -103,6 +135,7 @@ async function login(Email, Password) {
         const result = await bcrypt.compare(Password, oldUser.Password);
         if (result) {
             const token = jwt.sign({id:oldUser.user_id,email:oldUser.email},process.env.JWT_SECRET,{expiresIn: 60 * 60})
+            console.log("EL TOKEN ES:", token)
             const user_id = oldUser.User_id;
             const esAdmin = oldUser.Is_Admin;
             //console.log("LOS DATOS SON", { user_id, esAdmin, token }); 

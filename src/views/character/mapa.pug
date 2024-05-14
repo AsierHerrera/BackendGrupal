@@ -11,7 +11,7 @@ block content
       each mapa in mapas 
         div
           p=mapa.Name
-          p= "Id: " + mapa.Map_id
+          //- p= "Id: " + mapa.Map_id
           form(action="/character/create", method="post")                
             label(for="Name") Nombre:
             input(type="text", id="Name", name="Name")

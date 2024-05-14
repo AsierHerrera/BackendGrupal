@@ -13,7 +13,7 @@ async function getAll(id) {
             where: { 
                 [Op.or]: [
                     { User_id: id },
-                    {Hostile: 0}
+                    {User_id: null}
                 ]
             } 
         });        
@@ -37,7 +37,7 @@ async function getAllEnemy(id) {
                 ]
             } 
         });        
-        console.log(personajes)
+        //console.log(personajes)
         return { data: personajes };
     }
     catch (error) {
@@ -115,7 +115,7 @@ async function getMapByRace(Race_id) {
 async function getById(id) {
     try {
         const personaje = await characterModel.findByPk(id);
-        console.log(personaje)
+        //console.log(personaje)
         if (!personaje) {
             return { error: "El artista no existe" };
         }
@@ -128,27 +128,12 @@ async function getById(id) {
 
 }
 
-
-/* async function getAll(){
-    return {data:character};
-    //return "Mostramos todos los character";
-}
-
-async function getById(id){
-    const character = character.find(character=>character.Character_id === id);
-    if (!character){
-        return {error: "El personaje no exite"};
-    }
-    return{data:character};
-
-    //return `Mostramos el personaje con id ${id}`;
-} */
 async function create(userData) {
     try {
         userData.Life_points = 100;
         userData.Hostile = 0;        
         const newCharacter = await characterModel.create(userData);
-         console.log("newCharacter:", newCharacter)
+         //console.log("newCharacter:", newCharacter)
         return { data: newCharacter, error: null }; 
     } catch (error) {
         console.error(error);
@@ -156,41 +141,6 @@ async function create(userData) {
     }
 }
 
-
-async function update(id,userData){
-    const {Name,Race, Character_id, Hostile, Race_id} = userData;
-    const character= character.find(character=>character.Character_id === id);
-    if (!character){
-        return {error: "El personaje no se puede modificar, no existe"};
-    }
-    if(Name){
-        character.Name = Name;
-    }
-    if(Character_id){
-        character.Character_id = Character_id
-    }
-    if(Hostile != null & Hostile != undefined){
-        character.Hostile = Hostile
-    }
-    if(Race_id){
-        character.Race_id = map.Race_id
-    }
-    return{data:character};
-
-    //return `Los nuevos datos para el personaje con id ${id} son: nombre:${Name}, raza: ${Race}, id del arma : ${Hostile}, mapa ${Race_id}`;
-}
-
-
-async function remove(id){
-    const characterIndex = character.findIndex(character=>character.Character_id === id);
-    if( characterIndex === -1){
-        return {error: "No se puede borrar el personaje que no existe"}
-    }
-    const deleteChacter = character.splice(characterIndex,1);
-    console.log(`Borramos el personaje con id ${id}`);
-    return {data:deleteChacter};
-
-}
 
 export {
     getAll,
@@ -202,7 +152,7 @@ export {
     getweaponIdByCharacterId,
     getMapIdByCharacterId,
     create,
-    update,
+    // update,
     remove
 };
 
@@ -217,6 +167,6 @@ export default {
     getMapIdByCharacterId,
     getById,
     create,
-    update,
+    // update,
     remove
 };
