@@ -6,6 +6,7 @@ block content
         if error 
             p(class="error")= error
         if data
+            input#searchInput(type="text", placeholder="Buscar", oninput="filterUsers()")
             ul
                 each usuario in data 
                     li
@@ -13,5 +14,40 @@ block content
                             p= usuario.Name
                             form(action=`/user/${usuario.User_id}/update`, method="get")
                                 button.btn(type="submit") Editar
-                            form(action=`/user/${usuario.User_id}/remove`, method="post" onsubmit="return confirm('R U sure?');")
-                                button.btn(type="submit") Borrar
+                            form(id=`deleteForm_${usuario.User_id}`, action=`/user/${usuario.User_id}/remove`, method="post" onsubmit="return showConfirmationModal(this)")
+                                button.btn(type="button" class="delete-button" onclick="showConfirmationModal(this)") Borrar
+                                .confirmation-modal(style="display: none;")
+                                    .confirmation-modal-content
+                                        p Are you sure you want to delete this user?
+                                        button.confirm-delete-button-confirm.btn(type="button" onclick="confirmDelete(this)") Confirm
+                                        button.confirm-delete-button-cancel.btn(type="button" onclick="cancelDelete(this)") Cancel
+
+    block scripts
+        script.
+            function showConfirmationModal(button) {
+                const modal = button.closest('.user-card').querySelector('.confirmation-modal');
+                modal.style.display = 'block';
+            }
+
+            function confirmDelete(button) {
+                const form = button.closest('form');
+                form.submit();
+            }
+
+            function cancelDelete(button) {
+                const modal = button.closest('.confirmation-modal');
+                modal.style.display = 'none';
+                return false;
+            }
+           function filterUsers() {
+                const searchText = document.getElementById('searchInput').value.toLowerCase(); 
+                const userCards = document.querySelectorAll('.user-card'); 
+                userCards.forEach(card => {
+                    const userName = card.querySelector('p').textContent.toLowerCase(); 
+                    if (userName.includes(searchText)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden'); 
+                    }
+                });
+            }

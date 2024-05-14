@@ -13,6 +13,28 @@ async function getAll() {
     }
 }
 
+
+// async function getAll(req, res) {
+//     try {
+//         let users = await userModel.findAll();
+
+//         // Фільтрація користувачів на сервері за допомогою параметра пошуку, який приходить з клієнта
+//         const searchText = req.query.searchText.toLowerCase();
+//         if (searchText) {
+//             users = users.filter(user => user.Name.toLowerCase().includes(searchText));
+//         }
+
+//         // Передайте об'єкт відповіді у функцію рендерингу
+//         res.render("user/userlist", { data: users });
+//     } catch (error) {
+//         console.error(error);
+//         // Передайте об'єкт відповіді у функцію рендерингу для відображення помилки
+//         res.render("user/userlist", { error: error });
+//     }
+// }
+
+
+
 async function getById(id) {
     try {
         const user = await userModel.findByPk(id);
