@@ -12,8 +12,8 @@ async function getAll(userData) {
         if (userData.esAdmin == 0) {
             const user = await userModel.findOne({ where: { User_id: userData.user_id } });
             console.log("LOS USUARIOS MOSTRADOS SIENDO USUARIO SON:", user)
-            return { data: user };
-        }        nullnull
+            return { data: [user] };
+        }        
     }
     catch (error) {
         console.error(error);
