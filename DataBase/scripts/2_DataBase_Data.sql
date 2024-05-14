@@ -53,10 +53,15 @@ INSERT INTO Weapon (Weapon_id, Name, Damage, Accuracy, Category, Race_id) VALUES
 -- Inserts para la tabla Maps
 -- Agregar mapas basados en la raza es opcional, pero aquí está el ejemplo para Humans
 INSERT INTO Map (Map_id, Name, Race_id) VALUES
-(1, 'Rivendell', 2),   -- Elf
-(2, 'Moria', 3),       -- Dwarf
-(3, 'Hogwarts', 4),    -- Wizard
-(4, 'Mordor', 5);      -- Orc
+(1, 'Minas Tirith', 1), 
+(2, 'Rohan', 1),
+(3, 'Rivendell', 2),   -- Elf
+(4, 'Bosque de Lothlórien', 2),
+(5, 'Moria', 3),       -- Dwarf
+(6, 'Nogrod', 3),
+(7, 'Eriador', 4),    -- Wizard
+(8, 'Isengard', 4),
+(9, 'Mordor', 5);      -- Orc
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
 VALUES (1, 'Aragorn', 100, 0, 1, 1, 1, NULL);
