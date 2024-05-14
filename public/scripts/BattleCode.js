@@ -96,9 +96,9 @@ function Battle(){
     let mostrarVidaEnemigo = document.getElementById();
     let mostrarTurnos = document.getElementById();
     let spriteJugador = document.getElementById();
-    spriteJugador.src = "" + jugador.imagen;
+    spriteJugador.src = "/img/" + jugador.imagen;
     let spriteEnemigo = document.getElementById();
-    spriteEnemigo.src = "" + enemigo.imagen;
+    spriteEnemigo.src = "/img/" + enemigo.imagen;
 
     while (jugador.vida_actual > 0 || enemigo.vida_actual > 0) {
         mostrarTurnos.innerText = "El numero de turnos es: " + turnos;
@@ -109,7 +109,9 @@ function Battle(){
             mostrarVidaJugador.innerText = "La vida del jugador es: " + jugador.vida_actual;
             let nuevomensaje = document.createElement("h4");
             nuevomensaje.innerText = mensajeAccion;
+            spriteJugador.src = "/img/" + jugador.imagen_Atacando;
             addLine(pantalla, nuevomensaje);
+            spriteJugador.src = "/img/" + jugador.imagen;
         }
         
 
@@ -119,7 +121,9 @@ function Battle(){
             mostrarVidaEnemigo.innerText = "La vida del enemigo es: " + enemigo.vida_actual;
             let nuevomensaje = document.createElement("h4");
             nuevomensaje.innerText = mensajeAccion;
+            spriteEnemigo.src = "/img/" + enemigo.imagen_Atacando;
             addLine(pantalla, nuevomensaje);
+            spriteEnemigo.src = "/img/" + enemigo.imagen;
         }
 
         turnos = turnos + 1;
