@@ -142,9 +142,6 @@ async function getByEmail(Email){
 async function update(id, userData) {
     const {Name, Is_Admin, Email, Password, Password_repeat} = userData;
     try {
-        if(!Email || !Password || !Password_repeat){
-            return {error:"falta email o contraseña"};
-        }
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
@@ -159,7 +156,7 @@ async function update(id, userData) {
 
         return {data:usuario};
     } catch (error) {
-        console.error(error);
+        console.log("ERROR ES:",error);
         return {error}
     }
    
