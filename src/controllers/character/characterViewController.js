@@ -18,34 +18,15 @@ async function getAllEnemy(req, res) {
 }
 
 async function startGame(req, res) {
-    /*
-    const character = req.query.Character_id
-    console.log("EL ALIADO ES:", character)
-    const enemy = req.query.enemy_id
-    console.log("EL ENEMIGO ES:", enemy)
-    res.render("character/juego", {character,enemy});
-    */
-
+  
     const id = parseInt(req.query.Character_id);
+    const id2 = parseInt(req.query.enemy_id);
 
     const {error,data} = await characterController.getById(id);
-    console.log("Data: ", data); 
-    res.render("character/juego", {error,data});
-
-    /*
-
-    ////
-    const playerID = parseInt(req.params.Character_id);
-    const enemyID = parseInt(req.params.enemy_id);
-
-    const{error_player,data_player} = await characterController.getById(playerID);
-    const{error_enemy,data_enemy} = await characterController.getById(enemyID);
-
-    console.log(data_player);
-    console.log(data_enemy);
-    res.render("character/juego", {error_player,character:data_player,error_enemy,enemy:data_enemy});
-    */
-   
+    const {error2,data2} = await characterController.getByIdEnemy(id2);
+ 
+    res.render("character/juego", {error,data,error2,data2});
+    
 }
 
 async function getById(req,res){

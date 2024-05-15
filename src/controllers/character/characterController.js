@@ -130,6 +130,22 @@ async function getById(id) {
 
 }
 
+async function getByIdEnemy(id) {
+    try {
+        const personaje = await characterModel.findByPk(id, {include:["arma","mapa","raza"], });
+        //console.log(personaje)
+        if (!personaje) {
+            return { error: "El artista no existe" };
+        }
+        return { data2: personaje };
+    }
+    catch (error) {
+        console.error(error);
+        return { error };
+    }
+}
+
+
 async function create(userData) {
     try {
         userData.Life_points = 100;
@@ -171,6 +187,7 @@ export {
     getAll,
     getAllEnemy,
     getById,
+    getByIdEnemy,
     getWeaponByRace,
     getMapByRace,
     getRaceIdByCharacterId,
@@ -191,6 +208,7 @@ export default {
     getweaponIdByCharacterId,
     getMapIdByCharacterId,
     getById,
+    getByIdEnemy,
     create,
     // update,
     remove
