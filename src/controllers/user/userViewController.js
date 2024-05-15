@@ -40,14 +40,17 @@ async function logout(req,res){
 async function getAll(req,res){
     const userData = req.session.user
     console.log("LA USERDATA ES:", userData)
+    const esAdmin = req.session.user.esAdmin
+    console.log("ESADMIN ES IGUAL A:",esAdmin)
     const {error,data} = await userController.getAll(userData);
-    res.render("user/userlist",{error,data});
+    res.render("user/userlist",{error,data, esAdmin});
 }
 
 async function updateForm(req, res) {
+        const esAdmin = req.session.user.esAdmin
         const id = parseInt(req.params.id);
         const { error, data: user } = await userController.getById(id);
-        res.render("user/userupdate",{error,user});       
+        res.render("user/userupdate",{error,user,esAdmin});       
 }
 async function getById(req,res){
     const id = parseInt(req.params.id);
