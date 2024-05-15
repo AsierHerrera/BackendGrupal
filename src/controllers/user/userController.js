@@ -140,8 +140,23 @@ async function getByEmail(Email){
 }
 
 async function update(id, userData) {
+    const {Name, Is_Admin, Email, Password, Password_repeat} = userData;
     try {
-        const usuario = await userModel.update(userData,{where: {User_id:id}});
+        if(!Email || !Password || !Password_repeat){
+            return {error:"falta email o contraseña"};
+        }
+        if(Password !== Password_repeat){
+            return {error:"las contraseñas no coinciden"};
+        }
+        const hash = await bcrypt.hash(Password,10);
+        const nuevoUser = {
+            Name,
+            Is_Admin,
+            Email,
+            Password:hash
+        }
+        const usuario = await userModel.update(nuevoUser,{where: {User_id:id}});
+
         return {data:usuario};
     } catch (error) {
         console.error(error);
