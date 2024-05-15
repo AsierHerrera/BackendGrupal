@@ -47,8 +47,7 @@ async function getAll(req,res){
 async function updateForm(req, res) {
         const id = parseInt(req.params.id);
         const { error, data: user } = await userController.getById(id);
-        res.render("user/userupdate",{error,user});
-
+        res.render("user/userupdate",{error,user});       
 }
 async function getById(req,res){
     const id = parseInt(req.params.id);
@@ -57,12 +56,17 @@ async function getById(req,res){
 }
 
 async function update(req, res) {
-    const id = parseInt(req.params.id);
-    const { Name, Is_Admin, Email, Password} = req.body;
-    const realIsAdmin = Is_Admin === "on"? 1 : 0;
-    const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password});
-    res.redirect("/user");
-}
+        const id = parseInt(req.params.id);
+        const { Name, Is_Admin, Email, Password, Password_repeat} = req.body;
+        const realIsAdmin = Is_Admin === "on"? 1 : 0;
+        const { error, data } = await userController.update(id, { Name, Is_Admin:realIsAdmin, Email, Password, Password_repeat});
+        if(error){
+            res.render("user/userupdate",{error});
+        }
+        else{
+            res.redirect("/user");
+        }
+    }
 
 async function remove(req,res){
     const id = parseInt(req.params.id);
