@@ -26,10 +26,10 @@ async function startGame(req, res) {
     res.render("character/juego", {character,enemy});
     */
 
-    const id = parseInt(req.params.Character_id);
+    const id = parseInt(req.query.Character_id);
 
     const {error,data} = await characterController.getById(id);
-    console.log("Data: ", data);
+    console.log("Data: ", data); 
     res.render("character/juego", {error,data});
 
     /*
