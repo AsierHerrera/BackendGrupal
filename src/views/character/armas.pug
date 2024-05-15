@@ -11,7 +11,7 @@ block content
       each arma in armas  
         div
           p=arma.Name
-          p= "Hit: " + arma.Accuracy
+          p= "Accuracy: " + arma.Accuracy
           p= "Power: " + arma.Damage
           form(action="/character/mapa", method="get")
             input(type="hidden", value=nombre, name="Name")
