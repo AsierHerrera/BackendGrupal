@@ -116,7 +116,7 @@ async function getMapByRace(Race_id) {
 }
 async function getById(id) {
     try {
-        const personaje = await characterModel.findByPk(id);
+        const personaje = await characterModel.findByPk(id, {include:["arma","mapa","raza"], });
         //console.log(personaje)
         if (!personaje) {
             return { error: "El artista no existe" };
