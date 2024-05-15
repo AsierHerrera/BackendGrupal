@@ -6,9 +6,9 @@ import { hasSession } from "../../middleware/authMiddelWare.js"
 const router = Router();
 
 
-router.get("/",hasSession,characterViewController.getAll);
+router.get("/",characterViewController.getAll);
 router.get("/enemyList",characterViewController.getAllEnemy);
-
+router.get("/juego",characterViewController.startGame);
 router.get("/raza",characterViewController.createFormRace);
 router.get("/armas",characterViewController.createFormWeapon);
 router.get("/mapa",characterViewController.createFormMaps);
@@ -18,6 +18,7 @@ router.get("/:id",characterViewController.getById);
 // router.post("/:id",characterViewController.update);
 //router.delete("/:id",characterViewController.remove);
 router.post("/:id/remove",characterViewController.remove);
+
 
 
 
