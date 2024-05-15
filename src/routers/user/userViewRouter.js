@@ -11,11 +11,11 @@ router.get("/singup",userViewController.registerForm);
 router.post("/singup",userViewController.register);
 router.get("/login",userViewController.loginForm);
 router.post("/login",userViewController.login);
-router.post("/logout",userViewController.logout);
-router.get("/:id",userViewController.getById);
-router.get("/:id/update",userViewController.updateForm);
-router.post("/:id",userViewController.update);
-router.post("/:id/remove",userViewController.remove);
+router.post("/logout",hasSession,userViewController.logout);
+router.get("/:id",hasSession,userViewController.getById);
+router.get("/:id/update",hasSession,userViewController.updateForm);
+router.post("/:id",hasSession,userViewController.update);
+router.post("/:id/remove",hasSession,userViewController.remove);
 
 
 export default router;
