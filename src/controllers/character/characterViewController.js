@@ -11,8 +11,18 @@ async function getAll (req, res){
 
 async function getAllEnemy(req, res) {
     const id = req.session.user.user_id
+    const character = req.query.Character_id
+    console.log("EL ALIADO ES:", character)
     const {error,data} = await characterController.getAllEnemy(id);
-    res.render("character/enemyList", {error,data});
+    res.render("character/enemyList", {error,data,character});
+}
+
+async function startGame(req, res) {
+    const character = req.query.Character_id
+    console.log("EL ALIADO ES:", character)
+    const enemy = req.query.enemy_id
+    console.log("EL ENEMIGO ES:", enemy)
+    res.render("character/juego", {character,enemy});
 }
 
 async function getById(req,res){
@@ -91,7 +101,8 @@ export {
     // updateForm,
     // update,
     remove,
-    crearpage
+    crearpage,
+    startGame
 };
 
 export default{
@@ -105,5 +116,6 @@ export default{
     // updateForm,
     // update,
     remove,
-    crearpage
+    crearpage,
+    startGame
 }
