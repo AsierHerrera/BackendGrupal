@@ -1,6 +1,17 @@
 import jwt from "jsonwebtoken";
 
+/**
+ * @module src/middelware/authMiddleWare
+ */
 
+
+/**
+ * A function to check if the token is correct and proceed to the next middleware.
+ *
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {function} next - The next middleware function.
+ */
 function isTokenCorrect (req,res,next){
     try {
         const authorization = req.headers.authorization;
@@ -17,6 +28,14 @@ function isTokenCorrect (req,res,next){
     }
 }
 
+/**
+ * Checks if a session exists for the user, redirects to login if not, and calls the next middleware.
+ *
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {function} next - The next middleware function.
+ * @return {void}
+ */
 function hasSession(req,res,next){
     const user = req.session.user;
     console.log("session user",req.session);

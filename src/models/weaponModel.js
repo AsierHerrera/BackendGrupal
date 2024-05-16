@@ -1,6 +1,13 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
+/**
+ * @module src/models/weaponModel
+ */
+
+/**
+ * Defines the map model with attributes such as Weapon_id, Name, Damage, Category, Accuracy, Race_id.
+ */
 
 const weaponModel = sequelize.define("Weapon",
     {

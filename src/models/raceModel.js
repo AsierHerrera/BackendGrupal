@@ -5,6 +5,13 @@ import mapModel from "./mapModel.js";
 import characterModel from "./characterModel.js";
 import weaponModel from "./weaponModel.js";
 
+/**
+ * @module src/models/raceModel
+ */
+
+/**
+ * Defines the race model with attributes such as Race_id, Name, Max_life.
+ */
 const raceModel = sequelize.define("Race",
     {
         Race_id:{
