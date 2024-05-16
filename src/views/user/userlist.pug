@@ -6,7 +6,8 @@ block content
         if error 
             p(class="error")= error
         if data
-            input#searchInput(type="text", placeholder="Buscar", oninput="filterUsers()")
+            if esAdmin === 1
+                input#searchInput(type="text", placeholder="Buscar", oninput="filterUsers()")
             ul
                 each usuario in data 
                     li
@@ -25,30 +26,31 @@ block content
 
     block scripts
         script.
-            function showConfirmationModal(button) {
-                const modal = button.closest('.user-card').querySelector('.confirmation-modal');
-                modal.style.display = 'block';
-            }
+            
+                function showConfirmationModal(button) {
+                    const modal = button.closest('.user-card').querySelector('.confirmation-modal');
+                    modal.style.display = 'block';
+                }
 
-            function confirmDelete(button) {
-                const form = button.closest('form');
-                form.submit();
-            }
+                function confirmDelete(button) {
+                    const form = button.closest('form');
+                    form.submit();
+                }
 
-            function cancelDelete(button) {
-                const modal = button.closest('.confirmation-modal');
-                modal.style.display = 'none';
-                return false;
-            }
-           function filterUsers() {
-                const searchText = document.getElementById('searchInput').value.toLowerCase(); 
-                const userCards = document.querySelectorAll('.user-card'); 
-                userCards.forEach(card => {
-                    const userName = card.querySelector('p').textContent.toLowerCase(); 
-                    if (userName.includes(searchText)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden'); 
-                    }
-                });
-            }
+                function cancelDelete(button) {
+                    const modal = button.closest('.confirmation-modal');
+                    modal.style.display = 'none';
+                    return false;
+                }
+                function filterUsers() {
+                    const searchText = document.getElementById('searchInput').value.toLowerCase(); 
+                    const userCards = document.querySelectorAll('.user-card'); 
+                    userCards.forEach(card => {
+                        const userName = card.querySelector('p').textContent.toLowerCase(); 
+                        if (userName.includes(searchText)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden'); 
+                        }
+                    });
+                }
