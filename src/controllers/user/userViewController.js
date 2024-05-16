@@ -73,7 +73,8 @@ async function register(req,res) {
  */
 async function logout(req,res){
     req.session.user = null;
-    res.redirect("/character");
+    console.log("req session user", req.session.user)
+    res.redirect("/user/login");
 }
 
 /**
