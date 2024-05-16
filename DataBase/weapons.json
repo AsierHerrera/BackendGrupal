@@ -1,0 +1,37 @@
+[
+    {
+        "Weapon_id": 1,
+        "Weapon": "Staff of Power",
+        "Damage": 10,
+        "Category": "Magic",
+        "Accuracy": 90
+    },
+    {
+        "Weapon_id": 2,
+        "Weapon": "Elven Bow",
+        "Damage": 8,
+        "Category": "Firearm",
+        "Accuracy": 95
+    },
+    {
+        "Weapon_id": 3,
+        "Weapon": "Sword of Narsil",
+        "Damage": 12,
+        "Category": "Cold weapon",
+        "Accuracy": 85
+    },
+    {
+        "Weapon_id": 4,
+        "Weapon": "Hobbit Dagger",
+        "Damage": 6,
+        "Category": "Ranged weapon",
+        "Accuracy": 92
+    },
+    {
+        "Weapon_id": 5,
+        "Weapon": "Dwarven Axe",
+        "Damage": 14,
+        "Category": "Heavy weapon",
+        "Accuracy": 80
+    }
+]
