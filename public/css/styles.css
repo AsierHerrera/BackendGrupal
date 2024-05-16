@@ -317,7 +317,7 @@ li{
 }
 
 #info_enemy{
-    right: 13vw;
+    right: 15vw;
 }
 
 .linea{
@@ -363,22 +363,17 @@ li{
     left: 32vw;
 }
 
-#mostrar-turnos{
-    color: white;
-    font-weight: bolder;
-    position: absolute;
-    z-index: 200;
-    top: 62vh;
-    left: 31vw;
-}
 
 #mostrar-acciones{
     position: absolute;
     z-index: 200;
-    top: 66vh;
+    top: 63vh;
     left: 31vw;
-    height: 27vh;
+    height: 30vh;
     width: 38vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
 }
 
 #mostrar-acciones *{
@@ -387,13 +382,14 @@ li{
     font-weight: bolder;
     margin-top: 1vh;
     margin-left: 1vw;
+
 }
 
 #mostrar-ganador{
     position: absolute;
     z-index: 400;
     top: 39vh;
-    left: 42.5vw;
+    left: 43vw;
     color: white;
     font-weight: bolder;
 }
@@ -430,6 +426,43 @@ li{
     top: 45vh;
     right: 35vw; 
 }
+
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 
 /**/
 

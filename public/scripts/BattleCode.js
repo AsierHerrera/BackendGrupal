@@ -35,9 +35,6 @@ class character {
         let mensaje = "";
         if (rng <= this.precision_arma) {
             enemy.vida_actual = enemy.vida_actual - this.daño_arma;
-            if (enemy.vida_actual < 0) {
-                enemy.vida_actual = 0;
-            }
             mensaje = this.nombre_personaje + " ha atacado a " + enemy.nombre_personaje;
             return mensaje;
         } else {
@@ -56,7 +53,7 @@ let armaJugador = document.getElementById("armaPlayer").innerText;
 let dañoJugador = document.getElementById("dañoPlayer").innerText;
 dañoJugador = parseInt(dañoJugador);
 let precisionJugador = document.getElementById("precisionPlayer").innerText;
-precisionJugador = parseInt(dañoJugador);
+precisionJugador = parseInt(precisionJugador);
 
 
 let jugador = new character(nombreJugador, vidaJugador, dañoJugador, precisionJugador);
@@ -75,62 +72,117 @@ precisionEnemigo = parseInt(precisionEnemigo);
 let enemigo = new character(nombreEnemigo, vidaEnemigo, dañoEnemigo, precisionEnemigo);
 
 //Funcion para que peleen
+
+let informacion = [];
+let infoVidaJugador = [];
+let infoVidaEnemigo = [];
+
 function Battle(){
-    /*
+    let mostrarVictoria = document.getElementById("mostrar-ganador");
+    mostrarVictoria.innerText = "";
+    let pantalla = document.getElementById("mostrar-acciones");
+    pantalla.innerHTML = "";
     let turnos = 0;
     // seleccionando elementos de la pagina para cambiar su informacion de forma dinamica
-    let pantalla = document.getElementById("mostrar-acciones");
-    let mostrarVidaJugador = document.getElementById("vidaActualPlayer");
-    let mostrarVidaEnemigo = document.getElementById("vidaActualEnemy");
-    let mostrarTurnos = document.getElementById("mostrar-turnos");
-    let spriteJugador = document.getElementById("img_jugador");
-    let spriteJugadorATK = document.getElementById("img_jugadorAttack");
+   
+    while (jugador.vida_actual > 0 && enemigo.vida_actual > 0) {
+            //mostrarTurnos.innerText = "El numero de turnos es: " + turnos;
+            let mensajeTurnos = document.createElement("h4");
+            mensajeTurnos.innerText = "Turno " + turnos;
+            let salto = document.createElement("br");      
+            informacion.push(salto);
+            informacion.push(mensajeTurnos);
 
+            if (jugador.vida_actual > 0) {
+                let mensajeAccion = "";
+                mensajeAccion = jugador.atacar(enemigo);
 
+                infoVidaJugador.push(jugador.vida_actual);
+                let nuevomensaje = document.createElement("h4");
+                nuevomensaje.innerText = mensajeAccion;
 
-    while (jugador.vida_actual > 0 || enemigo.vida_actual > 0) {
-        mostrarTurnos.innerText = "El numero de turnos es: " + turnos;
-
-        if (jugador.vida_actual > 0) {
-            let mensajeAccion = "";
-            mensajeAccion = jugador.atacar(enemigo);
-            mostrarVidaJugador.innerText = "La vida del jugador es: " + jugador.vida_actual;
-            let nuevomensaje = document.createElement("h4");
-            nuevomensaje.innerText = mensajeAccion;
+                console.log(nuevomensaje)
+                console.log("vida enemigo: " + enemigo.vida_actual)
+         
+                informacion.push(nuevomensaje);
+                          
+            }
             
-            pantalla.appendChild(nuevomensaje);
-           
-        }
-        
 
-        if (enemigo.vida_actual > 0) {
-            let mensajeAccion = "";
-            mensajeAccion = enemigo.atacar(jugador); ;
-            mostrarVidaEnemigo.innerText = "La vida del enemigo es: " + enemigo.vida_actual;
-            let nuevomensaje = document.createElement("h4");
-            nuevomensaje.innerText = mensajeAccion;
-
-            console.log(nuevomensaje)
-            pantalla.appendChild(nuevomensaje);
+            if (enemigo.vida_actual > 0) {
+                let mensajeAccion = "";
+                mensajeAccion = enemigo.atacar(jugador); 
             
-        }
+                infoVidaEnemigo.push(enemigo.vida_actual);
+                let nuevomensaje = document.createElement("h4");
+                nuevomensaje.innerText = mensajeAccion;
 
-        turnos = turnos + 1;
+                console.log(nuevomensaje)
+                console.log("vida jugador: " + jugador.vida_actual)
+            
+                informacion.push(nuevomensaje);
+            }
+
+            turnos = turnos + 1;        
+      
     }    
-    
-    let ganador = "";
-
+    infoVidaJugador.push(jugador.vida_actual);
+    infoVidaEnemigo.push(enemigo.vida_actual);
+ 
     if (jugador.vida_actual > 0) {
-        ganador = jugador.nombre_personaje;
+        let mensajeMuerte = document.createElement("h4");
+        mensajeMuerte.innerText = enemigo.nombre_personaje + " ha muerto";
+        informacion.push(mensajeMuerte);
     }
-    
 
     if (enemigo.vida_actual > 0) {
-        ganador = enemigo.nombre_personaje;
+        let mensajeMuerte = document.createElement("h4");
+        mensajeMuerte.innerText = jugador.nombre_personaje + " ha muerto";
+        informacion.push(mensajeMuerte);
     }
 
-    let mostrarVictoria = document.getElementById("mostrar-ganador");
-    mostrarVictoria.innerText = "El ganador es: " + ganador;
-    */
-    
+    console.log(informacion);
+    console.log(infoVidaJugador);
+    console.log(infoVidaEnemigo);
+    mostrarInfo();
+}
+
+function mostrarInfo(){
+    let i = 0;
+    let f = 0;
+    let j = 0;
+    setInterval(()=>{
+        if (i < informacion.length) {
+            let pantalla = document.getElementById("mostrar-acciones");
+            let mostrarVidaJugador = document.getElementById("vidaActualPlayer");
+            let mostrarVidaEnemigo = document.getElementById("vidaActualEnemy");
+            let spriteJugadorATK = document.getElementById("img_jugadorAttack");
+            let spriteEnemigoATK = document.getElementById("img_enemyAttack");
+            let info = informacion[i];
+            pantalla.appendChild(info);
+            if(( i % 3 ) == 0){
+                if (f < infoVidaJugador.length) {
+                    mostrarVidaJugador.innerText = infoVidaJugador[f];                     
+                }
+                if (j < infoVidaEnemigo.length) {
+                    mostrarVidaEnemigo.innerText = infoVidaEnemigo[j];                    
+                }
+                f = f + 1;  
+                j = j + 1;          
+            }
+            i = i + 1;            
+        }else{
+            let ganador = "";
+            if (jugador.vida_actual > 0) {
+                ganador = jugador.nombre_personaje;
+            }
+        
+            if (enemigo.vida_actual > 0) {
+                ganador = enemigo.nombre_personaje;
+            }
+        
+            let mostrarVictoria = document.getElementById("mostrar-ganador");
+            mostrarVictoria.innerText = "El ganador es: " + ganador;
+        }
+    }, 1000);
 }
