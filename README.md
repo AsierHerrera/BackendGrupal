@@ -27,8 +27,7 @@ Este proyecto es un juego temático basado en "El Señor de los Anillos". Los us
 
 ### Instalación
 
-1. Clonar el repositorio:
-   ```bash
+1. Clonar el repositorio en terminal:
    git clone <URL-del-repositorio>
    cd <nombre-del-proyecto>
 
