@@ -6,7 +6,14 @@ import weaponModel from "./weaponModel.js";
 import mapModel from "./mapModel.js";
 import raceModel from "./raceModel.js";
 
+/**
+ * @module src/models/characterModel
+ */
 
+
+/**
+ * Defines the character model with attributes such as Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id.
+ */
 const characterModel = sequelize.define("Character",
     {
         Character_id:{
