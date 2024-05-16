@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: models/weaponModel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,61 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: models/weaponModel.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { DataTypes } from "sequelize";
+import sequelize from "../config/sequelize.js";
+
+/**
+ * @module src/models/weaponModel
+ */
+
+/**
+ * Defines the map model with attributes such as Weapon_id, Name, Damage, Category, Accuracy, Race_id.
+ */
+
+const weaponModel = sequelize.define("Weapon",
+    {
+        Weapon_id:{
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull:false,
+            primaryKey:true,
+            autoIncrement:true
+        },
+        Name: {
+            type:DataTypes.STRING(45),
+            allowNull:false
+        },
+        Damage: {
+            type:DataTypes.INTEGER,
+            allowNull:false
+        },
+        Category: {
+            type:DataTypes.STRING(45),
+            allowNull:false
+        },
+        Accuracy: {
+            type:DataTypes.INTEGER,
+            allowNull:false
+        },
+        Race_id:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+    }
+)
 
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default weaponModel;</code></pre>
+        </article>
+    </section>
 
 
 
