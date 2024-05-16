@@ -71,6 +71,7 @@ async function create(userData) {
     }
 }
 
+
 /**
  * Registers a new user based on the provided user data.
  *
@@ -126,6 +127,7 @@ async function registerUser(userData) {
     }
 }
 
+
 /**
  * Asynchronous function to log in a user based on provided Email and Password.
  *
@@ -178,6 +180,7 @@ async function getByEmail(Email){
         return {error};
     }
 }
+
 
 /**
  * Updates user information based on the provided ID and user data.
