@@ -15,18 +15,18 @@ INSERT INTO Race (Race_id, Max_Life, Name) VALUES
 (5, 100, 'Orc');     -- Orco 
 
 INSERT INTO Weapon (Weapon_id, Name, Damage, Accuracy, Category, Race_id) VALUES
-(1, 'Andúril, la Llama del Oeste', 25, 75, 'Melee', 1),
+(1, 'Anduril, la Llama del Oeste', 25, 75, 'Melee', 1),
 (2, 'Arco de Legolas', 20, 80, 'Ranged', 1),
 (3, 'Lanza de Boromir', 28, 70, 'Melee', 1),
 (4, 'Ballesta de Aragorn', 22, 85, 'Ranged', 1),
 (5, 'Martillo de Gimli', 30, 65, 'Melee', 1),
 
 -- Armas para Elfos
-(6, 'Arco Élfico', 23, 90, 'Ranged', 2),
+(6, 'Arco Elfico', 23, 90, 'Ranged', 2),
 (7, 'Glamdring', 28, 80, 'Melee', 2),
 (8, 'Daga de Legolas', 20, 95, 'Melee', 2),
 (9, 'Espada de Galadriel', 25, 85, 'Melee', 2),
-(10, 'Espada Élfica', 30, 75, 'Melee', 2),
+(10, 'Espada Elfica', 30, 75, 'Melee', 2),
 
 -- Armas para Enanos
 (11, 'Hacha de Thorin', 35, 70, 'Melee', 3),
@@ -37,9 +37,9 @@ INSERT INTO Weapon (Weapon_id, Name, Damage, Accuracy, Category, Race_id) VALUES
 
 -- Armas para Magos
 (16, 'Bola de Fuego', 40, 50, 'Magia', 4),
-(17, 'Bastón de Hielo', 35, 60, 'Magia', 4),
-(18, 'Bastón de Trueno', 38, 55, 'Magia', 4),
-(19, 'Bastón de Gandalf', 42, 45, 'Magia', 4),
+(17, 'Baston de Hielo', 35, 60, 'Magia', 4),
+(18, 'Baston de Trueno', 38, 55, 'Magia', 4),
+(19, 'Baston de Gandalf', 42, 45, 'Magia', 4),
 (20, 'Narya, Anillo de Fuego', 45, 40, 'Magia', 4),
 
 -- Armas para Orcos
@@ -56,7 +56,7 @@ INSERT INTO Map (Map_id, Name, Race_id) VALUES
 (1, 'Minas Tirith', 1), 
 (2, 'Rohan', 1),
 (3, 'Rivendell', 2),   -- Elf
-(4, 'Bosque de Lothlórien', 2),
+(4, 'Bosque de Lothlorien', 2),
 (5, 'Moria', 3),       -- Dwarf
 (6, 'Nogrod', 3),
 (7, 'Eriador', 4),    -- Wizard
@@ -79,16 +79,16 @@ INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_
 VALUES (5, 'Adre', 100, 0, 5, 5, 24, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (6, 'Aragorn Malvado', 100, 1, 1, 1, 1, NULL);
+VALUES (6, 'El Rey Brujo, Nazgul', 100, 1, 1, 1, 1, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (7, 'Legolas Malvado', 100, 1, 2, 2, 6, NULL);
+VALUES (7, 'Sauron', 100, 1, 2, 2, 6, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (8, 'Gimli Malvado', 100, 1, 3, 3, 13, NULL);
+VALUES (8, 'Gollum', 100, 1, 3, 3, 13, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (9, 'Gandalf Malvado', 100, 1, 4, 4, 16, NULL);
+VALUES (9, 'Saruman el Blanco', 100, 1, 4, 4, 16, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (10, 'Adre Malvado', 100, 1, 5, 5, 24, NULL);
+VALUES (10, 'Lurzt, Uruk-Hai ', 100, 1, 5, 5, 24, NULL);

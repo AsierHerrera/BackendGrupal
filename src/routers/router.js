@@ -15,7 +15,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
     console.log("sessionUser ES:", req.session.user);
-    res.render("layout", {
+    res.render("user/login", {
         sessionUser: req.session.user
     });
 });
