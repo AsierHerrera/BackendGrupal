@@ -6,7 +6,9 @@ block content
     h2(class="layout-title") Crear Personaje
     if error 
       p(class="error")= error
-    h3(class="center") Elige un Mapa y un Nombre:   
+    h3(class="center") Elige un Mapa y un Nombre:
+    a#btn-volver(href="/character/raza")
+      button.btn Volver    
     section(class="mostrar-tarjetas")  
       each mapa in mapas 
         div
@@ -23,7 +25,6 @@ block content
             br
             button.btn(type="submit") Comenzar
       
-    a#btn-volver(href="/character/raza")
-      button.btn Volver 
+    
 
   script(src='/scripts/obtenerId.js')
