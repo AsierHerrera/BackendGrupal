@@ -71,6 +71,7 @@ async function create(userData) {
     }
 }
 
+
 /**
  * Registers a new user based on the provided user data.
  *
@@ -126,6 +127,7 @@ async function registerUser(userData) {
     }
 }
 
+
 /**
  * Asynchronous function to log in a user based on provided Email and Password.
  *
@@ -179,6 +181,7 @@ async function getByEmail(Email){
     }
 }
 
+
 /**
  * Updates user information based on the provided ID and user data.
  *
@@ -192,9 +195,6 @@ async function update(id, userData) {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
-        if (!Password || !Password_repeat || !Name || !Email){
-            return {error:"El contenido en alguno de los campos no es correcto"};
-        }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(Email)) {
             return {error:"El correo electrónico no es válido. Asegúrate de que esté en el formato correcto, como ejemplo@dominio.com."};                       
@@ -204,12 +204,12 @@ async function update(id, userData) {
             return {error:"La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número."};                       
         }
         const hash = await bcrypt.hash(Password,10);
-        const nuevoUser = {
-            Name,
-            Is_Admin,
-            Email,
-            Password:hash
-        }
+        const nuevoUser = {};
+        if (Name) nuevoUser.Name = Name;
+        if (Is_Admin) nuevoUser.Is_Admin = Is_Admin;
+        if (Email) nuevoUser.Email = Email;
+        if (Password) nuevoUser.Password = hash;
+
         const usuario = await userModel.update(nuevoUser,{where: {User_id:id}});
 
         return {data:usuario};

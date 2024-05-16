@@ -14,6 +14,7 @@ import userController from "./userController.js";
 async function loginForm(req,res){
     res.render("user/login");
 }
+
 /**
  * Logs in a user based on the provided email and password.
  *
