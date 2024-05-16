@@ -2,10 +2,11 @@
 -- Armas para Humanos
 INSERT INTO User (User_id, Name, Is_Admin, Email, Password)
 VALUES 
-    (1, 'Anna', TRUE, 'anna@example.com', 'contraseña123'),
-    (2, 'Asier', TRUE, 'asier@example.com', 'contraseña456'),
-    (3, 'Bego', TRUE, 'bego@example.com', 'contraseña789'),
-    (4, 'Luis', TRUE, 'luis@example.com', 'contraseña111');
+    (1, 'Anna', TRUE, 'anna@example.com', '$2a$10$l0jZjZ1iLc0tQSpSVL2ERupo9ro7xgDEZ0bYjRG1e2ZE7/jWDG6Aq'),
+    (2, 'Asier', TRUE, 'asier@example.com', '$2a$10$l0jZjZ1iLc0tQSpSVL2ERupo9ro7xgDEZ0bYjRG1e2ZE7/jWDG6Aq'),
+    (3, 'Bego', TRUE, 'bego@example.com', '$2a$10$l0jZjZ1iLc0tQSpSVL2ERupo9ro7xgDEZ0bYjRG1e2ZE7/jWDG6Aq'),
+    (4, 'Luis', TRUE, 'luis@example.com', '$2a$10$l0jZjZ1iLc0tQSpSVL2ERupo9ro7xgDEZ0bYjRG1e2ZE7/jWDG6Aq'),
+    (5, 'asd', TRUE, 'asd', '$2a$10$l0jZjZ1iLc0tQSpSVL2ERupo9ro7xgDEZ0bYjRG1e2ZE7/jWDG6Aq');
 
 INSERT INTO Race (Race_id, Max_Life, Name) VALUES
 (1, 100, 'Human'),

@@ -114,7 +114,7 @@ h2.layout-title{
     align-items: center;
 }
 
-.user-card p {
+.user-card  p {
     margin-right: auto;
 }
 
@@ -267,6 +267,27 @@ h2.layout-title{
     border-color:rgb(96, 77, 69)
 }
 
+.btn-logout {
+    background-color: white; 
+    color: #6d96f6;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-logout:hover {
+    background-color: #517bc7;
+    color: white;
+}
+
+
+
+
 
 /*Estilos de la vista del juego*/
 
@@ -315,7 +336,7 @@ h2.layout-title{
 }
 
 #info_enemy{
-    right: 13vw;
+    right: 15vw;
 }
 
 .linea{
@@ -361,22 +382,17 @@ h2.layout-title{
     left: 32vw;
 }
 
-#mostrar-turnos{
-    color: white;
-    font-weight: bolder;
-    position: absolute;
-    z-index: 200;
-    top: 62vh;
-    left: 31vw;
-}
 
 #mostrar-acciones{
     position: absolute;
     z-index: 200;
-    top: 66vh;
+    top: 63vh;
     left: 31vw;
-    height: 27vh;
+    height: 30vh;
     width: 38vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
 }
 
 #mostrar-acciones *{
@@ -385,13 +401,14 @@ h2.layout-title{
     font-weight: bolder;
     margin-top: 1vh;
     margin-left: 1vw;
+
 }
 
 #mostrar-ganador{
     position: absolute;
     z-index: 400;
     top: 39vh;
-    left: 42.5vw;
+    left: 43vw;
     color: white;
     font-weight: bolder;
 }
@@ -428,6 +445,45 @@ h2.layout-title{
     top: 45vh;
     right: 35vw; 
 }
+
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+/**/
 
 .btn-logout {
     background-color: white; 
