@@ -6,7 +6,8 @@ async function getAll (req, res){
     const id = req.session.user.user_id
     //console.log("EL ID ES:", id)
     const {error,data} = await characterController.getAll(id);
-    res.render("character/list", {error,data});
+    console.log("LA DATA ES:", data)
+    res.render("character/list", {error,data, id});
 }
 
 async function getAllEnemy(req, res) {
