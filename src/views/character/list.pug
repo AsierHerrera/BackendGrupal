@@ -2,7 +2,6 @@ extends ../layout
 
 block content 
     .container
-
         h1 Lista de personajes
         if error 
             p.error= error 
@@ -10,15 +9,41 @@ block content
             .container
                 section(class="mostrar-tarjetas")  
                     each character in data  
-                        div
-                            p=character.Name
+                        div.user-card
+                            p= character.Name
                             p= "Raza: " + character.raza.Name
                             p= "Arma: " + character.arma.Name
-                            form(action=`/character/enemyList` method="get")
+                            form(action=`/character/enemyList`, method="get")
                                 input(type="hidden", id="Character_id", name="Character_id", value=character.Character_id)
                                 button.play-button Jugar   
                             if character.User_id !== null                           
-                                form(action=`/character/${character.Character_id}/remove`, method="post" onsubmit="return confirm('R U sure?');")
-                                    button.btn(type="submit") Borrar                 
-                a(href="./character/raza")
+                                form(action=`/character/${character.Character_id}/remove`, method="post" onsubmit="return showConfirmationModal(this)")
+                                    button.btn(type="button" class="delete-button" onclick="showConfirmationModal(this)") Borrar
+                                    .confirmation-modal(style="display: none;")
+                                        .confirmation-modal-content
+                                            p Are you sure you want to delete this character?
+                                            .button-container
+                                                button.confirm-delete-button-confirm.btn(type="button" onclick="confirmDelete(this)") Confirm
+                                                button.confirm-delete-button-cancel.btn(type="button" onclick="cancelDelete(this)") Cancel
+
+                a.btn-crear-container(href="./character/raza")
                     button.btn-crear Crear personaje
+
+
+    block scripts
+        script.
+            function showConfirmationModal(button) {
+                const modal = button.closest('.user-card').querySelector('.confirmation-modal');
+                modal.style.display = 'block';
+            }
+
+            function confirmDelete(button) {
+                const form = button.closest('form');
+                form.submit();
+            }
+
+            function cancelDelete(button) {
+                const modal = button.closest('.confirmation-modal');
+                modal.style.display = 'none';
+                return false;
+            }

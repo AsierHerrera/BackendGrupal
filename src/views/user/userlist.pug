@@ -20,9 +20,11 @@ block content
                                     button.btn(type="button" class="delete-button" onclick="showConfirmationModal(this)") Borrar
                                     .confirmation-modal(style="display: none;")
                                         .confirmation-modal-content
-                                         p Are you sure you want to delete this user?
-                                           button.confirm-delete-button-confirm.btn(type="button" onclick="confirmDelete(this)") Confirm
-                                           button.confirm-delete-button-cancel.btn(type="button" onclick="cancelDelete(this)") Cancel
+                                            p Are you sure you want to delete this user?
+                                            .button-container
+                                                button.confirm-delete-button-confirm.btn(type="button" onclick="confirmDelete(this)") Confirm
+                                                button.confirm-delete-button-cancel.btn(type="button" onclick="cancelDelete(this)") Cancel
+
 
     block scripts
         script.
