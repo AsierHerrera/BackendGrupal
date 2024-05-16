@@ -247,3 +247,23 @@ li{
     outline: none; 
     border-color: #6d96f6;
 }
+
+.btn-logout {
+    background-color: white; 
+    color: #6d96f6;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-logout:hover {
+    background-color: #517bc7;
+    color: white;
+}
+
+
