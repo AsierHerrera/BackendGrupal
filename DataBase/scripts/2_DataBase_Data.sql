@@ -88,7 +88,7 @@ INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_
 VALUES (8, 'Gollum', 100, 1, 3, 3, 13, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
-VALUES (9, 'Saruman el BLanco', 100, 1, 4, 4, 16, NULL);
+VALUES (9, 'Saruman el Blanco', 100, 1, 4, 4, 16, NULL);
 
 INSERT INTO `Character` (Character_id, Name, Life_points, Hostile, Race_id, Map_id, Weapon_id, User_id)
 VALUES (10, 'Lurzt, Uruk-Hai ', 100, 1, 5, 5, 24, NULL);
