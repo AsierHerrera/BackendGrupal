@@ -1,0 +1,54 @@
+extends ../layout
+
+block content 
+    .container
+
+        h1 Juguemos
+        button(onclick="Battle()" id="btn_Jugar") Jugar
+        if error 
+            p.error= error 
+        arcticle(id="datos-jugadores")
+            div(id="info_player") 
+                p(id="nombrePlayer")= data.Name
+                p Raza:
+                p(id="razaPlayer")= data.raza.Name
+                p Vida Total: 
+                P(id="vidaPlayer")= data.Life_points
+                p Vida Actual: 
+                p(id="vidaActualPlayer")= data.Life_points
+                p Arma: 
+                p(id="armaPlayer")= data.arma.Name  
+                p Daño del Arma: 
+                p(id="dañoPlayer")=  data.arma.Damage
+                p Precision del Arma:
+                p(id="precisionPlayer")= data.arma.Accuracy
+            div(id="info_enemy")
+                p(id="nombreEnemy")=  data2.Name
+                p Raza:
+                p(id="razaEnemy")=  data2.raza.Name
+                p Vida Total: 
+                P(id="vidaEnemy")=  data2.Life_points
+                p Vida Actual:
+                p(id="vidaActualEnemy")= data2.Life_points
+                p Arma: 
+                p(id="armaEnemy")=  data2.arma.Name  
+                p Daño del Arma: 
+                p(id="dañoEnemy")=  data2.arma.Damage
+                p Precision del Arma:               
+                p(id="precisionEnemy")= data2.arma.Accuracy
+        section(id="mostar_pantalla")
+        h4(id="mapa")= "Nombre del Mapa: " + data.mapa.Name 
+        img(src="/img/Sprite_"+data.raza.Name+".png", id="img_jugador", class="sprite")
+        img(src="/img/Sprite_"+data2.raza.Name+".png", id="img_enemy", class="sprite")
+        img(src="/img/Sprite_"+data.raza.Name+"Attack.png", id="img_jugadorAttack", class="sprite")
+        img(src="/img/Sprite_"+data2.raza.Name+"Attack.png", id="img_enemyAttack", class="sprite")
+        div(id="linea-izquierda", class="linea")
+        div(id="linea-derecha", class="linea")
+        div(id="linea-superior", class="linea")
+        div(id="linea-inferior", class="linea")
+        div(id="mostrar-turnos") Numero de turnos: 0
+        div(id="mostrar-acciones")
+          
+        div(id="mostrar-ganador") 
+
+    script(src="/scripts/BattleCode.js")

@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .container
+    h1= name
+    h2(class="layout-title") Crear Personaje
+    if error 
+      p(class="error")= error
+    h3(class="center") Elige un Arma:   
+    section(class="mostrar-tarjetas")  
+      each arma in armas  
+        div
+          p=arma.Name
+          p= "Accuracy: " + arma.Accuracy
+          p= "Power: " + arma.Damage
+          form(action="/character/mapa", method="get")
+            input(type="hidden", value=nombre, name="Name")
+            input(type="hidden", value=race, name="Race_id")
+            select(class="escondido", id="Weapon_id", name="Weapon_id")
+                option(value=arma.Weapon_id)= arma.Name
+            button.btn(type="submit") Continuar
+
+    a(href="/character/raza")
+      button.btn Volver 

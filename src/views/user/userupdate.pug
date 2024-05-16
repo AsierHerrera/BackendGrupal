@@ -1,0 +1,33 @@
+
+extends ../layout
+
+block content
+    .container
+        if error 
+            p(class="error")= error
+        if user
+            form(action="/user/"+user.User_id, method="post") 
+                .form-group
+                    label(for="Name", class="input-label") Nombre 
+                    input#Name.form-input(type="text", name="Name", value=user.Name) 
+                .form-group
+                    label(for="Email", class="input-label") Email
+                    input#Email.form-input(type="text", name="Email", value=user.Email)              
+                .form-group
+                    label(for="Password", class="input-label") Contraseña nueva 
+                    input#Password.form-input(type="text", name="Password")
+                //- .form-group
+                //-     label(for="Password", class="input-label") Contraseña nueva 
+                //-     input#Password.form-input(type="text", name="Password")
+                .form-group
+                    label(for="Password_repeat", class="input-label") Confirmar contraseña 
+                    input#Password_repeat.form-input(type="text", name="Password_repeat") 
+                if esAdmin === 1    
+                    .form-group
+                    label(for="Is_Admin", class="input-label") Es administrador?
+                    input#Is_Admin.checkbox(type="checkbox", name="Is_Admin", checked=user.Is_Admin ? true:false)
+                br
+                br              
+                button.btn(type="submit") Guardar 
+
+

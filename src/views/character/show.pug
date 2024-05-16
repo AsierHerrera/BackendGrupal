@@ -1,0 +1,28 @@
+
+
+extends ../layout
+
+block content
+    if error 
+        p.error= error
+    if character   
+        h2= character.Name
+        p= racename
+        p= weaponName
+        p= mapName
+
+    a(href="/character")
+        button Volver
+
+    script.
+        document.addEventListener("DOMContentLoaded", function() {
+            const raceName = "#{racename}"; 
+
+            const characterImagePath = `/img/${raceName}.jpg`;
+
+            document.body.style.backgroundImage = `url('${characterImagePath}')`
+            ;
+            document.body.style.backgroundRepeat = "no-repeat";
+                   document.body.style.backgroundSize = "cover";
+       
+        })

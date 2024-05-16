@@ -1,0 +1,469 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}   
+
+a{
+    text-decoration: none;
+}
+
+h1
+{text-align: center;}
+
+li{
+    list-style: none;
+}
+.container {
+      
+        margin: 0 auto;
+        padding: 20px;
+    }
+        
+
+.btn-cancelar > a{
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(96, 77, 69);
+    padding: 10px 20px; 
+}
+
+h2.layout-title{
+    margin-bottom: 20px;
+}
+
+.nav-elements {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    font-size: 20px;
+    letter-spacing: 0.7px;
+   
+}
+
+.nav-elements li {
+    margin-right: 10px; 
+     padding: 10px;
+    border-radius: 5px;
+   
+}
+
+.nav-elements li:last-child {
+    margin-right: 0; 
+}
+
+
+.nav-elements li a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.nav-elements li:hover {
+    background-color: #c1a98b;  
+
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.character-card {
+    background-color: #f4f4f4; 
+    border-radius: 8px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+     display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.character-card span {
+    font-size: 18px; 
+    margin-right: 10px;
+}
+
+
+.play-button, .btn-crear, .btn{
+    background-color: rgb(96, 77, 69);
+  
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; /
+}
+
+.play-button:hover, .btn-crear:hover, .btn:hover {
+       background-color: #c1a98b;  
+}
+
+
+.user-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card p {
+    margin-right: auto;
+}
+
+.user-card form {
+    display: flex;
+    align-items: center;
+}
+
+.user-card form button.btn {
+    background-color: rgb(96, 77, 69);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+      margin-left: 10px;
+}
+
+/* .user-card form button.btn:last-child {
+    margin-right: 0; 
+    margin-left: 10px;
+} */
+
+
+.user-card form button.btn:hover {
+    background-color: #c1a98b;  
+}
+
+/*estilos de las tajetas de selecionar raza*/
+
+.escondido{
+    visibility: hidden;
+}
+
+.center{
+    text-align: center;
+}
+
+.mostrar-tarjetas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 5vh 0vw;
+}
+
+.mostrar-tarjetas > div{
+    width: 12%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid rgb(96, 77, 69);
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.checkbox{
+    margin-left: 10px;
+}
+
+.confirmation-modal {
+  
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.confirmation-modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.confirmation-modal-content p {
+    margin-bottom: 20px;
+}
+.confirmation-modal-content .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmation-modal-content button {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+/*Estilos de la barra de busqueda*/
+
+#searchInput {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-sizing: border-box;
+    font-size: 16px; 
+    background-color: #fff; 
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+#searchInput::placeholder {
+    color: #999; 
+}
+
+
+#searchInput:focus {
+    outline: none; 
+    border-color:rgb(96, 77, 69)
+}
+
+
+/*Estilos de la vista del juego*/
+
+#btn_Jugar{
+    background-color: rgb(96, 77, 69);
+    margin-left: 46vw;
+    margin-top: 2vh;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; /
+}
+
+#mostar_pantalla{
+    position: absolute;
+    z-index: 100;
+    top: 25vh;
+    width: 80vw;
+    height: 70vh;
+    left: 10vw;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#datos-jugadores{
+    display: flex;
+
+}
+
+#datos-jugadores div{
+    position: absolute;
+    z-index: 200;
+    top: 30vh
+}
+
+#datos-jugadores div p{
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 2.5vh;
+}
+
+#info_player{
+    left: 13vw;
+}
+
+#info_enemy{
+    right: 13vw;
+}
+
+.linea{
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+}
+
+#linea-izquierda{
+    height: 70.2vh;
+    width: 2px;
+    top: 25vh;
+    left: 29vw;
+}
+
+#linea-derecha{
+    height: 70.2vh;
+    width: 2px;
+    top: 25vh;
+    right: 29vw;
+}
+
+#linea-superior{
+    height: 1.5px;
+    width: 42vw;
+    top: 35vh;
+    left: 29vw;
+}
+
+#linea-inferior{
+    height: 1.5px;
+    width: 42vw;
+    top: 60vh;
+    left: 29vw;
+}
+
+#mapa{
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    z-index: 200;
+    top: 29vh;
+    left: 32vw;
+}
+
+#mostrar-turnos{
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    z-index: 200;
+    top: 62vh;
+    left: 31vw;
+}
+
+#mostrar-acciones{
+    position: absolute;
+    z-index: 200;
+    top: 66vh;
+    left: 31vw;
+    height: 27vh;
+    width: 38vw;
+}
+
+#mostrar-acciones *{
+    z-index: 300;
+    color: white;
+    font-weight: bolder;
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+
+#mostrar-ganador{
+    position: absolute;
+    z-index: 400;
+    top: 39vh;
+    left: 42.5vw;
+    color: white;
+    font-weight: bolder;
+}
+
+.sprite{
+    height: 96px;
+    width: 64px;
+}
+
+#img_jugador{
+    position: absolute;
+    z-index: 400;
+    top: 45vh;
+    left: 35vw; 
+}
+
+#img_jugadorAttack{
+    position: absolute;
+    z-index: 300;
+    top: 45vh;
+    left: 35vw; 
+}
+
+#img_enemy{
+    position: absolute;
+    z-index: 400;
+    top: 45vh;
+    right: 35vw; 
+}
+
+#img_enemyAttack{
+    position: absolute;
+    z-index: 300;
+    top: 45vh;
+    right: 35vw; 
+}
+
+.btn-logout {
+    background-color: white; 
+    color: rgb(96, 77, 69);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-logout:hover {
+    background-color: #c1a98b;  
+    color: white;
+}
+
+.btn-crear-container {
+    display: flex;
+    justify-content: center; /* Центрує контент горизонтально */
+    margin-top: 20px; /* Відступ зверху для розділення від інших елементів */
+}
+
+.btn-crear {
+    background-color: rgb(96, 77, 69);
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.btn-crear:hover {
+    background-color: #c1a98b;  
+}
+
+

@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    if error 
+        p(class="error")= error
+    if user  
+        h2= user.Name
+        p= user.Email
+
+    a(href="/user")
+        button Volver

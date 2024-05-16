@@ -1,0 +1,23 @@
+extends ../layout
+
+block content 
+    .container
+
+        h1 Elige un enemigo
+        if error 
+            p.error= error 
+        if data
+            .container
+                section(class="mostrar-tarjetas")  
+                    each enemy in data  
+                        div
+                            p=enemy.Name
+                            p= "Raza: " + enemy.raza.Name
+                            p= "Arma: " + enemy.arma.Name
+                            //- a(href=`/character/${character.Character_id}`)
+                            //-     button.play-button Jugar
+                            form(action=`/character/juego` method="get")
+                                input(type="hidden", id="Character_id", name="Character_id", value=character)
+                                input(type="hidden", id="enemy_id", name="enemy_id", value=enemy.Character_id)
+                                button.play-button Jugar         
+                    
