@@ -3,6 +3,8 @@ extends ../layout
 block content
   .container
     h2(class="layout-title") Crear Personaje
+    a(href="/character")
+      button.btn Volver
     if error 
       p(class="error")= error
     h3(class="center") Elige una Raza:   
@@ -17,7 +19,6 @@ block content
               option(value=raza.Race_id)= raza.Name
             br
             button.btn(type="submit") Continuar
-    a(href="/character")
-      button.btn Volver
+   
 
 

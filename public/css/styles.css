@@ -22,7 +22,6 @@ li{
         
 
 .btn-cancelar > a{
-    /* text-decoration: none; */
     color: black;
 }
 
@@ -30,8 +29,12 @@ li{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #6d96f6; 
+    background-color: rgb(96, 77, 69);
     padding: 10px 20px; 
+}
+
+h2.layout-title{
+    margin-bottom: 20px;
 }
 
 .nav-elements {
@@ -61,7 +64,8 @@ li{
 }
 
 .nav-elements li:hover {
-    background-color: #517bc7;  
+    background-color: #c1a98b;  
+
     padding: 10px;
     border-radius: 5px;
 }
@@ -85,7 +89,7 @@ li{
 
 
 .play-button, .btn-crear, .btn{
-    background-color: #6d96f6; 
+    background-color: rgb(96, 77, 69);
   
     color: white; 
     border: none; 
@@ -95,7 +99,7 @@ li{
 }
 
 .play-button:hover, .btn-crear:hover, .btn:hover {
-     background-color: #517bc7;   
+       background-color: #c1a98b;  
 }
 
 
@@ -120,7 +124,7 @@ li{
 }
 
 .user-card form button.btn {
-    background-color: #6d96f6;
+    background-color: rgb(96, 77, 69);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -137,7 +141,7 @@ li{
 
 
 .user-card form button.btn:hover {
-    background-color: #517bc7;
+    background-color: #c1a98b;  
 }
 
 /*estilos de las tajetas de selecionar raza*/
@@ -160,7 +164,7 @@ li{
     margin: 5vh 0vw;
 }
 
-.mostrar-tarjetas div{
+.mostrar-tarjetas > div{
     width: 12%;
     height: 25vh;
     display: flex;
@@ -170,7 +174,7 @@ li{
     align-items: center;
     text-align: center;
     font-weight: bold;
-    border: 2px solid #6d96f6;
+    border: 2px solid rgb(96, 77, 69);
     border-radius: 10px;
 }
 
@@ -195,6 +199,7 @@ li{
 }
 
 .confirmation-modal {
+  
     display: none;
     position: fixed;
     z-index: 1000;
@@ -220,11 +225,25 @@ li{
 .confirmation-modal-content p {
     margin-bottom: 20px;
 }
+.confirmation-modal-content .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmation-modal-content button {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 48%;
+    box-sizing: border-box;
+}
 
 .hidden {
     display: none;
 }
 
+
+
+/*Estilos de la barra de busqueda*/
 
 #searchInput {
     width: 100%; 
@@ -245,14 +264,14 @@ li{
 
 #searchInput:focus {
     outline: none; 
-    border-color: #6d96f6;
+    border-color:rgb(96, 77, 69)
 }
 
 
 /*Estilos de la vista del juego*/
 
 #btn_Jugar{
-    background-color: #6d96f6; 
+    background-color: rgb(96, 77, 69);
     margin-left: 46vw;
     margin-top: 2vh;
     color: white; 
@@ -412,7 +431,7 @@ li{
 
 .btn-logout {
     background-color: white; 
-    color: #6d96f6;
+    color: rgb(96, 77, 69);
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -424,9 +443,27 @@ li{
     border-radius: 4px;
 }
 .btn-logout:hover {
-    background-color: #517bc7;
+    background-color: #c1a98b;  
     color: white;
 }
 
+.btn-crear-container {
+    display: flex;
+    justify-content: center; /* Центрує контент горизонтально */
+    margin-top: 20px; /* Відступ зверху для розділення від інших елементів */
+}
+
+.btn-crear {
+    background-color: rgb(96, 77, 69);
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.btn-crear:hover {
+    background-color: #c1a98b;  
+}
 
 
