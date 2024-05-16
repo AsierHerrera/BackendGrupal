@@ -248,6 +248,168 @@ li{
     border-color: #6d96f6;
 }
 
+
+/*Estilos de la vista del juego*/
+
+#btn_Jugar{
+    background-color: #6d96f6; 
+    margin-left: 46vw;
+    margin-top: 2vh;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; /
+}
+
+#mostar_pantalla{
+    position: absolute;
+    z-index: 100;
+    top: 25vh;
+    width: 80vw;
+    height: 70vh;
+    left: 10vw;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#datos-jugadores{
+    display: flex;
+
+}
+
+#datos-jugadores div{
+    position: absolute;
+    z-index: 200;
+    top: 30vh
+}
+
+#datos-jugadores div p{
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 2.5vh;
+}
+
+#info_player{
+    left: 13vw;
+}
+
+#info_enemy{
+    right: 13vw;
+}
+
+.linea{
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+}
+
+#linea-izquierda{
+    height: 70.2vh;
+    width: 2px;
+    top: 25vh;
+    left: 29vw;
+}
+
+#linea-derecha{
+    height: 70.2vh;
+    width: 2px;
+    top: 25vh;
+    right: 29vw;
+}
+
+#linea-superior{
+    height: 1.5px;
+    width: 42vw;
+    top: 35vh;
+    left: 29vw;
+}
+
+#linea-inferior{
+    height: 1.5px;
+    width: 42vw;
+    top: 60vh;
+    left: 29vw;
+}
+
+#mapa{
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    z-index: 200;
+    top: 29vh;
+    left: 32vw;
+}
+
+#mostrar-turnos{
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    z-index: 200;
+    top: 62vh;
+    left: 31vw;
+}
+
+#mostrar-acciones{
+    position: absolute;
+    z-index: 200;
+    top: 66vh;
+    left: 31vw;
+    height: 27vh;
+    width: 38vw;
+}
+
+#mostrar-acciones *{
+    z-index: 300;
+    color: white;
+    font-weight: bolder;
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+
+#mostrar-ganador{
+    position: absolute;
+    z-index: 400;
+    top: 39vh;
+    left: 42.5vw;
+    color: white;
+    font-weight: bolder;
+}
+
+.sprite{
+    height: 96px;
+    width: 64px;
+}
+
+#img_jugador{
+    position: absolute;
+    z-index: 400;
+    top: 45vh;
+    left: 35vw; 
+}
+
+#img_jugadorAttack{
+    position: absolute;
+    z-index: 300;
+    top: 45vh;
+    left: 35vw; 
+}
+
+#img_enemy{
+    position: absolute;
+    z-index: 400;
+    top: 45vh;
+    right: 35vw; 
+}
+
+#img_enemyAttack{
+    position: absolute;
+    z-index: 300;
+    top: 45vh;
+    right: 35vw; 
+}
+=======
 .btn-logout {
     background-color: white; 
     color: #6d96f6;
@@ -265,5 +427,6 @@ li{
     background-color: #517bc7;
     color: white;
 }
+
 
 
