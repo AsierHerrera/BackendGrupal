@@ -4,6 +4,9 @@ block content
   .container
     h1= name
     h2(class="layout-title") Crear Personaje
+    a(href="/character/raza")
+      button.btn Volver 
+
     if error 
       p(class="error")= error
     h3(class="center") Elige un Arma:   
@@ -19,6 +22,3 @@ block content
             select(class="escondido", id="Weapon_id", name="Weapon_id")
                 option(value=arma.Weapon_id)= arma.Name
             button.btn(type="submit") Continuar
-
-    a(href="/character/raza")
-      button.btn Volver 
