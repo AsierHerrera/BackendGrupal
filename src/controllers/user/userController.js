@@ -86,17 +86,15 @@ async function registerUser(userData) {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
         }
-/*         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(Email)) {
-            console.log("El correo electrónico es válido");
-        } else {
-            console.log("El correo electrónico no es válido");
-        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(Email)) {
+            return {error:"El correo electrónico no es válido. Asegúrate de que esté en el formato correcto, como ejemplo@dominio.com."};                       
+        } 
         // Regular expression for password validation
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         if (!passwordRegex.test(Password)) {
             return {error:"La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número."};                       
-        } */
+        }
         const {data:oldUser} = await getByEmail(Email);
         console.log("old user",oldUser)
         if(oldUser){
@@ -193,6 +191,17 @@ async function update(id, userData) {
     try {
         if(Password !== Password_repeat){
             return {error:"las contraseñas no coinciden"};
+        }
+        if (!Password || !Password_repeat || !Name || !Email){
+            return {error:"El contenido en alguno de los campos no es correcto"};
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(Email)) {
+            return {error:"El correo electrónico no es válido. Asegúrate de que esté en el formato correcto, como ejemplo@dominio.com."};                       
+        } 
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!passwordRegex.test(Password)) {
+            return {error:"La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número."};                       
         }
         const hash = await bcrypt.hash(Password,10);
         const nuevoUser = {
