@@ -8,7 +8,7 @@ Este proyecto es un juego temático basado en "El Señor de los Anillos". Los us
   - Actualizar sus datos de registro.
 - **Administradores:**
   - Ver todos los usuarios.
-  - Buscar usuarios por nombre.
+  - Buscar usuarios por nombre y modificar sus datos y permisos.
   - Eliminar usuarios.
 
 ## Tecnologías Utilizadas
@@ -16,14 +16,18 @@ Este proyecto es un juego temático basado en "El Señor de los Anillos". Los us
 - Express
 - Pug (como motor de plantillas)
 - Docker (para la contenedorización)
-- Base de Datos (configurada en el archivo `.env`)
+- Base de Datos MYSQL (configurada en el archivo `.env`)
+- bcrypt
+- dotenv
+- jsonwebtoken
+- sequelize
 
 ## Configuración del Proyecto
 
 ### Pre-requisitos
 - Node.js
 - Docker
-- Base de Datos (PostgreSQL, MySQL, etc.)
+- MYSQL
 
 ### Instalación
 
@@ -41,27 +45,31 @@ Este proyecto es un juego temático basado en "El Señor de los Anillos". Los us
     APP_USERNAME= nombre_de_usuario
     MYSQL_HOST=localhost
     MYSQL_ROOT_PASSWORD=tu_contraseña
-    MYSQL_DATABASE=nombre_de_tu_base_de_datos
+    MYSQL_DATABASE=mydb
     MYSQL_USER=tu_usuario
     MYSQL_PASSWORD=tu_contraseña
     MYSQL_PORT=3308
     JWT_SECRET=secretoiberico
     SESSION_SECRET=session
 
-4.  Iniciar el contenedor de Docker:
-    docker-compose up
+4.  Iniciar el servidor desde la terminal de VSC:
+    - npm start
+    - docker-compose up --build
 
-5.  Iniciar el servidor:
-    npm start
+
     Uso
     Navegador Web:
-    Abre tu navegador web y ve a http://localhost:3000 para interactuar con la aplicación.
+    Abre tu navegador web y ve a http://localhost:3310 para interactuar con la aplicación.
 
     Rutas principales:
 
     /user/login: Página de inicio de sesión.
     /user/signup: Página de registro.
-    /character: Página principal del juego.
+    /user: Aqui podras editar los datos de tu cuenta.
+    /character: Página principal del juego, donde veras los personajes que crees y los predefinidos.
+
+
+
     Estructura del Proyecto
     src/
     controllers/: Controladores de la aplicación.
