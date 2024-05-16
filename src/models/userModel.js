@@ -2,6 +2,13 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
 
+/**
+ * @module src/models/userModel
+ */
+
+/**
+ * Defines the user model with attributes such as User_id, Name, Is_Admin, Email, Password.
+ */
 const userModel = sequelize.define("User",
     {
         User_id:{
