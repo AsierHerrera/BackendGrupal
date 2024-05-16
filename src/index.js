@@ -15,9 +15,19 @@ const sessionData = {
     }
 }
 
+
 const app= express();
 app.use(session(sessionData));
 app.use(express.static("public")); // nos permite mostrar archivos en la carpeta public
+
+app.use((req, res, next) => {
+    res.set({
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': 0
+    });
+    next();
+});
 
 
 app.set ("views", "./src/views");
