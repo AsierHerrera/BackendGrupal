@@ -6,7 +6,7 @@ import { hasSession } from "../../middleware/authMiddelWare.js";
 
 const router = Router();
 
-router.get("/",userViewController.getAll);
+router.get("/",hasSession,userViewController.getAll);
 router.get("/singup",userViewController.registerForm);
 router.post("/singup",userViewController.register);
 router.get("/login",userViewController.loginForm);
