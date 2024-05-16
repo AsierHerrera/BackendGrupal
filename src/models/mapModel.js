@@ -1,7 +1,13 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
+/**
+ * @module src/models/mapModel
+ */
 
+/**
+ * Defines the map model with attributes such as Map_id, Name, Race_id.
+ */
 const mapModel = sequelize.define("Map",
     {
         Map_id:{
